@@ -57,8 +57,14 @@ html{
     margin: auto;
     transform: translateY(2rem);
 }
+span{
+    
+}
+p{
+    font-size: 1.3rem;
+}
 .container1{
-    background-color: #ffff;
+    background-color: #6c3df4;
     height: 20vh;
     width: 35rem;
     border-radius:2rem 2rem 0rem 0;
