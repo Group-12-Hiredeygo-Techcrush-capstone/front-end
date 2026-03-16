@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter's Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" href="/images/Background.png">
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/recruitersdashboard.css">
+
+    <!-- JS -->
+    <script src="/js/recruitersdashboard.js" defer></script>
+</head>
+
+<body>
+
+<main>
+
+<header class="header-container">
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Find Candidates</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">My Jobs</a></li>
+            <li><a href="#">Applications</a></li>
+            <li><a href="#">Customer Support</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="logo">
+        <img src="/images/hiredeygologo.png" alt="">
+        <div class="postajob-container">
+            <i class="bx bx-bell"></i>
+            <button class="postajob-btn">Post A job</button>
+            <i class="bx bx-user-circle"></i>
+            <i class="bx bx-chevron-down"></i>
+        </div>
+</div>
+
+<section class="main-container">      
+        <aside class="side-bar">
+            <div class="employer-title">
+                <h2>Employers Dashboard</h2>
+            </div>
+            <div class="text-container">
+                <div class="text-input">
+                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
+                        <a href="#">Overveiw</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/profile.svg" class="text-icon" alt="">
+                        <a href="#">Employers Profile</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/gg_add.svg" class="text-icon" alt="">
+                        <a href="#">Post a Job</a>
+                </div>
+                
+                <div class="text-input">
+                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
+                        <a href="#">My Jobs</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon" alt="">
+                        <a href="#">Candidate Ranking</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/material-symbols_bookmark-outline.svg" class="text-icon" alt="">
+                        <a href="#">Saved Candidate</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/streamline-flex_bill-4.svg" class="text-icon" alt="">
+                        <a href="#">Plans and Billings</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/overveiw-icon.svg" class="text-icon" alt="">
+                        <a href="#">All companies</a>
+                </div>
+
+                <div class="text-input">
+                        <img src="/images/settings.svg" class="text-icon" alt="">
+                        <a href="#">Settings</a>
+                </div>
+            
+                <div class="log-out-btn" id="logOutBtn">
+                    <div>
+                        <img src="/images/logout icon.svg" class="log-out-icon" alt="Hiredeygo Logo">
+                    </div>
+                    <div class="side-text">
+                        <h5><a>Log-out</a></h5>
+                    </div>                
+            </div>
+        </aside>
+
+        <div class="container2">
+            <div class="inner-container">
+                <div class="dashboard-container">
+                    <div>
+                        <h1>Hello, <span class="username">Vincent</span></h1>
+                        <p>Here is your daily activities and applications</p>
+                    </div>
+                </div>
+                <!--The first-->
+                <div class="dashboard-box">
+                    <div class="open-jobs">
+                        <h1>589</h1>
+                        <h3>Open Jobs</h3>
+                        <div class="metric-box">
+                            <div class="inner-metric-box">
+                            </div>
+                        </div>
+                    </div>
+                    <!--the second -->
+                    <div class="saved-candidates">
+                        <h1>2,517</h1>
+                        <h3>Saved candidates</h3>
+                        <div class="metric-box">
+                            <div class="inner-metric-box">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="recent-jobs-view">
+                    <div class="recent">
+                        <h4>Recently posted jobs</h4>
+                    </div>
+                    <div class="view-all">
+                        <h4>view all</h4>
+                    </div>
+                </div>
+                <div class="job-posting-container">
+
+                    <div class="job-posting-box1">
+                        <div><h4>JOBS</h4></div>
+                        <div><h4>STATUS</h4></div>
+                        <div><h4>APPLICATIONS</h4></div>
+                        <div><h4>ACTIONS</h4></div>
+                    </div>
+                
+                    <div class="job-posting-box">
+                        <div>
+                            <h5>UI/UX Designer</h5>
+                            <h5>Full Time 27 days remaining</h5>
+                        </div>
+                        <div class="active-btn"><i class="bx bx-check-circle">Active</i></div>
+                        <div><h5><img src="/images/profile male icon.svg" class="double-profile-image-icon" alt="">798 Applications</h5></div>
+                        <div class="application-box">
+                            <button class="application-btn">
+                                <h5>
+                                    View Applications
+                                </h5>
+                            </button>
+                            <div>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                <div class="application-popup">
+                                    <p><i class="bx bx-check-circle">Active</i></p>
+                                    <p><i class="bx bx-check-circle">Veiw details</i></p>
+                                    <p><i class="bx bx-check-circle">Mark as expired</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-posting-box">
+                        <div>
+                            <h5>Senior UI/UX Designer</h5>
+                            <h5>Internship 8 days remaining</h5>
+                        </div>
+                        <div class="active-btn"><i class="bx bx-check-circle">Active</i></div>
+                        <div><h5><img src="/images/profile male icon.svg" class="double-profile-image-icon" alt="">185 Applications</h5></div>
+                        <div class="application-box">
+                            <button class="application-btn">
+                                <h5>
+                                    View Applications
+                                </h5>
+                            </button>
+                            <div>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                <div class="application-popup">
+                                    <p><i class="bx bx-check-circle">Active</i></p>
+                                    <p><i class="bx bx-check-circle">Veiw details</i></p>
+                                    <p><i class="bx bx-check-circle">Mark as expired</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-posting-box">
+                        <div>
+                            <h5>Technical Support Specialist</h5>
+                            <h5>Part Time 4 days remaining</h5>
+                        </div>
+                        <div class="active-btn"><i class="bx bx-check-circle">Active</i></div>
+                        <div><h5><img src="/images/profile male icon.svg" class="double-profile-image-icon" alt="">536 Applications</h5></div>
+                        <div class="application-box">
+                            <button class="application-btn">
+                                <h5>
+                                    View Applications
+                                </h5>
+                            </button>
+                            <div>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                <div class="application-popup">
+                                    <p><i class="bx bx-check-circle">Active</i></p>
+                                    <p><i class="bx bx-check-circle">Veiw details</i></p>
+                                    <p><i class="bx bx-check-circle">Mark as expired</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-posting-box">
+                        <div>
+                            <h5>Junior Graphic Designer</h5>
+                            <h5>Full Time 24 days remaining</h5>
+                        </div>
+                        <div><i class="bx bx-check-circle">Active</i></div>
+                        <div><h5><img src="/images/profile male icon.svg" class="double-profile-image-icon" alt="">583 Applications</h5></div>
+                        <div class="application-box">
+                            <button class="application-btn">
+                                <h5>
+                                    View Applications
+                                </h5>
+                            </button>
+                            <div>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                <div class="application-popup">
+                                    <p><i class="bx bx-check-circle">Active</i></p>
+                                    <p><i class="bx bx-check-circle">Veiw details</i></p>
+                                    <p><i class="bx bx-check-circle">Mark as expired</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="job-posting-box">
+                        <div>
+                            <h5>Front End Developer</h5>
+                            <h5>Full Time Dec 7,2022</h5>
+                        </div>
+                        <div><i class="bx bx-x-circle">Expired</i></div>
+                        <div><h5><img src="/images/profile male icon.svg" class="double-profile-image-icon" alt="">740 Applications</h5></div>
+                        <div class="application-box">
+                            <button class="application-btn">
+                                <h5>
+                                    View Applications
+                                </h5>
+                            </button>
+                            <div>
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                <div class="application-popup">
+                                    <p><button class="popup-btn"><i class="bx bx-check-circle">Active</i></button></p>
+                                    <p><button class="popup-btn"><i class="bx bx-check-circle">Veiw details</i></button></p>
+                                    <p><button class="popup-btn"><i class="bx bx-check-circle">Mark as expired</i></button></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+</body>
+</html>
