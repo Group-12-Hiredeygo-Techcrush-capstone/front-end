@@ -109,6 +109,8 @@ main {
     align-items: center;
     justify-content: center;
     gap: 15px;
+    padding: 4px;
+    background-color: #d8d6d6;
 }
 
 .input-wrapper .input-left img {
@@ -143,7 +145,7 @@ main {
 }
 
 .input-wrapper .xsymbol {
-    background-color: #c2c2c2;
+    background-color: #d8d6d6;
     padding: 4px;
     border-radius: 2px;
 }
@@ -198,6 +200,7 @@ footer {
 
 
 /* setupPage4 */
+/* header */
 .progress-container .progress-fill1 {
     height: 100%;
     background-color: var(--active);
@@ -205,30 +208,7 @@ footer {
     width: 150px;
 }
 
-/* nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    border-bottom: 1px solid #7c7b7b;
-    margin: auto;
-    max-width: 600px;
-}
-
-nav .navbar {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    text-decoration: none;
-     padding-bottom: 10px;
-    color: #7c7b7b;
-}
-
-nav .navbar.current {
-    color: var(--active);
-    border-bottom: 1px solid var(--active);
-} */
-
+/* main */
 .input-wrapper textarea {
     display: flex;
     flex: 1;
@@ -237,12 +217,14 @@ nav .navbar.current {
     font-size: 14px;
 }
 
+/* footer */
 footer .footer-wrapper {
     margin-top: 100px;
 }
 
 
 /* setupPage 5 */
+/* header */
 .progress-container .progress-fill2 {
     height: 100%;
     background-color: var(--active);
@@ -250,6 +232,7 @@ footer .footer-wrapper {
     width: 199px;
 }
 
+/* main */
 main .main-wrapper {
     display: flex;
     flex-direction: column;
@@ -301,6 +284,7 @@ main .main-wrapper {
    background-color:#7F13EC;
 }
 
+/* footer */
 footer .footer-wrap {
     margin-top: 85px;
 }
