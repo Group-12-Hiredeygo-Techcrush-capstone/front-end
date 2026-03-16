@@ -137,32 +137,33 @@ section{
 }
 .right{
     width: 50%;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     padding-top: 2em;
     padding: 4.05em;
     background-color: #7F13EC0D;
 }
 
 .right-main-contents{
-    /* border: 1px solid purple; */
+    position: relative; /* needed for the overlay pseudo-element */
+    overflow: hidden; /* keep the overlay inside the rounded edges */
+    border: 1px solid purple;
     height: 45rem;
     border-radius: 2.4rem;
-    background: url(HIREDEYGO-IMG/6f43156bd12127a643bb04bc824aa388cfb60bd1.png);
+    /* Use forward slashes and go up one folder because this CSS file is inside html/ */
+    background: url("../images/6f43156bd12127a643bb04bc824aa388cfb60bd1.png") center/cover no-repeat;
     justify-content: center;
     display: flex;
     flex-direction: column;
     padding-right: 4.05em;
     padding-left: 4.05em;
-    background-size: cover;
-    background-position-y: bottom;
-    
 }
 
 .right-main-contents::after{
     content: "";
-    inset:0;
-    background:linear-gradient(80%,0%,0%);
-   
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.65) 100%);
+    pointer-events: none;
 }
 
 .right-button{
@@ -173,25 +174,22 @@ section{
    padding-bottom: 3px;
    border-radius: 9999px;
    width: fit-content;
-   border: 1px solid rgba(219, 216, 223, 0) ;
+   border: 1px solid rgba(219, 216, 223, 0);
    color: rgb(230, 227, 227);
-   background-color: #dbd8dfd0;
-   box-shadow: 0 0 0 #dbd8dfd0 ;
+   background: transparent;
+   box-shadow: 0 0 0 #dbd8dfd0;
    overflow: hidden;
    position: relative;
-   backdrop-filter: blur(3px);
-   background:  rgba(219, 216, 223, 0.185,0.2 );
-   overflow: hidden;
    z-index: 1;
    margin-bottom: 2em;
    display: flex;
-   
 }
-.right-button-container{
+/* .right-button-container{
     display: flex;
     border: 2px solid blue;
+    filter: blur(10px);
     
-}
+} */
 
 .right-button-circle{
     width: 5px;
@@ -206,14 +204,15 @@ section{
     
 }
 
+
 .right-button::before{
    content: "";
    position: absolute;
    inset: 0;
    background:rgba(243, 243, 243, 0.74);
    /* backdrop-filter: blur(50px); */
-   filter: blur(50px);
-   z-index: 1;
+   /* filter: blur(50px); */
+   /* z-index: 1; */
    color: white;
    
 }
@@ -221,6 +220,8 @@ section{
 .right-main-contents-h3{
     font-size: 3em;
     max-width: 65%;
+    position: relative;
+    z-index: 1;
 }
 
 .right-main-contents-last-box{
@@ -230,7 +231,8 @@ section{
     /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
-    
+    position: relative;
+    z-index: 1;
 }
 
 .right-last-box{
@@ -240,6 +242,7 @@ section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
      gap: -6px;
+     z-index: 1000;
      
    
 }
