@@ -137,7 +137,7 @@ section{
 }
 .right{
     width: 50%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     padding-top: 2em;
     padding: 4.05em;
     background-color: #7F13EC0D;
@@ -146,7 +146,7 @@ section{
 .right-main-contents{
     position: relative; /* needed for the overlay pseudo-element */
     overflow: hidden; /* keep the overlay inside the rounded edges */
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     height: 45rem;
     border-radius: 2.4rem;
     /* Use forward slashes and go up one folder because this CSS file is inside html/ */
@@ -173,16 +173,18 @@ section{
    padding-right: 2.5rem;
    padding-bottom: 3px;
    border-radius: 9999px;
-   width: fit-content;
+   width: 15rem;
    border: 1px solid rgba(219, 216, 223, 0);
    color: rgb(230, 227, 227);
-   background: transparent;
+   /* background: transparent; */
    box-shadow: 0 0 0 #dbd8dfd0;
    overflow: hidden;
    position: relative;
    z-index: 1;
    margin-bottom: 2em;
    display: flex;
+   font-weight: 600;
+   backdrop-filter: blur(10px);
 }
 /* .right-button-container{
     display: flex;
@@ -191,13 +193,14 @@ section{
     
 } */
 
+
+
 .right-button-circle{
     width: 5px;
     height:5px ;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     z-index: 1000;
     position: absolute;
-    top: 420px;
     background-color: #10B981;
     margin-left: 12px;
     border-radius: 50%;
@@ -380,6 +383,17 @@ section{
     width: 16px;
     height: 16px;
     padding-left: 15px;
+}
+
+.input-icon .ph-envelope-simple{
+   position: absolute;
+    justify-self: center;
+    top: 22px;
+    color:#94A3B8 ;
+    /* width: 20px;
+    height: 20px; */
+    padding-left: 15px; 
+    /* border: 1px solid purple; */
 }
 
 label{
