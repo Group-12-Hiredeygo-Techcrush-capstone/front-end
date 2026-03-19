@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Recruiter Account</title>
+
+    <!-- FIXED PATH -->
+    <link rel="stylesheet" href="/css/registration.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+        <div class="overlay">
+            <h1>Partnering with<br>Talent for Success</h1>
+            <p>Trusted by 50,000+ professionals advancing their careers through global talent network.</p>
+
+            <div class="stats">
+                <div>
+                    <h2>500+</h2>
+                    <span>Companies</span>
+                </div>
+                <div>
+                    <h2>12k+</h2>
+                    <span>Talents</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+        <form id="registerForm">
+            <h2>Create Recruiter Account</h2>
+            <p class="sub">Start hiring smarter in minutes</p>
+
+            <input type="text" id="companyName" placeholder="Company Name" required>
+            <input type="text" id="companyAddress" placeholder="Company Address" required>
+            <input type="email" id="email" placeholder="Work Email" required>
+
+            <select id="companySize">
+                <option value="1-10">1-10 employees</option>
+                <option value="11-50">11-50 employees</option>
+                <option value="51-200">51-200 employees</option>
+            </select>
+
+            <input type="password" id="password" placeholder="Password" required>
+
+            <button type="submit" id="submitBtn">Create Account →</button>
+
+            <!-- FEEDBACK MESSAGE -->
+            <p id="message"></p>
+
+            <p class="login">
+                Already have an account? <a href="#">Sign in</a>
+            </p>
+        </form>
+    </div>
+
+</div>
+
+<!-- FIXED PATH -->
+<script src="js/script.js"></script>
+
+</body>
+</html>

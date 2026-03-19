@@ -1,43 +1,79 @@
-// emailverification.js
-
 document.addEventListener("DOMContentLoaded", () => {
-  const inputs = document.querySelectorAll(".otp-inputs input");
-  const verifyBtn = document.querySelector(".verify-btn");
+    const otpInputs = document.querySelectorAll(".otp-inputs input");
+    const verifyBtn = document.querySelector(".verify-btn");
+    const resendLink = document.querySelector(".box a");
+    const emailSpan = document.querySelector(".container2 span");
 
-  // Auto-focus & Backspace handling
-  inputs.forEach((input, index) => {
-    input.addEventListener("input", () => {
-      // Only keep the first character
-      input.value = input.value.slice(0, 1);
-      // Move to next input if a value is entered
-      if (input.value && index < inputs.length - 1) {
-        inputs[index + 1].focus();
-      }
+    // get email from query params
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email") || "your email";
+    emailSpan.textContent = email;
+
+    // auto focus next input
+    otpInputs.forEach((input, index) => {
+        input.addEventListener("input", () => {
+            if (input.value.length === 1 && index < otpInputs.length - 1) {
+                otpInputs[index + 1].focus();
+            }
+        });
+        input.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && !input.value && index > 0) {
+                otpInputs[index - 1].focus();
+            }
+        });
     });
 
-    input.addEventListener("keydown", (e) => {
-      // On backspace, move focus to previous input
-      if (e.key === "Backspace" && !input.value && index > 0) {
-        inputs[index - 1].focus();
-      }
+    // handle OTP verification
+    verifyBtn.addEventListener("click", async () => {
+        const otp = Array.from(otpInputs).map(i => i.value).join("");
+
+        if (otp.length !== 6) {
+            alert("Please enter the 6-digit OTP");
+            return;
+        }
+
+        try {
+            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/refresh", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, otp })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Email verified successfully!");
+                // redirect to login page
+                window.location.href = "login.html";
+            } else {
+                alert(result.message || "OTP verification failed");
+            }
+
+        } catch (error) {
+            alert("Network error. Try again.");
+        }
     });
 
-    // Optional: allow only numbers
-    input.addEventListener("keypress", (e) => {
-      if (!/[0-9]/.test(e.key)) {
+    // resend OTP
+    resendLink.addEventListener("click", async (e) => {
         e.preventDefault();
-      }
-    });
-  });
 
-  // Verify button click
-  verifyBtn.addEventListener("click", () => {
-    const otp = Array.from(inputs).map(input => input.value).join("");
-    if (otp.length === inputs.length) {
-      alert(`Your OTP is: ${otp}`);
-      // Here you can send the OTP to your server for verification
-    } else {
-      alert("Please enter the complete 6-digit OTP.");
-    }
-  });
+        try {
+            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/refresh", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, resend: true })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("OTP resent! Check your email.");
+            } else {
+                alert(result.message || "Failed to resend OTP");
+            }
+        } catch (error) {
+            alert("Network error. Try again.");
+        }
+    });
 });

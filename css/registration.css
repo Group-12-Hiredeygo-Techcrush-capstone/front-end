@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT SIDE */
+.left {
+    width: 50%;
+    background: url('/mnt/data/register.jpeg') no-repeat center/cover;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(102, 0, 204, 0.6);
+    color: white;
+    height: 100%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.overlay h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.overlay p {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+}
+
+.stats h2 {
+    font-size: 24px;
+}
+
+/* RIGHT SIDE */
+.right {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f8f8;
+}
+
+form {
+    width: 70%;
+}
+
+form h2 {
+    margin-bottom: 10px;
+}
+
+.sub {
+    margin-bottom: 20px;
+    color: gray;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, purple, blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.login {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
