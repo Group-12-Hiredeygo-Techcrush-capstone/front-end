@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plans & Billing</title>
+<link rel="stylesheet" href="checkout.css">
+</head>
+
+
+
+<body>
+
+<!-- TOP NAVBAR -->
+<header class="topbar">
+
+<div class="top-left">
+<a href="#">Home</a>
+<a href="#">Find Candidate</a>
+<a href="#" class="active">Dashboard</a>
+<a href="#">My Jobs</a>
+<a href="#">Applications</a>
+<a href="#">Customer Supports</a>
+</div>
+
+
+
+</header>
+
+<header class="topbar">
+
+<!-- LEFT: LOGO -->
+<div class="top-logo">
+    <img src="/images/logo.png" alt="logo">
+
+    <h1>
+        Hire<span>dey</span>Go
+    </h1>
+</div>
+
+<!-- RIGHT: ACTIONS -->
+<div class="top-actions">
+
+    <!-- NOTIFICATION -->
+    <div class="notification" onclick="toggleNotification()">
+        <img src="images\notification.png" alt="">
+    </div>
+
+    <!-- BUTTON -->
+    <button class="post-job">Post A Job</button>
+
+    <!-- USER -->
+    <div class="user" onclick="toggleDropdown()">
+        <div class="user-icon"><img src="images\profile.png" alt=""></div>
+        <span class="arrow"><img src="images\arrow-down.svg" alt=""></span>
+    </div>
+
+    <!-- DROPDOWN -->
+    <div class="dropdown" id="dropdownMenu">
+        <p>Profile</p>
+        <p>Settings</p>
+        <p onclick="logout()">Logout</p>
+    </div>
+
+</div>
+
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<h3>EMPLOYERS DASHBOARD</h3>
+
+<ul>
+<li><img src="images\overview.svg" alt="">Overview</li>
+<li><img src="images\employers-profile.svg" alt="">Employers Profile</li>
+<li><img src="images\postajob.svg" alt="">Post a Job</li>
+<li><img src="images\myjob.svg" alt="">My Job</li>
+<li><img src="images\save-candidate.svg" alt="">Saved Candidate</li>
+<li class="active"><img src="images\billing.svg" alt="">Plans and Billing</li>
+<li><img src="images\allcompany.svg" alt="">All Companies</li>
+<li><img src="images/setting.svg" alt="">Settings</li>
+</ul>
+
+<div class="logout"><img src="images\logout.svg" alt="">Log-out</div>
+
+</aside>
+
+<!-- CONTENT -->
+<main class="content">
+
+<h3>Billing Frequency</h3>
+
+<div class="plans">
+
+<div class="plan active" onclick="selectPlan(this)">
+    <div class="select-bold"></div>
+    <div>
+        <p>Free Trial</p>
+        <h3>#0 <span>/ free trial</span></h3>
+    </div>
+</div>
+
+<div class="plan light" onclick="selectPlan(this)">
+    <div class="select-light"></div>
+    <div>
+    <p>Semi-annual Plan</p>
+    <h3>#80,000 <span>/ 6 Months</span></h3>
+    </div>
+
+</div>
+
+<div class="plan light" onclick="selectPlan(this)">
+    <div class="select-light"></div>
+    <div>
+    <p>Annual Plan</p>
+    <h3>#1600,000 <span>/ Year</span></h3>
+    </div>
+</div>
+</div>
+
+
+
+<h3 class="payment">Payment Method</h3>
+
+<div class="cards">
+
+<div class="card active" onclick="selectCard(this)">
+    <img src="images\card1.png" alt="card1">
+</div>
+
+<div class="card" onclick="selectCard(this)">
+    <img src="images\card2.png" alt="card2">
+</div>
+
+</div>
+
+
+<h3>Payment Information</h3>
+<div class="paymentcards">
+<img src="images\payment-cards.png" alt="">
+</div>
+
+
+<!-- FORM -->
+<form class="payment-form" id="paymentForm">
+
+<!-- ROW 1 -->
+<div class="form-row">
+
+<div class="form-group">
+<label>Card number <span>*</span></label>
+<input type="text" id="cardNumber" placeholder="Enter text">
+</div>
+
+<div class="form-group small">
+<label>Expiry date <span>*</span></label>
+<input type="text" id="expiry" placeholder="MM / YY">
+</div>
+
+<div class="form-group small">
+<label>CVC <span>*</span></label>
+<input type="text" id="cvc" placeholder="3-digit code">
+</div>
+
+</div>
+
+<!-- NAME -->
+<div class="form-group full">
+<label>Name on card <span>*</span></label>
+<input type="text" placeholder="e.g John Smith">
+</div>
+
+<!-- ADDRESS -->
+<div class="form-group full">
+<label>Address</label>
+<input type="text" placeholder="Street address or P.O Box">
+<input type="text" placeholder="Apt.,suite, unit, building (Optional)">
+</div>
+
+<!-- CITY / STATE -->
+<div class="form-row">
+
+<div class="form-group">
+<label>City</label>
+<input type="text" placeholder="City">
+</div>
+
+<div class="form-group">
+<label>State</label>
+<input type="text" placeholder="State, province, region">
+</div>
+
+</div>
+
+<button class="subscribe-btn">Subscribe</button>
+
+</form>
+
+
+</main>
+
+</div>
+
+<script src="checkout.js"></script>
+</body>
+</html>
