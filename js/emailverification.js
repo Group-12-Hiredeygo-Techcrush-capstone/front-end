@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok) {
                 alert("Email verified successfully!");
                 // redirect to login page
-                window.location.href = "login.html";
+                window.location.href = "setpassword.html";
             } else {
                 alert(result.message || "OTP verification failed");
             }
