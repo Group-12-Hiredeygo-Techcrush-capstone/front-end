@@ -1,0 +1,38 @@
+.partners-section {
+    width: 100%;
+    padding: 60px 0;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+.partners-title {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    font-weight: 700;
+    color: #94A3B8;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+.marquee {
+    display: flex;
+    width: 100%;
+}
+.marquee-content {
+    display: flex;
+    gap: 80px;
+    animation: scroll 30s linear infinite;
+}
+.logo-item img {
+    height: 32px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+.logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}

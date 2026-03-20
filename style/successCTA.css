@@ -1,0 +1,79 @@
+.success-cta-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 96px 0;
+    background: #FFFFFF;
+}
+
+.success-cta-card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    gap: 32px;
+    isolation: isolate;
+
+    width: 1120px;
+    height: 438px;
+
+    /* Figma Specs */
+    background: rgba(16, 185, 129, 0.02); /* Very light emerald tint */
+    border: 1px solid #10B981;
+    border-radius: 32px;
+    text-align: center;
+}
+
+.success-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #0F172A;
+    margin: 0;
+}
+
+.success-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: #475569;
+    max-width: 600px;
+    margin: 16px auto 0;
+}
+
+.cta-button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.btn-primary-green {
+    background: #10B981;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+.btn-secondary-white {
+    background: white;
+    color: #10B981;
+    border: 1px solid #10B981;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+    cursor: pointer;
+}
+
+.badge-green {
+    color: #10B981;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+}

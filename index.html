@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiredeyGo | Hire Smarter</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Playfair+Display:wght@900&family=Lexend:wght@700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style/topnav.css">
+    <link rel="stylesheet" href="style/hero.css">
+    <link rel="stylesheet" href="style/stats.css">
+    <link rel="stylesheet" href="style/partners.css">
+    <link rel="stylesheet" href="style/howItWorks.css">
+    <link rel="stylesheet" href="style/categories.css">
+    <link rel="stylesheet" href="style/top-candidates.css">
+    <link rel="stylesheet" href="style/testimonials.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/successCTA.css">
+
+    <style>
+        body { 
+            margin: 0; 
+            background: #fff; 
+            overflow-x: hidden; 
+            -webkit-font-smoothing: antialiased;
+        }
+        #app-root { 
+            width: 100%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .section-mount { 
+            width: 100%; 
+        }
+    </style>
+</head>
+<body>
+
+    <header id="navbar-target"></header>
+
+    <main id="app-root">
+        <div id="hero-mount" class="section-mount"></div>
+        <div id="stats-mount" class="section-mount"></div>
+        <div id="partners-mount" class="section-mount"></div>
+        <div id="how-mount" class="section-mount"></div>
+        
+        <div id="categories-mount" class="section-mount"></div>
+        <div id="candidates-mount" class="section-mount"></div>
+        <div id="testimonials-mount" class="section-mount"></div>
+        <div id="success-cta-mount" class="section-mount"></div>
+    </main>
+
+    <footer id="footer-target"></footer>
+
+    <script src="js/landingpage/nav.js"></script>
+    <script src="js/landingpage/hero.js"></script>
+    <script src="js/landingpage/stats.js"></script>
+    <script src="js/landingpage/partners.js"></script>
+    <script src="js/landingpage/howItWorks.js"></script>
+    <script src="js/landingpage/categories.js"></script>
+    <script src="js/landingpage/top-candidates.js"></script>
+    <script src="js/landingpage/testimonials.js"></script>
+    <script src="js/landingpage/footer.js"></script>
+    <script src="js/landingpage/successCTA.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            // Initialize Navigation & Global UI
+            if (typeof Navbar !== 'undefined') Navbar.init('navbar-target');
+            if (typeof Footer !== 'undefined') Footer.init('footer-target');
+
+            // Render Page Sections
+            if (typeof HeroSection !== 'undefined') HeroSection.render('hero-mount');
+            if (typeof StatsSection !== 'undefined') StatsSection.render('stats-mount');
+            if (typeof PartnerLogos !== 'undefined') PartnerLogos.render('partners-mount');
+            if (typeof HowItWorks !== 'undefined') HowItWorks.render('how-mount');
+            
+            // Following the requested order: Categories -> Top Candidates -> Testimonials
+            if (typeof JobCategories !== 'undefined') JobCategories.render('categories-mount');
+            if (typeof TopCandidates !== 'undefined') TopCandidates.render('candidates-mount');
+            if (typeof Testimonials !== 'undefined') Testimonials.render('testimonials-mount');
+            if (typeof SuccessCTA !== 'undefined') SuccessCTA.render('success-cta-mount');
+        });
+    </script>
+</body>
+</html>

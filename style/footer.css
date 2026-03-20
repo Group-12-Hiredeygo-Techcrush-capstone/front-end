@@ -1,0 +1,160 @@
+/* footer.css - Master "Chameleon" Sticky Footer */
+
+.main-footer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* Your exact Figma padding: Top 24, Right 80, Bottom 48, Left 218 */
+    padding: 24px 80px 48px 218px; 
+    gap: 48px;
+    
+    width: 100%;
+    max-width: 1728px;
+    min-height: 365px;
+    margin: 0 auto;
+    
+    /* CRITICAL: The Sticky Push */
+    margin-top: auto; 
+    
+    /* Your Original Gradient */
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.4) 0%, rgba(73, 100, 183, 0.4) 50.93%, rgba(127, 19, 236, 0.4) 100%);
+    border-top: 1px solid #F1F5F9;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Keeps items aligned to your left-padding */
+    gap: 48px;
+    width: 100%;
+    max-width: 1280px;
+}
+
+.footer-brand-col {
+    width: 284px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Replaces absolute positioning for stability */
+}
+
+.brand-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.brand-desc-container p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000000;
+}
+
+.brand-social-container {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.social-link-circle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+}
+
+/* Link Column Styles */
+.footer-links-col, .footer-links-col-resources {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 284px;
+}
+
+.footer-links-col h4, .footer-links-col-resources h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-link-list, .footer-resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-link-item, .footer-resource-link {
+    font-size: 14px;
+    text-decoration: none;
+    color: #000000;
+    transition: opacity 0.2s;
+}
+
+/* Bottom Border Area */
+.footer-bottom-border {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 48px;
+    width: 100%;
+    max-width: 1280px;
+    border-top: 1px solid #000000;
+}
+
+.footer-copyright-text, .footer-bottom-link {
+    font-size: 12px;
+    color: #000000;
+    text-decoration: none;
+    margin: 0;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+/* Mobile Responsiveness - Keeps it all-screen compatible */
+@media (max-width: 1280px) {
+    .main-footer { 
+        width: 100%; 
+        padding: 40px 20px; 
+        height: auto; 
+    }
+    .footer-content-row { 
+        flex-direction: column; 
+        width: 100%; 
+        align-items: center; 
+        text-align: center; 
+    }
+    .brand-logo-container, .brand-social-container { 
+        justify-content: center; 
+    }
+    .footer-bottom-border { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+}

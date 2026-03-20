@@ -1,0 +1,97 @@
+:root {
+    --brand-purple: #7311D4;
+    --nav-glass: rgba(255, 255, 255, 0.8);
+    --nav-border: rgba(115, 17, 212, 0.1);
+    --nav-blur: blur(10px);
+}
+
+.glass-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: var(--nav-glass);
+    backdrop-filter: var(--nav-blur);
+    -webkit-backdrop-filter: var(--nav-blur);
+    border-bottom: 1px solid var(--nav-border);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+
+/* Menu Links */
+.nav-menu {
+    display: none; /* Hidden on mobile */
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--brand-purple);
+}
+
+/* Actions */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login {
+    background: transparent;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #0F172A;
+    cursor: pointer;
+}
+
+.btn-primary-nav {
+    background: var(--brand-purple);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(115, 17, 212, 0.2);
+}
+
+.mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--brand-purple);
+    cursor: pointer;
+}
+
+/* Desktop Visibility */
+@media (min-width: 1024px) {
+    .nav-menu { display: flex; }
+    .mobile-toggle { display: none; }
+}

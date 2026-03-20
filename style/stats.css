@@ -1,0 +1,70 @@
+/* stats.css - Metrics Implementation */
+
+.stats-outer-frame {
+    width: 100%;
+    max-width: 1728px;
+    height: 210px;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the 1280px container */
+    justify-content: center;
+    margin: 0 auto;
+    border-bottom: 1px solid #F1F5F9; /* Subtle divider from the next section */
+}
+
+.stats-inner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 1280px;
+    max-width: 1280px;
+    height: 82px;
+    /* Using space-between to handle the gap logic across the 1280px width */
+    justify-content: space-between; 
+}
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    height: 82px;
+}
+
+.stat-value {
+    height: 48px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.stat-label {
+    height: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    color: #64748B;
+}
+
+
+
+.stat-value {
+    transition: transform 0.3s ease;
+    min-width: 140px; /* Prevents layout shift during counting */
+}
+
+.stat-group:hover .stat-value {
+    transform: translateY(-5px); /* Subtle "Naked Highlight" interaction */
+}
+
+/* Color Map from Figma */
+.color-purple { color: #7311D4; }
+.color-green  { color: #22C55E; }
+.color-dark   { color: #0F172A; }
