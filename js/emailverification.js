@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/refresh", {
+            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/resend-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, resend: true })

@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    font-size: 62.5%;
+}
 body {
     font-family: Arial, sans-serif;
 }
@@ -16,7 +18,7 @@ body {
 /* LEFT SIDE */
 .left {
     width: 50%;
-    background: url('/mnt/data/register.jpeg') no-repeat center/cover;
+    background: url('/images/Left\ Side_\ Professional\ Image\ Section.png') no-repeat center/cover;
     position: relative;
 }
 
@@ -31,22 +33,22 @@ body {
 }
 
 .overlay h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 2.3rem;
 }
 
 .overlay p {
-    margin-bottom: 30px;
-    font-size: 14px;
+    margin-bottom: 3rem;
+    font-size: 2rem;
 }
 
 .stats {
     display: flex;
-    gap: 40px;
+    gap: 4rem;
 }
 
 .stats h2 {
-    font-size: 24px;
+    font-size: 3rem;
 }
 
 /* RIGHT SIDE */
@@ -61,19 +63,23 @@ body {
 form {
     width: 70%;
 }
-
+P{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
 form h2 {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
 }
 
 .sub {
-    margin-bottom: 20px;
+    margin-bottom: 2.5rem;
     color: gray;
 }
 
 input, select {
     width: 100%;
-    padding: 12px;
+    padding: 1rem;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -81,7 +87,7 @@ input, select {
 
 button {
     width: 100%;
-    padding: 12px;
+    padding: 1rem;
     background: linear-gradient(to right, purple, blue);
     color: white;
     border: none;
@@ -95,6 +101,6 @@ button:hover {
 
 .login {
     margin-top: 15px;
-    font-size: 14px;
+    font-size: 1.3rem;
     text-align: center;
 }
