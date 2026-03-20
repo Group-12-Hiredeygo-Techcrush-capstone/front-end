@@ -67,3 +67,5 @@ document
       submitBtn.textContent = "Sign in to workspace";
     }
   });
+
+  <button onclick="location.href='registration.html'">Register</button>
