@@ -19,20 +19,34 @@
     <link rel="stylesheet" href="style/successCTA.css">
 
     <style>
+        * { box-sizing: border-box; }
+
         body { 
             margin: 0; 
             background: #fff; 
             overflow-x: hidden; 
             -webkit-font-smoothing: antialiased;
         }
+
         #app-root { 
             width: 100%; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
         }
+
+      
         .section-mount { 
             width: 100%; 
+            position: relative;
+            background: #fff;
+            isolation: isolate; 
+            clip-path: inset(0); 
+        }
+
+        /* Specific padding for sections if needed, or keep at 0 */
+        #stats-mount, #how-mount {
+            overflow: hidden;
         }
     </style>
 </head>
@@ -67,17 +81,14 @@
 
     <script>
         window.addEventListener('load', () => {
-            // Initialize Navigation & Global UI
             if (typeof Navbar !== 'undefined') Navbar.init('navbar-target');
             if (typeof Footer !== 'undefined') Footer.init('footer-target');
 
-            // Render Page Sections
             if (typeof HeroSection !== 'undefined') HeroSection.render('hero-mount');
             if (typeof StatsSection !== 'undefined') StatsSection.render('stats-mount');
             if (typeof PartnerLogos !== 'undefined') PartnerLogos.render('partners-mount');
             if (typeof HowItWorks !== 'undefined') HowItWorks.render('how-mount');
             
-            // Following the requested order: Categories -> Top Candidates -> Testimonials
             if (typeof JobCategories !== 'undefined') JobCategories.render('categories-mount');
             if (typeof TopCandidates !== 'undefined') TopCandidates.render('candidates-mount');
             if (typeof Testimonials !== 'undefined') Testimonials.render('testimonials-mount');

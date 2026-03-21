@@ -1,378 +1,105 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* =========================================
+   CANDIDATE RANKING: UNIQUE CONTENT ONLY
+   ========================================= */
+
+/* 1. ASSESSMENT SUMMARY BOX */
+.assessment {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    background-color: rgba(16, 185, 129, 0.1);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 4rem;
+    align-items: center;
 }
 
-body{
-    font-family:'Montserrat', sans-serif;
-    font-size: 1.3rem;
-}
-html{
-    font-size: 62.5%;
+.assessment-test2 h2 {
+    font-size: 2.4rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0.5rem 0;
 }
 
-/* HEADER */
-.header-container{
-    flex-direction: column;
-    position: fixed;
-    justify-content: center;
-    top: 0;
-    width: 70%;
-    margin: auto;
-    left: 0;
-    right: 0;
-    height: 4rem;
-    background:#F1EFFC;
+.assessment-test3 {
     display: flex;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    gap: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #444;
 }
-/* logo content here*/
-.logo{
-    background-color: #F1EFFC;
+
+.test-btn {
+    background-color: #7F13EC;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* 2. RANK STAT CARDS */
+.rank-candidate-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.rank1, .rank2, .rank3, .rank4 {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.rank1, .rank3 { border-top: 4px solid #7F13EC; }
+.rank2, .rank4 { border-top: 4px solid #10B981; }
+
+.rank-candidate-box h1 { font-size: 2.8rem; margin: 0.5rem 0; font-family: 'Montserrat', sans-serif; }
+.rank-candidate-box h3 { font-size: 1.2rem; color: #777; font-weight: 500; text-transform: uppercase; }
+
+/* 3. TABLE GRID & LOGIC */
+.container {
     display: flex;
     justify-content: space-between;
-    width: 70%;
-    position: fixed;
-    top: 3.9rem;
-    left: 0;
-    right: 0;
     align-items: center;
-    margin:auto;
-    border-radius: 0 0 15px 15px;
-    height: 5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #f0f0f0;
 }
- 
 
-.logo img{
-    height: 3.5rem;
-    margin: 2rem;
-}
-.postajob-container{
-    display: flex;
-    gap: 1rem;
+.table-header, .row {
+    display: grid;
+    grid-template-columns: 60px 2.5fr 1.5fr 1.5fr 1fr 1fr 1.5fr;
     align-items: center;
-    margin-right: 1rem;
-
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #f8f8f8;
 }
-.postajob-btn{
-    padding: 1rem 2rem;
-    background-color: #7F13EC;
-    border: none;
-    color: #fff;
+
+.table { background: #fff; border-radius: 0 0 10px 10px; }
+
+/* Progress Bars & Status */
+.progress { background: #eee; height: 6px; border-radius: 10px; margin-top: 8px; width: 80%; }
+.progress span { display: block; height: 100%; background: #7F13EC; border-radius: 10px; }
+
+.status { padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 1.1rem; font-weight: 600; }
+.passed { background: #d1fae5; color: #065f46; }
+.failed { background: #fee2e2; color: #991b1b; }
+
+.btn {
+    padding: 0.7rem 1.2rem;
     border-radius: 5px;
-    letter-spacing: 1px;
+    border: none;
     cursor: pointer;
-}
-.bx-bell, .bx-user-circle , .bx-chevron-down{
-    font-size: 2.5rem;    
-}
-.bx-bell:hover,
-.bx-user-circle:hover,
-.bx-check-circle:hover,
-.bx-chevron-down:hover{
-    cursor: pointer;
-}
-
-/* NAV */
-.nav-bar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem;
-}
-
-
-.nav-bar ul{
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 2rem;
-}
-.nav-bar ul li a{
-    text-decoration: none;
-    color: #000000;
-    position: relative;
-    padding-bottom: 5px;
-}
- .nav-bar ul li a:hover::after{
+    font-size: 1.1rem;
+    font-weight: 600;
     width: 100%;
 }
-.nav-bar ul li a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background:#10B981;
-    transition:0.3s ease;
-}
-/* MAIN SECTION */
-.main-container{
-    display: flex;
-    min-height: 100vh;
-}
-    
-/* SIDEBAR */
-.side-bar{
-    width: 40rem;
-    background-color: #7F13EC;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    padding-top: 12rem;
-    align-items: end;
-    padding-right: 2rem;
-}
-.employer-title{
-    display: flex;
-    color: #fff;
-    font-size: 1rem;
-}
-.text-container{
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-}
-.text-input{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 0.2rem;
-
-}
-.text-icon{
-    height: 2rem;
-    width: 2rem;
-    font-weight: 900;
-    
-}
-.text-input a:hover{
-    color: #000000;
-}
-.text-input a {
-    color: #fff;
-    font-size: 1.3rem;
-    text-decoration:none;
-    align-self: center;
-    font-weight: 600;
-}
-.text-input:hover{
-    background:#fff;
-    border-radius:5px;
-    padding: 0.2rem;
-}
-
-/*SECOND CONTAINER OR THE MAIN*/
-.container2{
-    flex: 1;
-    /* min-height: 200vh; */
-    background-color: #F1EFFC;
-}
-.inner-container{
-    padding:10rem 10rem 0rem 3rem;
-}
-.dashboard-container{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 2rem;
-}
-.dashboard-container h1{
-    font-size: 3rem;
-    font-family: 'Playfair Display';
-}
-.dashboard-container p {
-    font-weight: 700;
-    color: #505050;
-}
-.assessment{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    background-color: #10B98140;
-    border-radius: 8px;
-    padding: 1rem;
-    font-family: '';
-    margin-bottom: 3rem;
-}
-.assessment-test{
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    /* background-color: #10B98140; */
-}
-.assessment-test2 h2{
-    font-family: 'Playfair Display';
-    font-weight: 900;
-    font-size: 2.5rem;
-}
-.assessment-test1 h3{
-    font-weight: 400;
-}
-.assessment-test3{
-    display: flex;
-    gap: 1.5rem;
-    font-weight: 600;
-}
-.view-test{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-.test-btn{
-    padding:1rem 2rem;
-    background-color: #7F13EC;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: end;
-}
-.rank-candidate-box{
-    display: flex;
-    align-content: center;
-    gap: 2rem;
-    justify-content: space-between;
-}
-.rank1,
-.rank2,
-.rank3,
-.rank4{
-    background-color: #FFFFFF;
-    border-radius: 5px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    
-}
-.rank1,.rank3{
-    border-top: 4px solid #7F13EC;
-    border-left: 2px solid #7F13EC;
-    border-right: 2px solid #7F13EC;
-}
-.rank2,.rank4{
-    border-top: 4px solid #10B981;
-    border-left: 2px solid #10B981;
-    border-right: 2px solid #10B981;
-}
-.container{
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    margin-top: 2rem;
-    /* background: #fff; */
-    padding: 20px;
-    border-radius: 10px;
-    justify-content: space-between;
-    align-items: center;
-}
-.header ,.filters{
-  display: flex;
-  
-  margin-bottom: 20px;
-  gap: 3rem;
-}
-.filters select {
-  padding: 6px;
-  margin-left: 1rem;
-  border-radius: 6px;
-}
-.table-header,.row {
-  display: grid;
-  grid-template-columns: 0.5fr 2fr 1.5fr 1.5fr 1fr 1fr 1.5fr;
-  align-items: center;
-  padding: 12px 10px;
-}
-.table-header {
-  font-weight: bold;
-  background: #f0f0f0;
-  border-radius: 8px;
-}
-
-/* PROGRESS BAR */
-.progress {
-  background: #ddd;
-  height: 6px;
-  border-radius: 5px;
-  margin-top: 5px;
-}
-
-.progress span {
-  display: block;
-  height: 100%;
-  background: purple;
-  border-radius: 5px;
-}
-
-
-
-/* STATUS */
-.status {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-}
-
-.passed {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.failed {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-
-/* BUTTONS */
-.btn {
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
-  margin-bottom: 5px;
-}
-
-.primary {
-  background: purple;
-  color: #fff;
-}
-
-.secondary {
-  background: #eee;
-}
-
-.danger {
-  background: #ff4d4d;
-  color: #fff;
-}
-
-
-
-
-/* FOOTER */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.pagination button {
-  padding: 6px 10px;
-  margin-left: 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.pagination .active {
-  background: purple;
-  color: #fff;
-}
+.btn.primary { background: #7F13EC; color: #fff; margin-bottom: 5px; }
+.btn.secondary { background: #f0f0f0; color: #333; }
+.btn.danger { background: #fee2e2; color: #d90429; }

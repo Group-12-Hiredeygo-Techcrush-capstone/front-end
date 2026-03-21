@@ -18,7 +18,7 @@ const Footer = {
                     
                     <div class="footer-brand-col">
                         <div class="brand-logo-container">
-                             <img src="front-end/images/logo.png" alt="HiredeyGo Logo" class="footer-logo-img">
+                             <img src="images/logo.png" alt="HiredeyGo Logo" class="footer-logo-img">
                              <span class="brand-name">HiredeyGo</span>
                         </div>
 
@@ -28,13 +28,13 @@ const Footer = {
                        
                         <div class="brand-social-container">
                             <a href="#" class="social-link-circle" title="Website">
-                                <img src="front-end/images/share.png" alt="Web" class="social-icon-img">
+                                <img src="images/share.png" alt="Web" class="social-icon-img">
                             </a>
                             <a href="#" class="social-link-circle" title="Contact">
-                                <img src="front-end/images/send.png" alt="Contact" class="social-icon-img">
+                                <img src="images/send.png" alt="Contact" class="social-icon-img">
                             </a>
                             <a href="#" class="social-link-circle" title="Twitter">
-                                <img src="front-end/images/twitter.svg" alt="Twitter" class="social-icon-img">
+                                <img src="images/twitter.svg" alt="Twitter" class="social-icon-img">
                             </a>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ const Footer = {
     }
 };
 
-// Check if we should auto-init (only if no manual script in index.html is handling it)
+
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('footer-target') && !document.querySelector('.main-footer')) {
         Footer.init();

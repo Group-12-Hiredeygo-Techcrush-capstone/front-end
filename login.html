@@ -3,80 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome Back</title>
+    <title>Welcome Back | HiredeyGo</title>
     <link rel="stylesheet" href="login.css" />
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2" defer></script>
     <link rel="icon" href="images/Background.png">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2" defer></script>
     <script src="js/login.js" defer></script>
-    ...
   </head>
   <body>
     <header class="header-box">
       <div class="logo-and-button-container">
-        <img src="images/hiredeygologo.png" alt="" />
+        <a href="index.html">
+          <img src="images/hiredeygologo.png" alt="HiredeyGo Logo" />
+        </a>
       </div>
 
       <div class="register-help-container">
         <a href="registration.html" class="register">Register</a>
-        <a href="" class="help-button">Help</a>
+        <a href="#" class="help-button">Help</a>
       </div>
     </header>
+
     <section class="main-container">
       <div class="left">
         <form id="my-form">
           <h2 class="form-title">Welcome Back</h2>
           <p class="form-p">Enter your details to access your dashboard</p>
+          
           <div class="label-input">
             <label for="Username">Email address</label>
             <div class="input-icon">
               <i class="ph-fill ph-envelope-simple"></i>
               <input
                 type="email"
-                name=""
+                name="email"
                 id="Username"
                 placeholder="name@company.com"
+                required
               />
             </div>
           </div>
+
           <div class="label-input">
             <div class="label-forgotten-password">
               <label for="password">Password</label>
-              <a href="forgottenpassword.html" class="forgot-password"
-                >Forgot password?</a
-              >
+              <a href="forgottenpassword.html" class="forgot-password">Forgot password?</a>
             </div>
             <div class="input-icon">
               <i class="ph-fill ph-lock-key"></i>
               <input
                 type="password"
-                name=""
+                name="password"
                 id="password"
                 placeholder="***********"
-              /><i class="ph-fill ph-eye"></i>
+                required
+              />
+              <i class="ph-fill ph-eye" style="cursor: pointer;"></i>
             </div>
             <p id="message"></p>
           </div>
 
           <div class="Remember-me-checkbox">
-            <input type="checkbox" name="" id="" class="checkbox" />
+            <input type="checkbox" name="remember" id="remember" class="checkbox" />
             <p class="reminder">Remember me for 30 days</p>
           </div>
+
           <div id="spinner" class="spinner hidden"></div>
+          
           <button class="form-button" id="submitBtn" type="submit">
             Sign in to workspace
           </button>
+
           <p class="dont-have-an-account">
-            Dont't have an account? <a href="">Create an account</a>
+            Don't have an account? <a href="registration.html">Create an account</a>
           </p>
         </form>
       </div>
+
       <div class="right">
         <div class="right-main-contents">
           <div class="right-button-circle"></div>
           <div class="right-button">
             <img
-              src="images\Live Productivity Insights (1).png"
+              src="images/Live Productivity Insights (1).png"
               alt=""
               class="live-productivity"
             />Live productivity
@@ -85,6 +95,7 @@
           <h3 class="right-main-contents-h3">
             Elevate your daily workflow to the next level.
           </h3>
+
           <div class="right-main-contents-last-box">
             <div class="right-last-box">
               <div class="first-box">
@@ -115,13 +126,14 @@
         </div>
       </div>
     </section>
+
     <footer>
-      <p class="footer-p">&copy; 2026 HiredeyGoinc. All rights reserved.</p>
+      <p class="footer-p">&copy; 2026 HiredeyGo inc. All rights reserved.</p>
 
       <div class="footer-left-items">
-        <a href="">Privacy Policy</a>
-        <a href="">Terms of Service</a>
-        <a href="">Security</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Security</a>
       </div>
     </footer>
   </body>
