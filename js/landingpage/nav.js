@@ -17,7 +17,7 @@ const Navbar = {
                 </nav>
                 <div class="nav-actions">
                     <button class="btn-login" id="loginBtn">Log In</button>
-                    <button class="btn-primary-nav" id="postJobBtn">Post a Job</button>
+                    <button href="postajob.html" class="btn-primary-nav">Post a Job</button>
                     <button class="mobile-toggle" id="mobileToggle">
                         <i class="fas fa-bars"></i>
                     </button>

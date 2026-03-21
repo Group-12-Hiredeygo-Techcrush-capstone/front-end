@@ -10,16 +10,60 @@
     
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="/css/global-nav.css">
-    <link rel="stylesheet" href="/css/postajob.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/postajob.css">
 
-    <script src="/js/global-nav.js" defer></script>
-    <script src="/js/postajob.js" defer></script>
+    <!-- JS -->
+    <script src="js/employersprofile.js" defer></script>
 </head>
 <body>
-    <header id="global-header" class="header-container"></header>
-    <div id="global-logo-bar" class="logo"></div>
-    <aside id="global-sidebar" class="side-bar"></aside>
+    <main>
+        <header class="header-container">
+            <nav class="nav-bar">
+                 <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Find Candidates</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">My Jobs</a></li>
+                    <li><a href="#">Applications</a></li>
+                    <li><a href="#">Customer Support</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="logo">
+        <img src="/images/hiredeygologo.png" alt="">
+            <div class="postajob-container">
+                <i class="bx bx-bell"></i>
+                <button class="postajob-btn">Post A job</button>
+                <i class="bx bx-user-circle"></i>
+                <i class="bx bx-chevron-down"></i>
+            </div>
+        </div>
+        <section class="main-container">      
+            <aside class="side-bar">
+                <div class="employer-title">
+                    <h2>Employers Dashboard</h2>
+                </div>
+                <div class="text-container">
+                    <div class="text-input">
+                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
+                        <a href="/html/recruitersdashboard.html">Overveiw</a>
+                    </div>
+
+                    <div class="text-input">
+                        <img src="/images/profile.svg" class="text-icon" alt="">
+                        <a href="/html/employersprofile.html" target="_blank">Employers Profile</a>
+                    </div>
+
+                    <div class="text-input">
+                        <img src="/images/gg_add.svg" class="text-icon" alt="">
+                        <a href="html/postajob.html">Post a Job</a>
+                    </div>
+                
+                    <div class="text-input">
+                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
+                        <a href="#">My Jobs</a>
+                    </div>
 
     <main class="container2">      
         <div class="inner-container">
