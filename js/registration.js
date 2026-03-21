@@ -1,54 +1,56 @@
-const form = document.getElementById("registerForm");
-const message = document.getElementById("message");
-const button = document.getElementById("submitBtn");
-
-form.addEventListener("submit", async (e) => {
+document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    message.textContent = "";
-    button.textContent = "Creating...";
-    button.disabled = true;
+    const companyName = document.getElementById("companyName").value.trim();
+    const companyAddress = document.getElementById("companyAddress").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const companySize = document.getElementById("companySize").value;
+    const password = document.getElementById("password").value;
+    
+    const message = document.getElementById("message");
+    const submitBtn = document.getElementById("submitBtn");
 
-    const data = {
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-        companyName: document.getElementById("companyName").value,
-        companyAddress: document.getElementById("companyAddress").value,
-        companySize: document.getElementById("companySize").value,
-        role: "recruiter"
-    };
+    message.textContent = "";
+    submitBtn.disabled = true;
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = "Creating Account...";
 
     try {
-        const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/register", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
+        const response = await fetch(
+            "https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/register/recruiter",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    companyName, companyAddress, email, companySize, password 
+                }),
+            }
+        );
 
-        const result = await response.json();
+        const data = await response.json();
 
-        if (response.ok) {
-            message.style.color = "green";
-            message.textContent = "Registration successful! Redirecting to OTP verification...";
-
-            form.reset();
-
-            // redirect to OTP page after 1.5 seconds
-            setTimeout(() => {
-                // pass the email to OTP page via query params
-                window.location.href = `emailverification.html?email=${encodeURIComponent(data.email)}`;
-            }, 1500);
-
-        } else {
-            message.style.color = "red";
-            message.textContent = result.message || "Registration failed";
+        if (!response.ok) {
+            message.textContent = data?.message || "Registration failed.";
+            message.style.color = "#e74c3c";
+            return;
         }
 
-    } catch (error) {
-        message.style.color = "red";
-        message.textContent = "Network error. Try again.";
-    }
+        message.textContent = "Account created! Entering dashboard...";
+        message.style.color = "#10B981";
 
-    button.textContent = "Create Account →";
-    button.disabled = false;
+        if (data?.token) localStorage.setItem("token", data.token);
+        localStorage.setItem("userName", companyName);
+
+        // 7. FIXED REDIRECT (Removed html/ prefix)
+        setTimeout(() => {
+            window.location.href = "recruitersdashboard.html";
+        }, 2000);
+
+    } catch (err) {
+        message.textContent = "Connection Error. Try again later.";
+        message.style.color = "#e74c3c";
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+    }
 });

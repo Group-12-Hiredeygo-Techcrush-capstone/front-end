@@ -1,38 +1,46 @@
 .partners-section {
     width: 100%;
     padding: 60px 0;
-    background: #FFFFFF;
-    overflow: hidden;
+    background: #fff;
+    overflow: hidden; /* Ensures nothing spills out of the screen */
 }
+
 .partners-title {
     text-align: center;
-    font-family: 'Montserrat';
-    font-size: 12px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
     font-weight: 700;
-    color: #94A3B8;
+    color: #64748b;
     letter-spacing: 2px;
     margin-bottom: 40px;
 }
-.marquee {
-    display: flex;
+
+.marquee-viewport {
     width: 100%;
+    overflow: hidden; /* This acts as the "window" for the logos */
+    position: relative;
 }
+
 .marquee-content {
     display: flex;
-    gap: 80px;
+    gap: 80px; /* Space between logos */
+    width: max-content;
     animation: scroll 30s linear infinite;
 }
-.logo-item img {
-    height: 32px;
-    filter: grayscale(100%);
-    opacity: 0.6;
-    transition: all 0.3s ease;
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
+
 .logo-item img:hover {
-    filter: grayscale(0%);
     opacity: 1;
+    filter: grayscale(0%);
 }
+
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-50%); } /* Scrolls halfway through the tripled list for seamless loop */
 }

@@ -3,198 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidate Ranking</title>
+    <title>eClear | Candidate Ranking</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="/images/Background.png">
-    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/candidateranking.css">
+    <link rel="stylesheet" href="css/global-nav.css">
+    <link rel="stylesheet" href="css/candidateranking.css">
 
-    <!-- JS -->
-    <script src="/js/candidateranking.js" defer></script>
+    <script src="js/global-nav.js" defer></script>
+    <script src="js/candidateranking.js" defer></script>
 </head>
 <body>
     <main>
-        <header class="header-container">
-            <nav class="nav-bar">
-                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Find Candidates</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">My Jobs</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Customer Support</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="logo">
-        <img src="/images/hiredeygologo.png" alt="">
-            <div class="postajob-container">
-                <i class="bx bx-bell"></i>
-                <button class="postajob-btn">Post A job</button>
-                <i class="bx bx-user-circle"></i>
-                <i class="bx bx-chevron-down"></i>
-            </div>
-        </div>
+        <header class="header-container" id="global-header"></header>
+        <div class="logo" id="global-logo-bar"></div>
+
         <section class="main-container">      
-            <aside class="side-bar">
-                <div class="employer-title">
-                    <h2>Employers Dashboard</h2>
-                </div>
-                <div class="text-container">
-                    <div class="text-input">
-                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
-                        <a href="/html/recruitersdashboard.html">Overveiw</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/profile.svg" class="text-icon" alt="">
-                        <a href="/html/employersprofile.html" target="_blank">Employers Profile</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/gg_add.svg" class="text-icon" alt="">
-                        <a href="/html/postajob.html">Post a Job</a>
-                    </div>
-                
-                    <div class="text-input">
-                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
-                        <a href="#">My Jobs</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon" alt="">
-                        <a href="/html/candidateranking.html">Candidate Ranking</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/material-symbols_bookmark-outline.svg" class="text-icon" alt="">
-                        <a href="#">Saved Candidate</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/streamline-flex_bill-4.svg" class="text-icon" alt="">
-                        <a href="#">Plans and Billings</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/overveiw-icon.svg" class="text-icon" alt="">
-                        <a href="#">All companies</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/settings.svg" class="text-icon" alt="">
-                        <a href="#">Settings</a>
-                    </div>
-                </div>
-            </aside>
+            <aside class="side-bar" id="global-sidebar"></aside>
 
             <div class="container2">
                 <div class="inner-container">
                     <div class="dashboard-container">
-                        <h1><span class="username">Candidate Rankings</h1>
-                        <p>Assessment results for Product Designer — sorted by highest score</p>
+                        <h1>Candidate Rankings</h1>
+                        <p>Assessment results for Product Designer — sorted by performance</p>
                     </div>
+
                     <div class="assessment">
                         <div class="assessment-test">
-                            <div class="assessment-test1">
-                                <h3>
-                                    ASSESSMENT TEST
-                                </h3>
-                            </div>
-                        
-                            <div class="assessment-test2">
-                                <h2>
-                                    UI/UX Design Skills Assessment
-                                </h2>
-                                
-                            </div>
-                            <div  class="assessment-test3">
-                                <div>💼 Product Designer</div>
-                                <div>👥 5 candidates</div>
-                                <div>⏱ Limit: 45 min</div>
-                                <div>📅 Mar 10, 2026</div>
+                            <div class="assessment-test1"><h3>ASSESSMENT TEST</h3></div>
+                            <div class="assessment-test2"><h2>UI/UX Design Skills Assessment</h2></div>
+                            <div class="assessment-test3">
+                                <div><i class='bx bx-briefcase'></i> Product Designer</div>
+                                <div><i class='bx bx-group'></i> 5 candidates</div>
+                                <div><i class='bx bx-time-five'></i> 45 min</div>
+                                <div><i class='bx bx-calendar'></i> Mar 10, 2026</div>
                             </div>
                         </div>
                         <div class="view-test">
                             <button class="test-btn">
-                                <div><img src="/images/Vector.svg" alt=""></div>
-                                <div>view test</div>
+                                <img src="images/Vector.svg" alt="" style="width: 14px;">
+                                <span>View Test Details</span>
                             </button>
                         </div>
                     </div>
 
                     <div class="rank-candidate-box">
                         <div class="rank1">
-                            <div><img src="/images/Vector candidate icon.svg" alt=""></div>
-                            <div>
-                                <h1>5</h1>
-                            </div>
-                            <div>
-                                <h3>Total Candidates</h3>
-                            </div>
+                            <img src="images/Vector candidate icon.svg" alt="">
+                            <h1>5</h1>
+                            <h3>Total Candidates</h3>
                         </div>
-
                         <div class="rank2">
-                            <div><img src="/images/mark Vector candidate.svg" alt=""></div>
-                            <div>
-                                <h1>4</h1>
-                            </div>
-                            <div>
-                                <h3>Passed (≥60%)</h3>
-                            </div>
+                            <img src="images/mark Vector candidate.svg" alt="">
+                            <h1>4</h1>
+                            <h3>Passed (≥60%)</h3>
                         </div>
-
                         <div class="rank3">
-                            <div><img src="/images/Vector candidate chart.svg" alt=""></div>
-                            <div>
-                                <h1>75%</h1>
-                            </div>
-                            <div>
-                                <h3>Average Score</h3>
-                            </div>
+                            <img src="images/Vector candidate chart.svg" alt="">
+                            <h1>75%</h1>
+                            <h3>Average Score</h3>
                         </div>
-
                         <div class="rank4">
-                            <div><img src="/images/Vector clock.svg" alt=""></div>
-                            <div>
-                                <h1>32min</h1>
-                            </div>
-                            <div>
-                                <h3>Avg Time Taken</h3>
-                            </div>
+                            <img src="images/Vector clock.svg" alt="">
+                            <h1>32m</h1>
+                            <h3>Avg Time Taken</h3>
                         </div>
-                    </div>
-
-                    <div class="performance-container">
-                        <div class="performance-box1"></div>
-                        <div calss="performance-box2"></div>
-                        <div class="performance-box3"></div>
-
                     </div>
 
                     <div class="container">
-                        <div class="header">
-                            <h2>All 5 Candidates — Full Rankings</h2>
-                        </div>
+                        <div class="header"><h2>Full Rankings</h2></div>
                         <div class="filters">
-                            <select>
-                                <option>All results</option>
-                            </select>
+                            <select><option>All results</option></select>
                             <select id="sortSelect">
                                 <option value="high">Sort: Highest score</option>
                                 <option value="low">Sort: Lowest score</option>
                             </select>
                         </div>
                     </div>
-                    <!---Table-->
+
                     <div class="table">
                         <div class="table-header">
                             <span>Rank</span>
@@ -211,12 +99,11 @@
                     <div class="footer">
                         <span>Showing 5 of 5 candidates</span>
                         <div class="pagination">
-                            <button>&lt;</button>
+                            <button class="btn-page"><i class='bx bx-chevron-left'></i></button>
                             <button class="active">1</button>
-                            <button>&gt;</button>
+                            <button class="btn-page"><i class='bx bx-chevron-right'></i></button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
