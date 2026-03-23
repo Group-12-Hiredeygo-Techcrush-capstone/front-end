@@ -32,15 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Verify OTP Logic
     verifyBtn.addEventListener("click", async () => {
         // Collect OTP and convert to a Number to prevent 400 Bad Request errors
-        const otpString = Array.from(otpInputs).map(i => i.value).join("");
-        const otp = parseInt(otpString, 10);
+        const String = Array.from(otpInputs).map(i => i.value).join("");
+        const otp = parseInt(String, 10);
 
         if (!email || email === "your email") {
             alert("Email context is missing. Please restart the signup process.");
             return;
         }
 
-        if (otpString.length !== 6 || isNaN(otp)) {
+        if (String.length !== 6 || isNaN(otp)) {
             alert("Please enter a valid 6-digit verification code.");
             return;
         }
