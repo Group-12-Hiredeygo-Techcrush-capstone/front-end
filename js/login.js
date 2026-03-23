@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submitBtn");
     const eyeIcon = document.querySelector(".ph-eye");
 
+    // Password Visibility Toggle
     if (eyeIcon) {
         eyeIcon.addEventListener("click", () => {
             const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -15,20 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Login Form Submission
     loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
-        message.textContent = "";
+        
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const rememberMe = document.getElementById("remember").checked;
 
+        message.textContent = "";
+
+        if (!email || !password) {
+            message.textContent = "Please enter your email and password.";
+            message.style.color = "#e74c3c";
+            return;
+        }
+
+        // Show spinner & disable button
         if (spinner) spinner.classList.remove("hidden");
         submitBtn.disabled = true;
-        submitBtn.textContent = "Verifying credentials...";
+        submitBtn.textContent = "Signing in...";
 
         try {
             const response = await fetch(
-                "https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/login",
+                "https://hire-dey-go-be.onrender.com/api/v1/auth/login",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -39,22 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data?.message || data?.error || "Invalid credentials");
+                const errorMessage = data?.message || data?.error || "Login failed. Please check your credentials.";
+                throw new Error(errorMessage);
             }
 
-            message.textContent = "Login successful! Welcome back.";
-            message.style.color = "#10B981";
+            // Success Logic
+            message.textContent = "Login successful. Redirecting...";
+            message.style.color = "#2ecc71";
 
             const storage = rememberMe ? localStorage : sessionStorage;
-            if (data?.token) storage.setItem("token", data.token);
-            if (data?.user?.companyName) storage.setItem("userName", data.user.companyName);
 
-            // 3. FIXED REDIRECT (Removed html/ prefix)
+            // Save Token
+            if (data?.token) {
+                storage.setItem("token", data.token);
+            }
+
+            // Save User Name for "Recognition" on dashboard
+            // We check multiple possible paths from the backend
+            const nameToSave = data?.user?.companyName || data?.user?.name || "Recruiter";
+            storage.setItem("userName", nameToSave);
+
+            // Redirect after a short delay
             setTimeout(() => {
                 window.location.href = "recruitersdashboard.html";
-            }, 1500);
+            }, 1000);
 
         } catch (err) {
+            console.error("Login Error:", err);
             message.textContent = err.message;
             message.style.color = "#e74c3c";
         } finally {

@@ -11,10 +11,10 @@ const navigationData = {
             </ul>
         </nav>`,
     logoBar: `
-        <img src="images/hiredeygologo.png" alt="eClear Logo">
+        <img src="images/hiredeygologo.png" alt="HiredeyGo Logo">
         <div class="postajob-container">
             <i class="bx bx-bell"></i>
-            <button class="postajob-btn" onclick="window.location.href='postajob.html'">Post A job</button>
+            <button class="postajob-btn" id="navPostJobBtn">Post A job</button>
             <i class="bx bx-user-circle"></i>
             <i class="bx bx-chevron-down"></i>
         </div>`,
@@ -29,9 +29,9 @@ const navigationData = {
                 <img src="images/profile.svg" class="text-icon">
                 <a href="employersprofile.html">Employers Profile</a>
             </div>
-            <div class="text-input" data-page="postajob.html">
+            <div class="text-input" data-page="postajob2.html">
                 <img src="images/gg_add.svg" class="text-icon">
-                <a href="postajob.html">Post a Job</a>
+                <a href="#" id="sidePostJobBtn">Post a Job</a>
             </div>
             <div class="text-input" data-page="myjobs.html">
                 <img src="images/uit_bag.svg" class="text-icon">
@@ -45,9 +45,9 @@ const navigationData = {
                 <img src="images/material-symbols_bookmark-outline.svg" class="text-icon">
                 <a href="#">Saved Candidate</a>
             </div>
-            <div class="text-input" data-page="billing.html">
+            <div class="text-input" data-page="plans&billing.html">
                 <img src="images/streamline-flex_bill-4.svg" class="text-icon">
-                <a href="#">Plans and Billings</a>
+                <a href="plans&billing.html">Plans and Billings</a>
             </div>
             <div class="text-input" data-page="settings.html">
                 <img src="images/settings.svg" class="text-icon">
@@ -71,7 +71,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (l) l.innerHTML = navigationData.logoBar;
     if (s) s.innerHTML = navigationData.sidebar;
 
-    // 2. The "Perfect" Highlight Logic
+    // 2. The Gatekeeper Logic
+    const handlePostJobRedirect = (e) => {
+        if (e) e.preventDefault();
+
+        // Retrieve the plan from localStorage
+        const userPlan = localStorage.getItem('HireDeyGo_UserPlan');
+
+        if (userPlan === 'Basic' || userPlan === 'Starter') {
+            window.location.href = 'postajob2.html';
+        } else {
+            window.location.href = 'plans&billing.html';
+        }
+    };
+
+    // Attach listeners to both "Post a Job" entry points
+    const navBtn = document.getElementById('navPostJobBtn');
+    const sideBtn = document.getElementById('sidePostJobBtn');
+
+    if (navBtn) navBtn.addEventListener('click', handlePostJobRedirect);
+    if (sideBtn) sideBtn.addEventListener('click', handlePostJobRedirect);
+
+    // 3. The Highlight Logic
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll('.text-input').forEach(item => {
         if (item.getAttribute('data-page') === currentPage) {
@@ -79,11 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Global Logout
+    // 4. Global Logout
     const logout = document.getElementById('logOutBtn');
     if (logout) {
         logout.addEventListener('click', () => {
-            if(confirm("Are you sure you want to log out?")) window.location.href = 'index.html';
+            if (confirm("Are you sure you want to log out?")) {
+                window.location.href = 'index.html';
+            }
         });
     }
 });

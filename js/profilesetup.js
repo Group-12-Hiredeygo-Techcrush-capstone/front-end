@@ -1,123 +1,164 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // --- SHARED UTILITIES ---
+    const saveBtn = document.querySelector(".save");
+    const prevBtn = document.querySelector(".previous");
+    const token = localStorage.getItem("auth_token");
 
-// <button onclick="uploadLogo()">Upload Logo</button>
+    // --- STEP 1: COMPANY INFO LOGIC ---
+    if (document.title.includes("Profile Setup 1")) {
+        const logoInput = document.getElementById("logoInput");
+        const uploadBtn = document.getElementById("uploadBtn");
+        const fileNameDisplay = document.getElementById("fileName");
+        const logoPreview = document.querySelector(".logo-box img");
+        const errorMsg = document.getElementById("errorMsg");
 
-// const baseUrl = "https://your-api-base-url.com";
-// const companyId = "123";
+        // Add Remove Logo logic
+        let removeBtn = document.getElementById("removeLogo");
+        if (!removeBtn) {
+            removeBtn = document.createElement("p");
+            removeBtn.id = "removeLogo";
+            removeBtn.innerText = "Remove Logo";
+            removeBtn.style = "color: #e74c3c; cursor: pointer; font-size: 12px; margin-top: 5px; display: none;";
+            fileNameDisplay.after(removeBtn);
+        }
 
-// async function uploadLogo() {
-//   const fileInput = document.getElementById("logoInput");
-//   const file = fileInput.files[0];
+        // Bridge: Pull name from Registration
+        const companyNameInput = document.querySelector('.left input[type="text"]:nth-of-type(1)');
+        const registeredName = localStorage.getItem("company_name");
+        if (registeredName && companyNameInput) {
+            companyNameInput.value = registeredName;
+        }
 
-//   if (!file) {
-//     alert("Please select a file");
-//     return;
-//   }
+        // Logo Upload Functionality
+        if (uploadBtn && logoInput) {
+            uploadBtn.addEventListener("click", (e) => { e.preventDefault(); logoInput.click(); });
+            
+            logoInput.addEventListener("change", () => {
+                const file = logoInput.files[0];
+                if (file) {
+                    if (file.size > 2 * 1024 * 1024) {
+                        errorMsg.textContent = "Logo must not be more than 2MB";
+                        return;
+                    }
+                    errorMsg.textContent = "";
+                    fileNameDisplay.textContent = file.name;
+                    removeBtn.style.display = "block";
 
-//   // ✅ 2MB = 2 * 1024 * 1024 bytes
-//   const maxSize = 2 * 1024 * 1024;
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        logoPreview.src = e.target.result;
+                        localStorage.setItem("temp_logo_base64", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
 
-//   if (file.size > maxSize) {
-//     alert("Logo must not be more than 2MB");
-//     return;
-//   }
+        // Remove Logo Action
+        removeBtn.onclick = () => {
+            logoInput.value = "";
+            logoPreview.src = "/images/companylogo.png";
+            fileNameDisplay.textContent = "";
+            removeBtn.style.display = "none";
+            localStorage.removeItem("temp_logo_base64");
+        };
 
-//   // (Optional) Validate file type
-//   const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-//   if (!allowedTypes.includes(file.type)) {
-//     alert("Only JPG and PNG images are allowed");
-//     return;
-//   }
+        // CAC/Certificate Logic
+        const cacBtn = document.querySelector(".browse");
+        const cacStatusText = document.querySelector(".file-upload p");
+        const cacInput = document.createElement("input");
+        cacInput.type = "file";
+        cacInput.accept = ".pdf,.doc,.docx";
+        cacInput.style.display = "none";
+        document.body.appendChild(cacInput);
 
-//   const formData = new FormData();
-//   formData.append("logo", file);
+        if (cacBtn) {
+            cacBtn.addEventListener("click", (e) => { e.preventDefault(); cacInput.click(); });
+            cacInput.addEventListener("change", () => {
+                const file = cacInput.files[0];
+                if (file) {
+                    cacStatusText.textContent = `Selected: ${file.name}`;
+                    cacStatusText.style.color = "#10B981";
+                }
+            });
+        }
 
-//   try {
-//     const response = await fetch(`${baseUrl}/companies/${companyId}/logo`, {
-//       method: "POST",
-//       body: formData,
-//       headers: {
-//         Authorization: `Bearer ${localStorage.getItem("token")}`
-//       }
-//     });
+        // Save Step 1
+        if (saveBtn) {
+            saveBtn.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const inputs = document.querySelectorAll('.left input, .left select, .right select, .right textarea');
+                const data = {
+                    companyName: inputs[0]?.value,
+                    industry: inputs[1]?.value,
+                    website: inputs[2]?.value,
+                    headquarters: inputs[3]?.value,
+                    companySize: inputs[4]?.value,
+                    aboutCompany: inputs[5]?.value,
+                    logo: localStorage.getItem("temp_logo_base64") || ""
+                };
+                await handleDataSave(data, "profilesetup2.html");
+            });
+        }
+    }
 
-//     if (!response.ok) {
-//       throw new Error("Upload failed");
-//     }
+    // --- STEP 2: FOUNDING INFO LOGIC ---
+    if (document.title.includes("Profile Setup 2")) {
+        const orgType = document.getElementById('orgType');
+        const industryType = document.getElementById('industryType');
+        const teamSize = document.getElementById('teamSize');
+        const estDate = document.getElementById('estDate');
+        const website = document.getElementById('compWebsite');
+        const visionTextArea = document.getElementById('compVision');
 
-//     alert("Logo uploaded successfully!");
+        if (saveBtn) {
+            saveBtn.addEventListener("click", async (e) => {
+                e.preventDefault();
+                const step2Data = {
+                    organizationType: orgType?.value,
+                    industryType: industryType?.value,
+                    teamSize: teamSize?.value,
+                    establishedDate: estDate?.value,
+                    secondaryWebsite: website?.value,
+                    aboutCompany: visionTextArea?.value
+                };
+                await handleDataSave(step2Data, "profilesetup3.html");
+            });
+        }
+    }
 
-//   } catch (error) {
-//     console.error(error);
-//     alert("Upload failed");
-//   }
-// }
+    // --- UNIVERSAL SAVE FUNCTION ---
+    async function handleDataSave(newData, nextUrl) {
+        saveBtn.textContent = "Saving...";
+        saveBtn.disabled = true;
 
+        let fullProfile = JSON.parse(localStorage.getItem("companyProfile_Full")) || {};
+        fullProfile = { ...fullProfile, ...newData };
+        localStorage.setItem("companyProfile_Full", JSON.stringify(fullProfile));
 
+        try {
+            const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/profile/setup", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json", 
+                    "Authorization": `Bearer ${token}` 
+                },
+                body: JSON.stringify(fullProfile)
+            });
+            
+            if (response.ok) console.log("Cloud Sync Successful");
+        } catch (err) {
+            console.warn("Offline: Progress saved locally.");
+        }
 
+        setTimeout(() => { window.location.href = nextUrl; }, 800);
+    }
 
-// // const button = document.getElementById("saveBtn");
-
-// // // get email from URL (from OTP page)
-// // const params = new URLSearchParams(window.location.search);
-// // const email = params.get("email");
-
-// // button.addEventListener("click", async () => {
-// //     button.textContent = "Saving...";
-// //     button.disabled = true;
-
-// //     const data = {
-// //         email: email,
-// //         companyName: document.getElementById("companyName").value,
-// //         industry: document.getElementById("industry").value,
-// //         website: document.getElementById("website").value,
-// //         headquarters: document.getElementById("headquarters").value,
-// //         companySize: document.getElementById("companySize").value,
-// //         aboutCompany: document.getElementById("aboutCompany").value
-// //     };
-
-// //     try {
-// //         const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/profile/setup", {
-// //             method: "POST",
-// //             headers: {
-// //                 "Content-Type": "application/json"
-// //             },
-// //             body: JSON.stringify(data)
-// //         });
-
-// //         const result = await response.json();
-
-// //         if (response.ok) {
-// //             alert("Profile saved successfully!");
-
-// //             // move to next step
-// //             window.location.href = "foundinginfo.html";
-
-// //         } else {
-// //             alert(result.message || "Failed to save profile");
-// //         }
-
-// //     } catch (error) {
-// //         alert("Network error. Try again.");
-// //     }
-
-// //     button.textContent = "Save & Continue →";
-// //     button.disabled = false;
-// // });
-const fileInput = document.getElementById("logoInput");
-const uploadBtn = document.getElementById("uploadBtn");
-const fileName = document.getElementById("fileName");
-const errorMsg = document.getElementById("errorMsg");
-
-// ✅ Open local drive when button is clicked
-chooseBtn.addEventListener("click", () => {
-  fileInput.click();
-});
-
-// ✅ Show selected file name
-fileInput.addEventListener("change", () => {
-  const file = fileInput.files[0];
-
-  if (file) {
-    fileName.textContent = file.name;
-  }
+    // Navigation back
+    if (prevBtn) {
+        prevBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.history.back();
+        });
+    }
 });
