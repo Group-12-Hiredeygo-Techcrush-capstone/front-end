@@ -31,20 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Verify OTP Logic
     verifyBtn.addEventListener("click", async () => {
-        // Collect OTP and convert to a Number to prevent 400 Bad Request errors
+        // Using 'String' as the variable name and keeping it as text for the backend
         const String = Array.from(otpInputs).map(i => i.value).join("");
-        const otp = parseInt(String, 10);
 
+        // Basic validation
         if (!email || email === "your email") {
             alert("Email context is missing. Please restart the signup process.");
             return;
         }
 
-        if (String.length !== 6 || isNaN(otp)) {
+        if (String.length !== 6) {
             alert("Please enter a valid 6-digit verification code.");
             return;
         }
 
+        // Loading state
         verifyBtn.disabled = true;
         const originalText = verifyBtn.textContent;
         verifyBtn.textContent = "Verifying...";
@@ -53,14 +54,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, otp }) // Sending as string (email) and number (otp)
+                // Sending the value of 'String' (the 6 digits) as the 'otp' property
+                body: JSON.stringify({ 
+                    email: email, 
+                    otp: String 
+                }) 
             });
 
             const result = await response.json();
             console.log("Full Server Response:", result);
 
             if (response.ok) {
-                // Check every possible location for the token based on typical Render/Node API structures
+                // Check all possible token locations in the response object
                 const authToken = result.token || 
                                  (result.data && result.data.token) || 
                                  result.accessToken || 
@@ -77,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     window.location.href = "index.html"; 
                 }
             } else {
-                // If status is 400, this will show the backend's specific error message
+                // Shows the backend's specific error message (e.g., "OTP expired")
                 alert(result.message || "OTP verification failed. Please check the code.");
             }
         } catch (error) {
