@@ -3,348 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>Post a Job | HireDeyGo</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="/images/Background.png">
-    <!-- Icons -->
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS -->
+    <link rel="stylesheet" href="/css/global-nav.css">
     <link rel="stylesheet" href="/css/postajob2.css">
 
-    <!-- JS -->
-    <script src="/js/employersprofile.js" defer></script>
+    <script src="/js/global-nav.js" defer></script>
+    <script src="/js/postajob2.js" defer></script>
 </head>
 <body>
     <main>
-        <header class="header-container">
-            <nav class="nav-bar">
-                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Find Candidates</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">My Jobs</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Customer Support</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="logo">
-        <img src="/images/hiredeygologo.png" alt="">
-            <div class="postajob-container">
-                <i class="bx bx-bell"></i>
-                <button class="postajob-btn">Post A job</button>
-                <i class="bx bx-user-circle"></i>
-                <i class="bx bx-chevron-down"></i>
-            </div>
-        </div>
+        <header id="global-header" class="header-container"></header>
+        <div id="global-logo-bar" class="logo"></div>
+
         <section class="main-container">      
-            <aside class="side-bar">
-                <div class="employer-title">
-                    <h2>Employers Dashboard</h2>
-                </div>
-                <div class="text-container">
-                    <div class="text-input">
-                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
-                        <a href="#">Overveiw</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/profile.svg" class="text-icon" alt="">
-                        <a href="/html/employersprofile.html" target="_blank">Employers Profile</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/gg_add.svg" class="text-icon" alt="">
-                        <a href="/html/postajob.html">Post a Job</a>
-                    </div>
-                
-                    <div class="text-input">
-                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
-                        <a href="#">My Jobs</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon" alt="">
-                        <a href="#">Candidate Ranking</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/material-symbols_bookmark-outline.svg" class="text-icon" alt="">
-                        <a href="#">Saved Candidate</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/streamline-flex_bill-4.svg" class="text-icon" alt="">
-                        <a href="#">Plans and Billings</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/overveiw-icon.svg" class="text-icon" alt="">
-                        <a href="#">All companies</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/settings.svg" class="text-icon" alt="">
-                        <a href="#">Settings</a>
-                    </div>
-                </div>
-            </aside>
+            <aside id="global-sidebar" class="side-bar"></aside>
 
             <div class="container2">
                 <div class="inner-container">
                     <div class="container">
-                        <div>
-                            <h1>Post a New Job</h1>
-                            <p class="subtitle">Fill the details below to post your job</p>
-                        </div>
+                        <h1>Post a New Job</h1>
+                        <p class="subtitle">Fill the details below to post your job</p>
                         
                         <h3>BASIC INFORMATION</h3>
                         <h4>Tell us about the job position</h4>
                         <div class="form1">
                             <div>
-                                <label for="Job Title">Job Title <span class="aestherisk">*</span></label>
+                                <label for="title">Job Title <span class="aestherisk">*</span></label>
                                 <input type="text" placeholder="Job Title" id="title" required />
                             </div>
                             <div>
-                                <label for="Job Title">Tags <span class="aestherisk">*</span></label>
-                                <input type="text" placeholder="keywords" id="tags" required />
+                                <label for="tags">Tags <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Keywords (e.g. Design, PHP)" id="tags" required />
                             </div>
-
                             <div>
-                                <label for="Job Title">category <span class="aestherisk">*</span></label>
+                                <label for="category">Category <span class="aestherisk">*</span></label>
                                 <input type="text" placeholder="Category" id="category" required />
                             </div>
-
                             <div>
-                                <label for="Job Title">Job role <span class="aestherisk">*</span></label>
-                                <input type="text" placeholder="keywords" id="title" required />
+                                <label for="jobRole">Job Role <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="e.g. Lead Designer" id="jobRole" required />
                             </div>
                         </div>
+
                         <div class="form2">
                             <div>
-                                <label for="Job Title">Company Name <span class="aestherisk">*</span></label>
-                                <input type="select" placeholder="e.g Techcrush" id="title" required />
+                                <label for="companyName">Company Name <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="e.g. Techcrush" id="companyName" required />
                             </div>
                         </div>
+
                         <div class="form3">
                             <div>
-                                <label for="text">salary type <span class="aestherisk">*</span></label>
-                                <input type="number" placeholder="" id="salaryType" />
+                                <label for="salaryType">Salary Type <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Monthly / Yearly" id="salaryType" />
                             </div>
                             <div>
-                                <label for="text">How many persons do you want for this job?<span class="aestherisk">*</span></label>
-                                <input type="number" placeholder="Salary Min" id="" />
+                                <label for="personCount">Persons Needed <span class="aestherisk">*</span></label>
+                                <input type="number" placeholder="1" id="personCount" />
                             </div>
                             <div>
-                                <label for="text">Company <span class="aestherisk">*</span></label>
-                                <input type="number" placeholder="Salary Max" id="salaryMax" />
+                                <label for="salaryMin">Salary Min <span class="aestherisk">*</span></label>
+                                <input type="number" placeholder="Min Amount" id="salaryMin" />
                             </div>
                             <div>
-                                <label for="text">Company <span class="aestherisk">*</span></label>
-                                <input type="number" placeholder="Salary Min" id="salaryMin" />
-                            </div>                             
+                                <label for="salaryMax">Salary Max <span class="aestherisk">*</span></label>
+                                <input type="number" placeholder="Max Amount" id="salaryMax" />
+                            </div>
                         </div>
-                        <!-- ADVANCED -->
-                        <div class="section">
-                        <h2>Advanced Information</h2>
 
+                        <hr class="section-divider">
+
+                        <h2>Advanced Information</h2>
                         <div class="form4">
                             <div>
-                                <label for="Experience"> Education <span class="aestherisk">*</span></label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Select" 
-                                    id="education" 
-                                    list="education-options" required
-                                />
-
-                                    <datalist id="education-options">
-                                        <option value="PhD">
-                                        <option value="masters">
-                                        <option value="B.sc\B.Eng">
-                                        <option value="HND">
-                                    </datalist>
+                                <label for="education">Education <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Select Education" id="education" list="education-options" required />
+                                <datalist id="education-options">
+                                    <option value="B.Sc/B.Eng">
+                                    <option value="M.Sc / Masters">
+                                    <option value="PhD">
+                                    <option value="HND">
+                                </datalist>
                             </div>
                             <div>
-                                <label for="Experience"> Experience <span class="aestherisk">*</span></label>
-                                <input 
-                                    type="text" 
-                                    placeholder="select" 
-                                    id="experience" 
-                                    list="experience-options" required
-                                    />
-
-                                    <datalist id="experience-options">
-                                        <option value="Entry Level">
-                                        <option value="Mid Level">
-                                        <option value="Senior Level">
-                                        <option value="Internship">
-                                    </datalist>
+                                <label for="experience">Experience <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Select Level" id="experience" list="experience-options" required />
+                                <datalist id="experience-options">
+                                    <option value="Entry Level">
+                                    <option value="Mid Level">
+                                    <option value="Senior Level">
+                                    <option value="Internship">
+                                </datalist>
                             </div>
                             <div>
-                                <label for="job-Type"> Job Type <span class="aestherisk">*</span></label>
-                                <input 
-                                    type="text" 
-                                    placeholder="select" 
-                                    id="jobtype" 
-                                    list="Job-Type-options" required
-                                    />
-
-                                    <datalist id="job-Type-options">
-                                        <option value="">
-                                        <option value="Hybrid">
-                                        <option value="on-site">
-                                        <option value="on-site">
-                                    </datalist>
+                                <label for="jobtype">Job Type <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Select Type" id="jobtype" list="jobtype-options" required />
+                                <datalist id="jobtype-options">
+                                    <option value="Full-time">
+                                    <option value="Part-time">
+                                    <option value="Hybrid">
+                                    <option value="Remote">
+                                    <option value="On-site">
+                                </datalist>
                             </div>
-
-
-                        </div>
-                        <div class="form5">
-                            <div>
-                                <label for="Vacancies">Vancacies <span class="aestherisk">*</span></label>
-                                <input 
-                                    type="text" 
-                                    placeholder="Select" 
-                                    id="vacancy" 
-                                    list="vacancy-options" required
-                                />
-
-                                    <datalist id="vacancyOptions">
-                                        <option value="">
-                                        <option value="">
-                                        <option value="">
-                                    </datalist>
-                            </div>
-                            <div>
-                                <label for="Expiration date"> Expiration Date<span class="aestherisk">*</span></label>
-                                <input 
-                                    type="datetime-local" 
-                                    placeholder="select" 
-                                    id="experience" 
-                                    list="experience-options" required
-                                    />
-                            </div>
-                            <div>
-                                <label for="job-Leveel"> Job Level<span class="aestherisk">*</span></label>
-                                <input 
-                                    type="text" 
-                                    placeholder="select" 
-                                    id="jobLevel" 
-                                    list="Job level" required
-                                    />
-
-                                    <datalist id="experience-options">
-                                        <option value="">
-                                        <option value="">
-                                        <option value="">
-                                        <option value="">
-                                    </datalist>
-                            </div>                       
-
                         </div>
 
-                        <!-- LOCATION -->
                         <h2>Location</h2>
                         <p>Where is this job based?</p>
-
                         <div class="location-input">
                             <input type="text" placeholder="Country" id="country" />
                             <input type="text" placeholder="City" id="city" />
                         </div>
-                        <div class="remote-btn">
-                            <input type="checkbox" value="Remote"/>
-                            <label for="">Remote</label>
+
+                        <hr class="section-divider">
+
+                        <h2>Job Benefits</h2>
+                        <p>Select the Perks you offer</p>
+                        <div class="benefit-btn-box1">
+                            <button type="button" class="benefit-btn">Medical Insurance</button>
+                            <button type="button" class="benefit-btn">Flexible Hours</button>
+                            <button type="button" class="benefit-btn">Unlimited Vacation</button>
+                            <button type="button" class="benefit-btn">Pay in Crypto</button>
+                            <button type="button" class="benefit-btn">Learning Budget</button>
+                            <button type="button" class="benefit-btn">Equity Compensation</button>
+                            <button type="button" class="benefit-btn">Remote Friendly</button>
                         </div>
 
+                        <h2>Job Description</h2>
+                        <textarea id="description" placeholder="Write job details, responsibilities, and requirements..." style="height: 200px;"></textarea>
 
-                            
-
-                        <!-- BENEFITS -->
-                        <div class="section">
-                            <h2>Job Benefits</h2>
-                            <p>Select the Perks you offer</p>
-                            
-                            <div class="benefit-btn-box1">
-                                <button class="benefit-btn">Distributed Team</button>
-                                <button class="benefit-btn">Medical Insurance</button>
-                                <button class="benefit-btn">Company Retreats</button>
-                                <button class="benefit-btn">401K Matching</button>
-                            </div>
-
-                            <div class="benefit-btn-box1">
-                                <button class="benefit-btn">Async</button>
-                                <button class="benefit-btn">Vision Insurance</button>
-                                <button class="benefit-btn">401K Salary</button>
-                                <button class="benefit-btn">Unlimited Vacation</button>
-                            </div>
-
-                            <div class="benefit-btn-box1">
-                                <button class="benefit-btn">Dental Insurance</button>
-                                <button class="benefit-btn">Housing Allowance</button>
-                                <button class="benefit-btn">Profit Sharing</button>
-                                <button class="benefit-btn">Flexible Hours</button>
-                            </div>
-
-                            <div class="benefit-btn-box1">
-                                <button class="benefit-btn">Learning Budget</button>
-                                <button class="benefit-btn">Equity Compensation</button>
-                                <button class="benefit-btn">No Politics at Work</button>
-                                <button class="benefit-btn">Pay in Crypto</button>
-                            </div>
-
-                        </div>
-                        <!-- DESCRIPTION -->
-                        <div class="section">
-                            <h2>Job Description</h2>
-                            <textarea id="description" placeholder="Write job details..."></textarea>
-                        </div>
-
-                        <!-- SCREENING -->
-                        <div class="section">
-                            <h2>Screening Questions</h2>
-
-                            <input type="text" placeholder="Question 1" class="question"/>
+                        <h2>Screening Questions</h2>
+                        <div class="screening-container">
+                            <input type="text" placeholder="Question 1 (e.g. Do you have 3+ years experience?)" class="question"/>
                             <input type="text" placeholder="Question 2" class="question"/>
-                            <input type="text" placeholder="Question 3" class="question"/>
-                            <input type="text" placeholder="Question 4" class="question"/>
                         </div>
 
-                        <div class="apply">
-                            <h2>Apply Job on</h2>
-                            <p>Where should candidates submit their application</p>
-                        </div>
+                        <h2>Apply Job on</h2>
+                        <p>Where should candidates submit their application?</p>
                         <div class="apply-on">
                             <div class="apply-box">
-                                <input type="checkbox" value="Remote" required/>
-                                <h4>On HiredeyGo</h4>
-                                <p>Candidate applies using HiredeyGo. All applications show on your dashboard</p>
+                                <input type="radio" name="applyMethod" value="HiredeyGo" checked />
+                                <div>
+                                    <h4>On HiredeyGo</h4>
+                                    <p>Candidates apply using their profile. Track everything on your dashboard.</p>
+                                </div>
                             </div>
                             <div class="apply-box">
-                                <input type="checkbox" value="Remote" required/>
-                                <h4>External Platform</h4>
-                                <p>Candidate applies on your own website or platform. All applications show on your dashboard</p>
-                            </div>
-                            <div class="apply-box">
-                                <input type="checkbox" value="Remote" required/>
-                                <h4>On Your Email</h4>
-                                <p>Candidate applies via Email. All applications show on your inbox</p>
+                                <input type="radio" name="applyMethod" value="External" />
+                                <div>
+                                    <h4>External Platform</h4>
+                                    <p>Redirect candidates to your own website or ATS.</p>
+                                </div>
                             </div>
                         </div>
 
-                            <!-- SUBMIT -->
-                        <button type="submit" class="submit-btn">Publish Job</button>
-
+                        <div style="margin-top: 40px;">
+                            <button type="button" class="submit-btn">Publish Job</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 </body>
-
 </html>
