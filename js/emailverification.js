@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resendLink = document.querySelector(".box a");
     const emailSpan = document.querySelector(".container2 span");
 
+    // 1. Get Email from URL
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
     
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         emailSpan.textContent = "your email";
     }
 
-    // OTP Auto-focus logic
+    // 2. OTP Auto-focus logic
     otpInputs.forEach((input, index) => {
         input.addEventListener("input", () => {
             if (input.value.length === 1 && index < otpInputs.length - 1) {
@@ -28,11 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // 3. Verify OTP Logic
     verifyBtn.addEventListener("click", async () => {
-        const otp = Array.from(otpInputs).map(i => i.value).join("");
+        // Collect OTP and convert to a Number to prevent 400 Bad Request errors
+        const otpString = Array.from(otpInputs).map(i => i.value).join("");
+        const otp = parseInt(otpString, 10);
 
-        if (otp.length !== 6) {
-            alert("Please enter the 6-digit verification code.");
+        if (!email || email === "your email") {
+            alert("Email context is missing. Please restart the signup process.");
+            return;
+        }
+
+        if (otpString.length !== 6 || isNaN(otp)) {
+            alert("Please enter a valid 6-digit verification code.");
             return;
         }
 
@@ -44,54 +53,62 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, otp })
+                body: JSON.stringify({ email, otp }) // Sending as string (email) and number (otp)
             });
 
             const result = await response.json();
+            console.log("Full Server Response:", result);
 
             if (response.ok) {
-                // ROBUST TOKEN CAPTURE:
-                // Tries result.token, then result.data.token, then result.data (if it's a string)
+                // Check every possible location for the token based on typical Render/Node API structures
                 const authToken = result.token || 
                                  (result.data && result.data.token) || 
-                                 (typeof result.data === 'string' ? result.data : null);
+                                 result.accessToken || 
+                                 (result.data && result.data.accessToken) ||
+                                 result.access_token;
                 
                 if (authToken) {
                     localStorage.setItem("token", authToken);
                     alert("Email verified successfully!");
                     window.location.href = "profilesetup1.html"; 
                 } else {
-                    console.error("Token missing in response:", result);
-                    alert("Verification successful, but session token is missing. Please log in.");
+                    console.error("Token missing in response object:", result);
+                    alert("Verification successful, but session token is missing. Redirecting to login.");
+                    window.location.href = "index.html"; 
                 }
             } else {
-                alert(result.message || "OTP verification failed.");
+                // If status is 400, this will show the backend's specific error message
+                alert(result.message || "OTP verification failed. Please check the code.");
             }
         } catch (error) {
-            console.error("Verification Error:", error);
-            alert("Unable to reach the server.");
+            console.error("Network/Server Error:", error);
+            alert("Unable to connect to the verification server.");
         } finally {
             verifyBtn.disabled = false;
             verifyBtn.textContent = originalText;
         }
     });
 
-    // RESEND OTP
+    // 4. RESEND OTP Logic
     resendLink.addEventListener("click", async (e) => {
         e.preventDefault();
-        if (!email) return alert("Email address missing.");
+        if (!email || email === "your email") return alert("Email missing.");
 
         try {
-            // Note: If this 404s later, try changing to /resend/otp
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/resend-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }) 
             });
-            if (response.ok) alert("A new code has been sent.");
-            else alert("Could not resend code.");
+
+            if (response.ok) {
+                alert("A new code has been sent to " + email);
+            } else {
+                const errorData = await response.json();
+                alert(errorData.message || "Could not resend code.");
+            }
         } catch (error) {
-            alert("Network error.");
+            alert("Network error. Please try again.");
         }
     });
 });
