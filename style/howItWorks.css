@@ -1,14 +1,15 @@
-/* howItWorks.css - Full Figma Implementation with Pulse & Sequential Logic */
+/* howItWorks.css - Vertical Mobile / Horizontal Desktop */
 
 .how-section {
     width: 100%;
     max-width: 1280px;
-    padding: 96px 80px;
+    padding: 80px 20px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 48px;
     box-sizing: border-box;
+    overflow: hidden; 
 }
 
 .how-header {
@@ -16,192 +17,151 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 24px;
+    gap: 16px;
 }
 
 .how-title {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 48px;
+    font-size: clamp(28px, 7vw, 48px);
     color: #0F172A;
     margin: 0;
 }
 
 .how-subtitle {
-    max-width: 672px;
+    max-width: 600px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-size: clamp(14px, 4vw, 18px);
     color: #475569;
-    line-height: 24px;
-    margin: 0;
+    line-height: 1.5;
 }
 
 .steps-container {
     position: relative;
     display: flex;
-    justify-content: center;
-    gap: 32px;
+    flex-direction: column; /* Vertical for mobile */
+    gap: 40px; 
     width: 100%;
 }
 
-/* Figma Progress Line & Fill */
-/* Figma Progress Line - Now starts invisible */
-.progress-line {
-    position: absolute;
-    height: 2px;
-    left: 10%;
-    right: 10%;
-    top: 48px;
-    background: transparent; /* Changed from #E2E8F0 */
-    z-index: 0;
-    overflow: visible; /* Allow the fill to be seen */
-    transition: background 0.5s ease;
+@media (min-width: 768px) {
+    .steps-container {
+        flex-direction: row; /* Horizontal for desktop */
+        justify-content: space-between;
+        align-items: flex-start;
+    }
 }
 
-/* This class will be added by JS once the first step starts */
-.progress-line.is-visible {
-    background: #E2E8F0; 
+/* THE PROGRESS LINE */
+.progress-line {
+    position: absolute;
+    background: #E2E8F0;
+    z-index: 0;
+}
+
+/* Mobile: Vertical Line */
+@media (max-width: 767px) {
+    .progress-line {
+        width: 2px;
+        top: 32px;
+        bottom: 32px;
+        left: 32px; /* Centers under the 64px icon */
+    }
+}
+
+/* Desktop: Horizontal Line */
+@media (min-width: 768px) {
+    .progress-line {
+        height: 2px;
+        left: 10%;
+        right: 10%;
+        top: 48px;
+        width: auto;
+    }
 }
 
 .progress-fill {
-    width: 0%;
-    height: 100%;
     background: #7311D4;
-    /* Cinematic, deliberate speed */
-    transition: width 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    position: relative;
+    transition: all 1.2s ease;
 }
 
-/* Optional: Add a small glowing "head" to the moving line */
-.progress-fill::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: -2px;
-    width: 6px;
-    height: 6px;
-    background: #7311D4;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #7311D4;
+/* Vertical Fill Logic */
+@media (max-width: 767px) {
+    .progress-fill { width: 100%; height: 0%; }
 }
+@media (min-width: 768px) {
+    .progress-fill { height: 100%; width: 0%; }
+}
+
 .step-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    z-index: 1;
-    /* Initial state: Faded out and lower */
-    opacity: 0.1; 
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-/* Step Item Active State */
-.step-item.is-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.step-icon-wrapper {
     position: relative;
-    width: 96px;
-    height: 96px;
-    border-radius: 9999px;
+    display: flex;
+    flex-direction: row; /* Icon next to text on mobile */
+    align-items: flex-start;
+    gap: 20px;
+    z-index: 1;
+    opacity: 1; /* Keeping visible for accessibility, adjust JS if needed */
+}
+
+@media (min-width: 768px) {
+    .step-item {
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ICON STYLING */
+.step-icon-wrapper {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 1s ease;
+    background: #7311D4; /* Default active color */
 }
 
-.step-item.is-active .step-icon-wrapper {
-    transform: scale(1.1);
-}
-
-/* Pulse Animation Logic */
-.step-item.is-active .step-icon-wrapper::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 9999px;
-    box-shadow: 0 0 0 0 rgba(115, 17, 212, 0.4);
-    animation: pulse-ring 2s infinite;
-}
-
-@keyframes pulse-ring {
-    0% { box-shadow: 0 0 0 0 rgba(115, 17, 212, 0.4); }
-    70% { box-shadow: 0 0 0 20px rgba(115, 17, 212, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(115, 17, 212, 0); }
-}
-
-.step-shadow {
-    position: absolute;
-    width: 96px;
-    height: 96px;
-    border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.002);
-    box-shadow: 0px 0px 0px 8px #F7F6F8;
-    z-index: 0;
-}
-
-/* Dynamic Shadows per Step */
-.shadow-purple { 
-    box-shadow: 0px 0px 0px 8px #F7F6F8, 0px 20px 25px -5px rgba(115, 17, 212, 0.3), 0px 8px 10px -6px rgba(115, 17, 212, 0.3); 
-}
-.shadow-green { 
-    box-shadow: 0px 0px 0px 8px #F7F6F8, 0px 20px 25px -5px rgba(34, 197, 94, 0.3), 0px 8px 10px -6px rgba(34, 197, 94, 0.3); 
+@media (min-width: 768px) {
+    .step-icon-wrapper { width: 96px; height: 96px; margin-bottom: 16px; }
 }
 
 .color-purple { background: #7311D4; }
 .color-green { background: #22C55E; }
 
-.step-icon-inner {
-    color: #FFFFFF;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    z-index: 2;
+/* The Icon Replacement for Numbers */
+.step-icon-inner img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Makes icons white */
 }
 
 .step-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    gap: 4px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .step-text { align-items: center; text-align: center; }
 }
 
 .step-text h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 24px;
+    font-size: 20px;
     color: #0F172A;
-    text-align: center;
     margin: 0;
 }
 
 .step-text p {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     color: #64748B;
-    text-align: center;
-    line-height: 20px;
+    line-height: 1.5;
     margin: 0;
-    max-width: 256px;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 1024px) {
-    .how-section { padding: 60px 20px; }
-    .steps-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 20px;
-        gap: 48px;
-    }
-    .progress-line { display: none; } /* Hide horizontal line on mobile stack */
-    .step-item { flex-direction: row; text-align: left; }
-    .step-text { align-items: flex-start; }
-    .step-text p { text-align: left; }
 }

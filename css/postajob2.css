@@ -277,3 +277,34 @@ select {
     margin: 0;
     opacity: 0.8;
 }
+
+/* --- RESPONSIVE FIX FOR MOBILE VIEWPORT --- */
+@media (max-width: 1024px) {
+    .container2 {
+        margin-left: 0 !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .inner-container {
+        padding: 120px 20px 40px 20px !important;
+    }
+
+    .form1, .form3, .form4, .location-input, .questions-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .questions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .submit-btn {
+        width: 100% !important;
+    }
+
+    .apply-on {
+        grid-template-columns: 1fr !important;
+    }
+}

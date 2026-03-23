@@ -1,84 +1,119 @@
-:root {
-    --brand-purple: #7311D4;
-    --nav-glass: rgba(255, 255, 255, 0.8);
-    --nav-border: rgba(115, 17, 212, 0.1);
-    --nav-blur: blur(10px);
-}
-
+/* --- UPDATED BASE & PADDING --- */
 .glass-navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 80px;
-    background: var(--nav-glass);
-    backdrop-filter: var(--nav-blur);
-    -webkit-backdrop-filter: var(--nav-blur);
-    border-bottom: 1px solid var(--nav-border);
+    height: 70px; 
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(115, 17, 212, 0.1);
     z-index: 9999;
     display: flex;
     align-items: center;
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1440px;
+    width: 100%;
+    padding: 0 24px; /* Matches padding for both sides */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
 .nav-logo img {
-    height: 38px;
+    height: 32px; 
     width: auto;
-    display: block;
+    flex-shrink: 0;
 }
 
-/* Menu Links */
-.nav-menu {
-    display: none; /* Hidden on mobile */
-    gap: 32px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: #0F172A;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--brand-purple);
-}
-
-/* Actions */
+/* --- THE ACTIONS (LOGIN & POST) --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
+/* Updated Login Button with Light Purple Box */
 .btn-login {
-    background: transparent;
-    border: none;
+    background: rgba(115, 17, 212, 0.1); /* Light Purple Tint */
+    color: #7311D4;
+    border: 1px solid rgba(115, 17, 212, 0.2);
+    padding: 8px 16px;
+    border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #0F172A;
+    font-size: 13px;
     cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background: rgba(115, 17, 212, 0.15);
 }
 
 .btn-primary-nav {
-    background: var(--brand-purple);
+    background: #7311D4;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 9px 18px; /* Slightly larger than login for hierarchy */
+    border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    font-size: 13px;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(115, 17, 212, 0.2);
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(115, 17, 212, 0.2);
+}
+
+/* --- MOBILE SPECIFICS --- */
+@media (max-width: 1023px) {
+    /* Hide the text on mobile if it gets too tight, or keep it concise */
+    .btn-login, .btn-primary-nav {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* THE SIDE DRAWER */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 30px;
+        gap: 25px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+        z-index: 10000;
+    }
+
+    .nav-menu.mobile-active {
+        right: 0;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #0F172A;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 10px;
+    }
+}
+
+/* --- DESKTOP VIEW --- */
+@media (min-width: 1024px) {
+    .nav-container { padding: 0 50px; } /* Wider padding for desktop */
+    .nav-menu { display: flex; gap: 32px; }
+    .mobile-toggle { display: none; }
 }
 
 .mobile-toggle {
@@ -86,12 +121,8 @@
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--brand-purple);
+    color: #7311D4;
     cursor: pointer;
-}
-
-/* Desktop Visibility */
-@media (min-width: 1024px) {
-    .nav-menu { display: flex; }
-    .mobile-toggle { display: none; }
+    padding: 0;
+    margin-left: 5px;
 }

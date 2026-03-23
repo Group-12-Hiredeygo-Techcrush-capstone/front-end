@@ -31,7 +31,7 @@ const Footer = {
                                 <img src="images/share.png" alt="Web" class="social-icon-img">
                             </a>
                             <a href="#" class="social-link-circle" title="Contact">
-                                <img src="images/send.png" alt="Contact" class="social-icon-img">
+                                <img src="images/shared.png" alt="Contact" class="social-icon-img">
                             </a>
                             <a href="#" class="social-link-circle" title="Twitter">
                                 <img src="images/twitter.svg" alt="Twitter" class="social-icon-img">
@@ -74,7 +74,7 @@ const Footer = {
 
                 <div class="footer-bottom-border">
                     <div class="footer-copyright-box">
-                        <p class="footer-copyright-text">© 2026 Jobpilot Inc. All rights reserved.</p>
+                        <p class="footer-copyright-text">© 2026 HireDeyGo. All rights reserved.</p>
                     </div>
                     <div class="footer-bottom-links">
                         <a href="#" class="footer-bottom-link">Terms of Service</a>
