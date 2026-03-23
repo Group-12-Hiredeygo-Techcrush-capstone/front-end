@@ -64,24 +64,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
             console.log("Full Server Response:", result);
 
-            if (response.ok) {
-                // Check all possible token locations in the response object
-                const authToken = result.token || 
-                                 (result.data && result.data.token) || 
-                                 result.accessToken || 
-                                 (result.data && result.data.accessToken) ||
-                                 result.access_token;
-                
-                if (authToken) {
-                    localStorage.setItem("token", authToken);
-                    alert("Email verified successfully!");
-                    window.location.href = "profilesetup1.html"; 
-                } else {
-                    console.error("Token missing in response object:", result);
-                    alert("Verification successful, but session token is missing. Redirecting to login.");
-                    window.location.href = "index.html"; 
-                }
-            } else {
+           if (response.ok) {
+    const authToken = result.token || (result.data && result.data.token);
+
+    if (authToken) {
+        localStorage.setItem("token", authToken);
+    }
+
+    // No alert, no check—just go to the next step
+    alert("Email verified successfully!");
+    window.location.href = "profilesetup1.html"; 
+} else {
                 // Shows the backend's specific error message (e.g., "OTP expired")
                 alert(result.message || "OTP verification failed. Please check the code.");
             }
