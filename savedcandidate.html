@@ -3,127 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>saved candidate</title>
+    <title>HireDeyGo | Saved Candidates</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="/images/Background.png">
-    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="icon" href="images/Background.png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS -->
+    <link rel="stylesheet" href="css/global-nav.css">
     <link rel="stylesheet" href="css/savedcandidate.css">
 
-    <!-- JS -->
+    <script src="js/global-nav.js" defer></script>
     <script src="js/savedcandidate.js" defer></script>
 </head>
 <body>
     <main>
-        <header class="header-container">
-            <nav class="nav-bar">
-                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Find Candidates</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">My Jobs</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Customer Support</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="logo">
-        <img src="/images/hiredeygologo.png" alt="">
-            <div class="postajob-container">
-                <i class="bx bx-bell"></i>
-                <button class="postajob-btn">Post A job</button>
-                <i class="bx bx-user-circle"></i>
-                <i class="bx bx-chevron-down"></i>
-            </div>
-        </div>
+        <header class="header-container" id="global-header"></header>
+        <div class="logo" id="global-logo-bar"></div>
+
         <section class="main-container">      
-            <aside class="side-bar">
-                <div class="employer-title">
-                    <h2>Employers Dashboard</h2>
-                </div>
-                <div class="text-container">
-                    <div class="text-input">
-                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
-                        <a href="/html/recruitersdashboard.html">Overveiw</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/profile.svg" class="text-icon" alt="">
-                        <a href="/html/employersprofile.html" target="_blank">Employers Profile</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/gg_add.svg" class="text-icon" alt="">
-                        <a href="html/postajob.html">Post a Job</a>
-                    </div>
-                
-                    <div class="text-input">
-                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
-                        <a href="#">My Jobs</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon" alt="">
-                        <a href="/html/candidateranking.html">Candidate Ranking</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/material-symbols_bookmark-outline.svg" class="text-icon" alt="">
-                        <a href="#">Saved Candidate</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/streamline-flex_bill-4.svg" class="text-icon" alt="">
-                        <a href="#">Plans and Billings</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/overveiw-icon.svg" class="text-icon" alt="">
-                        <a href="#">All companies</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/settings.svg" class="text-icon" alt="">
-                        <a href="#">Settings</a>
-                    </div>
-                </div>
-            </aside>
+            <aside class="side-bar" id="global-sidebar"></aside>
 
             <div class="container2">
                 <div class="inner-container">
-                    <div class="container">
-
-                    <!-- Top Controls -->
                     <div class="top-bar">
-                        <input type="text" placeholder="Search candidates" />
+                        <input type="text" id="candidateSearch" placeholder="Search candidates..." />
                         <button class="filter-btn">Filters</button>
-                        <select>
-                        <option>Newest</option>
-                        <option>Oldest</option>
+                        <select id="sortSelect">
+                            <option>Newest</option>
+                            <option>Oldest</option>
                         </select>
                     </div>
 
-                    <!-- UI/UX -->
-                    <h1>UI/UX Designers</h1>
-                    <p class="subtitle">Review and manage all candidate applications across your job posts</p>
+                    <div class="section-title">
+                        <h1>UI/UX Designers</h1>
+                        <p class="subtitle">Review and manage all candidate applications across your job posts</p>
+                    </div>
                     <div id="uiux" class="grid"></div>
 
-                    <!-- Mobile Dev -->
-                    <h1>Mobile Developers</h1>
+                    <div class="section-title" style="margin-top: 5rem;">
+                        <h1>Mobile Developers</h1>
+                    </div>
                     <div id="mobile" class="grid"></div>
                 </div>
             </div>
         </section>
-
     </main>
 </body>
 </html>
-
-                    

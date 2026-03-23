@@ -79,6 +79,18 @@
                     <div class="container">
                         <h1>Post a New Job</h1>
                         <p class="subtitle">Fill the details below to post your job</p>
+
+
+<div class="company-id-badge">
+    <div class="badge-content">
+        <i class='bx bxs-badge-check'></i>
+        <div>
+            <label>Linked Company ID</label>
+            <input type="text" id="debug-company-id" readonly placeholder="Linking to profile...">
+        </div>
+    </div>
+    <small>This job will be posted under your verified recruiter profile.</small>
+</div>
                         
                         <h3>BASIC INFORMATION</h3>
                         <div class="form1">
@@ -140,49 +152,52 @@
                         <hr class="section-divider">
 
                         <h2>Advanced Information</h2>
-                        <div class="form4">
-                            <div>
-                                <label for="educationLevel">Education <span class="aestherisk">*</span></label>
-                                <select id="educationLevel" required>
-                                    <option value="BSC">B.Sc / B.Eng</option>
-                                    <option value="MSC">M.Sc / Masters</option>
-                                    <option value="PHD">PhD</option>
-                                    <option value="HND">HND</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="experienceLevel">Experience Level <span class="aestherisk">*</span></label>
-                                <select id="experienceLevel" required>
-                                    <option value="ENTRY">Entry Level</option>
-                                    <option value="MID">Mid Level</option>
-                                    <option value="SENIOR">Senior Level</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="experienceYears">Exp. Years (e.g. 3-5)</label>
-                                <input type="text" id="experienceYears" placeholder="3-5" />
-                            </div>
-                        </div>
-
-                        <div class="form4">
-                            <div>
-                                <label for="type">Job Type <span class="aestherisk">*</span></label>
-                                <select id="type" required>
-                                    <option value="FULL_TIME">Full-time</option>
-                                    <option value="PART_TIME">Part-time</option>
-                                    <option value="HYBRID">Hybrid</option>
-                                    <option value="REMOTE">Remote</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="vacancies">Vacancies <span class="aestherisk">*</span></label>
-                                <input type="number" id="vacancies" placeholder="3" min="1" required />
-                            </div>
-                            <div>
-                                <label for="deadline">Deadline <span class="aestherisk">*</span></label>
-                                <input type="date" id="deadline" required />
-                            </div>
-                        </div>
+<div class="form4">
+    <div>
+        <label for="educationLevel">Education <span class="aestherisk">*</span></label>
+        <select id="educationLevel" required>
+            <option value="BSC">B.Sc / B.Eng</option>
+            <option value="MSC">M.Sc / Masters</option>
+            <option value="PHD">PhD</option>
+            <option value="HND">HND</option>
+        </select>
+    </div>
+    <div>
+        <label for="experienceLevel">Experience Level <span class="aestherisk">*</span></label>
+        <select id="experienceLevel" required>
+            <option value="ENTRY">Entry Level</option>
+            <option value="MID">Mid Level</option>
+            <option value="SENIOR">Senior Level</option>
+        </select>
+    </div>
+    <div>
+        <label for="experienceYears">Experience Years</label>
+        <select id="experienceYears">
+            <option value="0-2">0 - 2 Years</option>
+            <option value="3-5" selected>3 - 5 Years</option>
+            <option value="5-10">5 - 10 Years</option>
+            <option value="10+">10+ Years</option>
+        </select>
+    </div>
+</div> <div class="form4" style="margin-top: 26px;">
+    <div>
+        <label for="type">Job Type <span class="aestherisk">*</span></label>
+        <select id="type" required>
+            <option value="FULL_TIME">Full-time</option>
+            <option value="PART_TIME">Part-time</option>
+            <option value="HYBRID">Hybrid</option>
+            <option value="REMOTE">Remote</option>
+        </select>
+    </div>
+    <div>
+        <label for="vacancies">Vacancies <span class="aestherisk">*</span></label>
+        <input type="number" id="vacancies" placeholder="3" min="1" required />
+    </div>
+    <div>
+        <label for="deadline">Deadline <span class="aestherisk">*</span></label>
+        <input type="date" id="deadline" required />
+    </div>
+</div>
 
                         <hr class="section-divider">
 

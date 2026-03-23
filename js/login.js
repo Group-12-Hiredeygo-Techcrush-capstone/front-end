@@ -5,84 +5,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("message");
     const spinner = document.getElementById("spinner");
     const submitBtn = document.getElementById("submitBtn");
-    const eyeIcon = document.querySelector(".ph-eye");
 
-    // Password Visibility Toggle
-    if (eyeIcon) {
-        eyeIcon.addEventListener("click", () => {
-            const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-            passwordInput.setAttribute("type", type);
-            eyeIcon.classList.toggle("ph-eye-slash");
-        });
-    }
-
-    // Login Form Submission
     loginForm.addEventListener("submit", async function (e) {
         e.preventDefault();
         
         const email = emailInput.value.trim();
         const password = passwordInput.value;
-        const rememberMe = document.getElementById("remember").checked;
+        const rememberMe = document.getElementById("remember")?.checked;
 
-        message.textContent = "";
-
-        if (!email || !password) {
-            message.textContent = "Please enter your email and password.";
-            message.style.color = "#e74c3c";
-            return;
-        }
-
-        // Show spinner & disable button
         if (spinner) spinner.classList.remove("hidden");
         submitBtn.disabled = true;
-        submitBtn.textContent = "Signing in...";
 
         try {
-            const response = await fetch(
-                "https://hire-dey-go-be.onrender.com/api/v1/auth/login",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email, password }),
-                }
-            );
+            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password }),
+            });
 
-            const data = await response.json();
+            const result = await response.json();
 
             if (!response.ok) {
-                const errorMessage = data?.message || data?.error || "Login failed. Please check your credentials.";
-                throw new Error(errorMessage);
+                throw new Error(result.message || "Invalid credentials.");
             }
 
-            // Success Logic
-            message.textContent = "Login successful. Redirecting...";
-            message.style.color = "#2ecc71";
+            // --- THE PLURAL FIX ---
+            // Your backend sends an object named 'tokens'
+            // We need the 'accessToken' inside of it.
+            const token = result.tokens?.accessToken || 
+                          result.token || 
+                          (result.data && (result.data.token || result.data.accessToken));
 
-            const storage = rememberMe ? localStorage : sessionStorage;
+            const user = result.data || result.user || {};
 
-            // Save Token
-            if (data?.token) {
-                storage.setItem("token", data.token);
+            if (token) {
+                // Save to BOTH to satisfy the Dashboard script
+                localStorage.setItem("token", token);
+                sessionStorage.setItem("token", token);
+                
+                // Save branding info
+                const name = user.companyName || user.name || user.firstName || "Recruiter";
+                localStorage.setItem("userName", name);
+                localStorage.setItem("companyProfile_Full", JSON.stringify(user));
+
+                message.textContent = "Login successful! Redirecting...";
+                message.style.color = "#2ecc71";
+
+                setTimeout(() => {
+                    window.location.href = "recruitersdashboard.html";
+                }, 800);
+            } else {
+                console.error("Token structure not found in:", result.tokens);
+                throw new Error("Login succeeded, but the security token is missing.");
             }
-
-            // Save User Name for "Recognition" on dashboard
-            // We check multiple possible paths from the backend
-            const nameToSave = data?.user?.companyName || data?.user?.name || "Recruiter";
-            storage.setItem("userName", nameToSave);
-
-            // Redirect after a short delay
-            setTimeout(() => {
-                window.location.href = "recruitersdashboard.html";
-            }, 1000);
 
         } catch (err) {
             console.error("Login Error:", err);
-            message.textContent = err.message;
-            message.style.color = "#e74c3c";
+            if (message) {
+                message.textContent = err.message;
+                message.style.color = "#e74c3c";
+            }
         } finally {
             if (spinner) spinner.classList.add("hidden");
             submitBtn.disabled = false;
-            submitBtn.textContent = "Sign in to workspace";
         }
     });
 });

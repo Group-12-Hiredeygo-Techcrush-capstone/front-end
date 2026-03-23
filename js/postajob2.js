@@ -1,191 +1,186 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.querySelector('.submit-btn');
+    const debugBox = document.getElementById('debug-company-id');
     const questionsWrapper = document.getElementById('questions-wrapper');
     const addQuestionBtn = document.getElementById('add-question-btn');
-    const submitBtn = document.querySelector('.submit-btn');
-    const applyMethodRadios = document.querySelectorAll('input[name="applyMethod"]');
+    
+    const getVal = (id) => document.getElementById(id)?.value.trim() || "";
 
-    // --- 1. UI LOGIC: Toggle Benefit Buttons ---
-    document.querySelector('.benefit-btn-box1').addEventListener('click', (e) => {
-        if (e.target.classList.contains('benefit-btn')) {
-            // Match the class used in your CSS (.active-benefit)
-            e.target.classList.toggle('active-benefit');
+    // --- 1. AUTOMATIC TAGGING & UI LOCK ---
+    const taggedCompanyId = localStorage.getItem("companyId");
+    const savedCompanyName = localStorage.getItem("company_name");
+
+    if (debugBox && taggedCompanyId) {
+        debugBox.value = taggedCompanyId;
+        debugBox.readOnly = true;
+        debugBox.style.backgroundColor = "#f1effc"; 
+        debugBox.style.cursor = "not-allowed";
+    }
+
+    // --- 2. JOB BENEFITS LOGIC (Multi-select) ---
+    const benefitButtons = document.querySelectorAll('.benefit-btn');
+    benefitButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active-benefit');
+        });
+    });
+
+    // --- 3. DYNAMIC ASSESSMENT QUESTIONS LOGIC ---
+    let questionCount = 1;
+
+    // Toggle MCQ Options Visibility
+    questionsWrapper.addEventListener('change', (e) => {
+        if (e.target.classList.contains('answer-type')) {
+            const card = e.target.closest('.question-card');
+            const mcqContainer = card.querySelector('.mcq-options-container');
+            if (e.target.value === 'MCQ') {
+                mcqContainer.style.display = 'block';
+            } else {
+                mcqContainer.style.display = 'none';
+            }
         }
     });
 
-    // --- 2. UI LOGIC: Toggle Apply Method Inputs ---
-    applyMethodRadios.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            const emailBox = document.getElementById('email-apply-container');
-            const urlBox = document.getElementById('external-apply-container');
-            
-            emailBox.style.display = e.target.value === 'Email' ? 'block' : 'none';
-            urlBox.style.display = e.target.value === 'External' ? 'block' : 'none';
-        });
+    // Remove Question
+    questionsWrapper.addEventListener('click', (e) => {
+        if (e.target.closest('.remove-btn')) {
+            const card = e.target.closest('.question-card');
+            if (document.querySelectorAll('.question-card').length > 1) {
+                card.remove();
+                reindexQuestions();
+            } else {
+                alert("You must have at least one question.");
+            }
+        }
     });
 
-    // --- 3. UI LOGIC: Dynamic Question Cards ---
-    const renumberQuestions = () => {
-        const cards = questionsWrapper.querySelectorAll('.question-card');
-        cards.forEach((card, index) => {
-            card.querySelector('h3').innerText = `Question ${index + 1}`;
-        });
-    };
-
-    const createQuestionCard = () => {
-        const count = questionsWrapper.children.length + 1;
-        const card = document.createElement('div');
-        card.className = 'question-card';
-        card.innerHTML = `
-            <div class="card-header">
-                <h3>Question ${count}</h3>
+    // Add New Question Template
+    addQuestionBtn.addEventListener('click', () => {
+        questionCount++;
+        const newCard = document.createElement('div');
+        newCard.className = 'question-card';
+        newCard.innerHTML = `
+            <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>Question ${questionCount}</h3>
                 <div class="points-box">
                     <label>Points:</label>
-                    <input type="number" class="q-points" value="5" min="1" style="width: 60px;">
+                    <input type="number" class="q-points" value="5" min="1" style="width: 50px;">
                 </div>
-                <button type="button" class="remove-btn">×</button>
+                <button type="button" class="remove-btn"><i class='bx bx-x'></i></button>
             </div>
-            
-            <input type="text" placeholder="Type your question here" class="question-input" required>
-            
+            <input type="text" placeholder="e.g. What is the output of 2 + 2?" class="question-input" required>
             <div class="mcq-options-container" style="display: none; margin-top: 15px;">
                 <label>Options (Comma separated):</label>
-                <input type="text" class="q-options-input" placeholder="e.g. React, Vue, Angular">
+                <input type="text" class="q-options-input" placeholder="e.g. Option A, Option B, Option C">
             </div>
-
             <div class="answer-logic-area" style="margin-top: 15px;">
                 <label>Correct Answer:</label>
                 <input type="text" placeholder="The exact correct response" class="q-correct-answer" required>
             </div>
-
             <div class="card-footer" style="margin-top: 15px;">
                 <div class="dropdown-group">
                     <label>Type:</label>
                     <select class="answer-type">
-                        <option value="TEXT" selected>Short Answer</option>
+                        <option value="TEXT" selected>Short Text</option>
                         <option value="MCQ">Multiple Choice (MCQ)</option>
                     </select>
                 </div>
             </div>
         `;
-        return card;
-    };
-
-    addQuestionBtn.addEventListener('click', () => {
-        questionsWrapper.appendChild(createQuestionCard());
+        questionsWrapper.appendChild(newCard);
     });
 
-    questionsWrapper.addEventListener('click', (e) => {
-        if (e.target.classList.contains('remove-btn')) {
-            e.target.closest('.question-card').remove();
-            renumberQuestions();
-        }
-    });
+    function reindexQuestions() {
+        const titles = questionsWrapper.querySelectorAll('h3');
+        titles.forEach((title, index) => {
+            title.innerText = `Question ${index + 1}`;
+        });
+        questionCount = titles.length;
+    }
 
-    questionsWrapper.addEventListener('change', (e) => {
-        if (e.target.classList.contains('answer-type')) {
-            const card = e.target.closest('.question-card');
-            const optionsArea = card.querySelector('.mcq-options-container');
-            optionsArea.style.display = e.target.value === 'MCQ' ? 'block' : 'none';
-        }
-    });
-
-    // --- 4. API LOGIC: Sequential Submission ---
+    // --- 4. SUBMIT & DATA COLLECTION ---
     submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-        
-        // Basic Validation Check
-        const titleInput = document.getElementById('title').value;
-        if (!titleInput) {
-            alert("Please provide a Job Title.");
+
+        const token = localStorage.getItem("token") || sessionStorage.getItem("token");
+        const companyId = taggedCompanyId || getVal('debug-company-id');
+
+        if (!token || !companyId) {
+            alert("Verification failed. Please ensure you are logged in and company profile is ready.");
             return;
         }
+
+        // Collect Selected Benefits
+        const selectedBenefits = Array.from(document.querySelectorAll('.benefit-btn.active-benefit'))
+                                      .map(btn => btn.innerText);
+
+        // Collect Assessment Data
+        const questions = Array.from(document.querySelectorAll('.question-card')).map(card => {
+            return {
+                questionText: card.querySelector('.question-input').value,
+                type: card.querySelector('.answer-type').value,
+                points: parseInt(card.querySelector('.q-points').value),
+                correctAnswer: card.querySelector('.q-correct-answer').value,
+                options: card.querySelector('.answer-type').value === 'MCQ' 
+                         ? card.querySelector('.q-options-input').value.split(',').map(o => o.trim()) 
+                         : []
+            };
+        });
 
         submitBtn.disabled = true;
         submitBtn.innerText = "Publishing Job...";
 
         try {
-            // STEP A: Prepare Job Data
             const jobPayload = {
-                companyId: "64f1a2b3c4d5e6f7a8b9c0d1", // Dynamic ID should be injected here
-                title: titleInput,
-                jobRole: titleInput,
-                companyName: document.getElementById('companyName').value,
-                category: document.getElementById('category').value,
-                tags: document.getElementById('tags').value.split(',').map(t => t.trim()).filter(t => t !== ""),
-                description: document.getElementById('description').value,
-                requirements: document.getElementById('requirements').value,
-                responsibilities: document.getElementById('responsibilities').value,
-                // Match the updated .active-benefit class
-                benefits: Array.from(document.querySelectorAll('.benefit-btn.active-benefit')).map(btn => btn.innerText).join(', '),
-                requiredSkills: document.getElementById('requiredSkills').value.split(',').map(s => s.trim()).filter(s => s !== ""),
-                type: document.getElementById('type').value,
-                experienceLevel: document.getElementById('experienceLevel').value,
-                experienceYears: document.getElementById('experienceYears').value,
-                educationLevel: document.getElementById('educationLevel').value,
-                vacancies: parseInt(document.getElementById('vacancies').value) || 1,
-                salaryMin: parseInt(document.getElementById('salaryMin').value) || 0,
-                salaryMax: parseInt(document.getElementById('salaryMax').value) || 0,
-                salaryType: document.getElementById('salaryType').value,
-                currency: "NGN",
-                isSalaryNegotiable: document.getElementById('isSalaryNegotiable').value === 'true',
-                country: document.getElementById('country').value,
-                city: document.getElementById('city').value,
-                location: document.getElementById('location').value,
-                isRemote: document.getElementById('type').value === 'REMOTE',
-                deadline: document.getElementById('deadline').value,
+                companyId: companyId,
+                title: getVal('title'),
+                jobRole: getVal('title'),
+                companyName: savedCompanyName || getVal('companyName'),
+                category: getVal('category'),
+                tags: getVal('tags').split(',').map(t => t.trim()),
+                description: getVal('description'),
+                requirements: getVal('requirements'),
+                responsibilities: getVal('responsibilities'),
+                benefits: selectedBenefits.join(', '), 
+                requiredSkills: getVal('requiredSkills').split(',').map(s => s.trim()),
+                type: getVal('type'),
+                experienceLevel: getVal('experienceLevel'),
+                experienceYears: getVal('experienceYears'),
+                educationLevel: getVal('educationLevel'),
+                vacancies: parseInt(getVal('vacancies')),
+                salaryMin: parseInt(getVal('salaryMin')),
+                salaryMax: parseInt(getVal('salaryMax')),
+                salaryType: getVal('salaryType'),
+                isSalaryNegotiable: getVal('isSalaryNegotiable') === "true",
+                country: getVal('country'),
+                city: getVal('city'),
+                location: getVal('location'),
+                deadline: getVal('deadline'),
+                assessment: {
+                    timeLimit: parseInt(getVal('timeLimit')),
+                    questions: questions
+                },
                 status: "ACTIVE"
             };
 
-            // CALL 1: POST JOB
-            const jobResponse = await fetch('https://hire-dey-go-be.onrender.com/api/v1/jobs', {
+            const response = await fetch('https://hire-dey-go-be.onrender.com/api/v1/jobs', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(jobPayload)
             });
 
-            const jobResult = await jobResponse.json();
-            if (!jobResponse.ok) throw new Error(jobResult.message || "Failed to create job");
-
-            const jobId = jobResult.data?._id || jobResult.id || jobResult._id;
-            submitBtn.innerText = "Creating Assessment...";
-
-            // STEP B: Prepare Assessment Data
-            const assessmentPayload = {
-                title: `${jobPayload.title} Assessment`,
-                description: `Technical test for the ${jobPayload.title} role at ${jobPayload.companyName}`,
-                skills: jobPayload.requiredSkills,
-                timeLimit: parseInt(document.getElementById('timeLimit').value) || 30,
-                jobId: jobId,
-                questions: Array.from(document.querySelectorAll('.question-card')).map(card => {
-                    const type = card.querySelector('.answer-type').value;
-                    return {
-                        questionText: card.querySelector('.question-input').value,
-                        type: type,
-                        options: type === 'MCQ' ? card.querySelector('.q-options-input').value.split(',').map(o => o.trim()).filter(o => o !== "") : [],
-                        correctAnswer: card.querySelector('.q-correct-answer').value,
-                        points: parseInt(card.querySelector('.q-points').value) || 5
-                    };
-                })
-            };
-
-            // CALL 2: POST ASSESSMENT
-            const assessResponse = await fetch('https://hire-dey-go-be.onrender.com/api/v1/assessments', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(assessmentPayload)
-            });
-
-            if (assessResponse.ok) {
-                alert("Success! Job and Assessment have been published.");
-                window.location.href = "/dashboard";
+            if (response.ok) {
+                alert("Job successfully published!");
+                window.location.href = "recruitersdashboard.html";
             } else {
-                const assessError = await assessResponse.json();
-                throw new Error(assessError.message || "Job posted, but Assessment creation failed.");
+                const result = await response.json();
+                alert("Error: " + (result.message || "Failed to post job."));
             }
-
         } catch (error) {
-            console.error("Submission Error:", error);
-            alert("Error: " + error.message);
+            alert("Network error. Please try again later.");
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerText = "Publish Job";

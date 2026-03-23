@@ -18,6 +18,7 @@
     display: flex;
     gap: 3rem;
     margin-top: 3rem;
+    flex-wrap: wrap;
 }
 
 .open-jobs, .saved-candidates {
@@ -66,13 +67,17 @@
     flex-direction: column;
     gap: 1.2rem;
     width: 95%;
+    overflow-x: auto; /* Ensures table is scrollable on very small screens */
 }
 
+/* THE FIX: Unified grid for both Labels and Row Content */
 .job-posting-box1, .job-posting-box {
     display: grid;
-    grid-template-columns: 2.5fr 1fr 1.5fr 1.2fr;
+    /* This ensures "Jobs", "Status", "Applications", and "Actions" stay in their lanes */
+    grid-template-columns: 2.5fr 1fr 1.5fr 1.5fr; 
     align-items: center;
     padding: 1.5rem 2rem;
+    min-width: 800px; /* Prevents columns from squishing on tablet */
 }
 
 .job-posting-box1 {
@@ -157,4 +162,21 @@
 .popup-btn:hover {
     background-color: #f8fafc;
     color: #7F13EC;
+}
+
+/* 5. RESPONSIVENESS */
+@media (max-width: 768px) {
+    .dashboard-box {
+        justify-content: center;
+    }
+    
+    .open-jobs, .saved-candidates {
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    /* On mobile, we let the container scroll horizontally to keep the table structure */
+    .job-posting-container {
+        padding-bottom: 1rem;
+    }
 }

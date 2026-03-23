@@ -44,10 +44,11 @@ const navigationData = {
                 <img src="images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon">
                 <a href="candidateranking.html">Candidate Ranking</a>
             </div>
-            <div class="text-input" data-page="savedcandidates.html">
-                <img src="images/material-symbols_bookmark-outline.svg" class="text-icon">
-                <a href="#">Saved Candidate</a>
-            </div>
+
+<div class="text-input" data-page="savedcandidate.html">
+    <img src="images/material-symbols_bookmark-outline.svg" class="text-icon">
+    <a href="savedcandidate.html">Saved Candidate</a> 
+</div>
             <div class="text-input" data-page="plans&billing.html">
                 <img src="images/streamline-flex_bill-4.svg" class="text-icon">
                 <a href="plans&billing.html">Plans and Billings</a>

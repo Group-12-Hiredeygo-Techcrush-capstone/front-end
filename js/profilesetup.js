@@ -1,164 +1,153 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- SHARED UTILITIES ---
-    const saveBtn = document.querySelector(".save");
-    const prevBtn = document.querySelector(".previous");
-    const token = localStorage.getItem("auth_token");
+    const saveBtn = document.querySelector(".save") || document.querySelector(".finish");
+    const token = localStorage.getItem("token");
 
-    // --- STEP 1: COMPANY INFO LOGIC ---
-    if (document.title.includes("Profile Setup 1")) {
-        const logoInput = document.getElementById("logoInput");
-        const uploadBtn = document.getElementById("uploadBtn");
-        const fileNameDisplay = document.getElementById("fileName");
-        const logoPreview = document.querySelector(".logo-box img");
-        const errorMsg = document.getElementById("errorMsg");
+    // --- SHARED UTILITY: Update the draft ---
+    const updateDraft = (newData) => {
+        let draft = JSON.parse(localStorage.getItem("companyProfile_Draft")) || {};
+        draft = { ...draft, ...newData };
+        localStorage.setItem("companyProfile_Draft", JSON.stringify(draft));
+    };
 
-        // Add Remove Logo logic
-        let removeBtn = document.getElementById("removeLogo");
-        if (!removeBtn) {
-            removeBtn = document.createElement("p");
-            removeBtn.id = "removeLogo";
-            removeBtn.innerText = "Remove Logo";
-            removeBtn.style = "color: #e74c3c; cursor: pointer; font-size: 12px; margin-top: 5px; display: none;";
-            fileNameDisplay.after(removeBtn);
+    // --- PAGE 1: COMPANY INFO ---
+    if (document.title.includes("Setup 1")) {
+        const logoInput = document.getElementById('logoInput');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const logoPreview = document.getElementById('logoPreview');
+        const fileNameDisplay = document.getElementById('fileName');
+        
+        const cacInput = document.getElementById('cacInput');
+        const cacBtn = document.getElementById('cacBtn');
+        const cacFileNameDisplay = document.getElementById('cacFileName');
+
+        // 1. Handle Logo Upload Trigger & Preview
+        if (uploadBtn) {
+            uploadBtn.addEventListener('click', () => logoInput.click());
         }
 
-        // Bridge: Pull name from Registration
-        const companyNameInput = document.querySelector('.left input[type="text"]:nth-of-type(1)');
-        const registeredName = localStorage.getItem("company_name");
-        if (registeredName && companyNameInput) {
-            companyNameInput.value = registeredName;
-        }
+        logoInput?.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                fileNameDisplay.textContent = `Selected: ${file.name}`;
 
-        // Logo Upload Functionality
-        if (uploadBtn && logoInput) {
-            uploadBtn.addEventListener("click", (e) => { e.preventDefault(); logoInput.click(); });
-            
-            logoInput.addEventListener("change", () => {
-                const file = logoInput.files[0];
-                if (file) {
-                    if (file.size > 2 * 1024 * 1024) {
-                        errorMsg.textContent = "Logo must not be more than 2MB";
-                        return;
-                    }
-                    errorMsg.textContent = "";
-                    fileNameDisplay.textContent = file.name;
-                    removeBtn.style.display = "block";
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    logoPreview.src = e.target.result;
+                    // Optional: Save base64 to draft if you want it to persist during setup
+                    updateDraft({ logoBase64: e.target.result });
+                };
+                reader.readAsDataURL(file);
+            }
+        });
 
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        logoPreview.src = e.target.result;
-                        localStorage.setItem("temp_logo_base64", e.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-
-        // Remove Logo Action
-        removeBtn.onclick = () => {
-            logoInput.value = "";
-            logoPreview.src = "/images/companylogo.png";
-            fileNameDisplay.textContent = "";
-            removeBtn.style.display = "none";
-            localStorage.removeItem("temp_logo_base64");
-        };
-
-        // CAC/Certificate Logic
-        const cacBtn = document.querySelector(".browse");
-        const cacStatusText = document.querySelector(".file-upload p");
-        const cacInput = document.createElement("input");
-        cacInput.type = "file";
-        cacInput.accept = ".pdf,.doc,.docx";
-        cacInput.style.display = "none";
-        document.body.appendChild(cacInput);
-
+        // 2. Handle CAC Upload Trigger
         if (cacBtn) {
-            cacBtn.addEventListener("click", (e) => { e.preventDefault(); cacInput.click(); });
-            cacInput.addEventListener("change", () => {
-                const file = cacInput.files[0];
-                if (file) {
-                    cacStatusText.textContent = `Selected: ${file.name}`;
-                    cacStatusText.style.color = "#10B981";
-                }
-            });
+            cacBtn.addEventListener('click', () => cacInput.click());
         }
 
-        // Save Step 1
-        if (saveBtn) {
-            saveBtn.addEventListener("click", async (e) => {
-                e.preventDefault();
-                const inputs = document.querySelectorAll('.left input, .left select, .right select, .right textarea');
-                const data = {
-                    companyName: inputs[0]?.value,
-                    industry: inputs[1]?.value,
-                    website: inputs[2]?.value,
-                    headquarters: inputs[3]?.value,
-                    companySize: inputs[4]?.value,
-                    aboutCompany: inputs[5]?.value,
-                    logo: localStorage.getItem("temp_logo_base64") || ""
-                };
-                await handleDataSave(data, "profilesetup2.html");
-            });
-        }
-    }
+        cacInput?.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                cacFileNameDisplay.textContent = `✔ ${this.files[0].name} uploaded`;
+            }
+        });
 
-    // --- STEP 2: FOUNDING INFO LOGIC ---
-    if (document.title.includes("Profile Setup 2")) {
-        const orgType = document.getElementById('orgType');
-        const industryType = document.getElementById('industryType');
-        const teamSize = document.getElementById('teamSize');
-        const estDate = document.getElementById('estDate');
-        const website = document.getElementById('compWebsite');
-        const visionTextArea = document.getElementById('compVision');
+        // 3. Auto-fill name if we have it from registration
+        const savedName = localStorage.getItem("company_name");
+        if (savedName) document.getElementById('companyName').value = savedName;
 
-        if (saveBtn) {
-            saveBtn.addEventListener("click", async (e) => {
-                e.preventDefault();
-                const step2Data = {
-                    organizationType: orgType?.value,
-                    industryType: industryType?.value,
-                    teamSize: teamSize?.value,
-                    establishedDate: estDate?.value,
-                    secondaryWebsite: website?.value,
-                    aboutCompany: visionTextArea?.value
-                };
-                await handleDataSave(step2Data, "profilesetup3.html");
-            });
-        }
-    }
-
-    // --- UNIVERSAL SAVE FUNCTION ---
-    async function handleDataSave(newData, nextUrl) {
-        saveBtn.textContent = "Saving...";
-        saveBtn.disabled = true;
-
-        let fullProfile = JSON.parse(localStorage.getItem("companyProfile_Full")) || {};
-        fullProfile = { ...fullProfile, ...newData };
-        localStorage.setItem("companyProfile_Full", JSON.stringify(fullProfile));
-
-        try {
-            const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/profile/setup", {
-                method: "POST",
-                headers: { 
-                    "Content-Type": "application/json", 
-                    "Authorization": `Bearer ${token}` 
-                },
-                body: JSON.stringify(fullProfile)
-            });
-            
-            if (response.ok) console.log("Cloud Sync Successful");
-        } catch (err) {
-            console.warn("Offline: Progress saved locally.");
-        }
-
-        setTimeout(() => { window.location.href = nextUrl; }, 800);
-    }
-
-    // Navigation back
-    if (prevBtn) {
-        prevBtn.addEventListener("click", (e) => {
+        saveBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            window.history.back();
+            updateDraft({
+                name: document.getElementById('companyName').value,
+                industry: document.getElementById('industry').value,
+                website: document.getElementById('website').value,
+                address: document.getElementById('address').value,
+                teamSize: document.getElementById('teamSize').value,
+                about: document.getElementById('about').value
+            });
+            window.location.href = "profilesetup2.html";
+        });
+    }
+
+    // --- PAGE 2: FOUNDING INFO ---
+    if (document.title.includes("Setup 2")) {
+        saveBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const dateVal = document.getElementById('estDate').value;
+            const yearNum = dateVal ? parseInt(dateVal.split('-')[0]) : 2026;
+
+            updateDraft({
+                organizationType: document.getElementById('orgType').value, 
+                yearEstablished: yearNum,
+                description: document.getElementById('compVision').value 
+            });
+            window.location.href = "profilesetup3.html";
+        });
+    }
+
+    // --- PAGE 3: SOCIAL MEDIA ---
+    if (document.title.includes("Setup 3")) {
+        saveBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const socialLinks = {
+                facebook: document.getElementById('fb-link').value || "string",
+                twitter: document.getElementById('tw-link').value || "string",
+                instagram: document.getElementById('ig-link').value || "string",
+                linkedin: document.getElementById('li-link').value || "string",
+                youtube: "string" 
+            };
+            updateDraft({ socialLinks });
+            window.location.href = "profilesetup4.html";
+        });
+    }
+
+    // --- PAGE 4: FINAL SUBMISSION & TAGGING ---
+    if (document.title.includes("Setup 4")) {
+        saveBtn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            
+            const contactInfo = {
+                location: document.getElementById('mapLocation').value || "Lagos, Nigeria",
+                phone: "+234" + document.getElementById('contactPhone').value,
+                workEmail: document.getElementById('contactEmail').value
+            };
+
+            const draft = JSON.parse(localStorage.getItem("companyProfile_Draft"));
+            const finalPayload = { ...draft, ...contactInfo };
+
+            // Remove temporary UI-only fields before sending to API
+            delete finalPayload.logoBase64; 
+
+            saveBtn.innerText = "Creating Profile...";
+            saveBtn.disabled = true;
+
+            try {
+                const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/companies", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify(finalPayload)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    const companyId = result.data?._id || result._id;
+                    localStorage.setItem("companyId", companyId); 
+                    localStorage.removeItem("companyProfile_Draft");
+                    window.location.href = "profilesetup5.html";
+                } else {
+                    alert("Error: " + (result.message || "Check your fields."));
+                    saveBtn.disabled = false;
+                    saveBtn.innerText = "Finish Setup →";
+                }
+            } catch (err) {
+                console.error("Submission error:", err);
+                alert("Server error. Please try again.");
+                saveBtn.disabled = false;
+            }
         });
     }
 });

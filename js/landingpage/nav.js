@@ -12,7 +12,6 @@ const Navbar = {
                 <nav class="nav-menu" id="navMenu">
                     <a href="index.html" class="nav-link active">Home</a>
                     <a href="#" class="nav-link">Find Jobs</a>
-                    <a href="#" class="nav-link">Candidates</a>
                     <a href="./dashboard/index.html" class="nav-link">Dashboard</a>
                 </nav>
 

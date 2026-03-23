@@ -238,6 +238,75 @@ select {
     transform: translateY(-1px);
 }
 
+
+/* 9. VERIFIED COMPANY BADGE (PRE-FILLED) */
+.company-id-badge {
+    background: #F1EFFC; /* Matches your active benefit/brand light purple */
+    border: 1px solid #7F13EC;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.badge-content i {
+    font-size: 2.4rem;
+    color: #7F13EC;
+}
+
+.badge-text-group {
+    flex: 1;
+}
+
+.badge-text-group label {
+    display: block;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #7F13EC;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+#debug-company-id {
+    background: transparent !important;
+    border: none !important;
+    font-family: monospace;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    width: 100%;
+    outline: none;
+    cursor: default;
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+.company-id-badge small {
+    display: block;
+    color: #505050;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-left: 39px; /* Aligns text under the ID, skipping the icon width */
+}
+
+/* State for when ID is missing/Error */
+.id-missing {
+    background: #FFF0F0;
+    border-color: #DD1F1F;
+}
+.id-missing i, .id-missing label {
+    color: #DD1F1F;
+}
+
 /* --- THE STICKY FOOTER & COMPLIANCE --- */
 .footer-workspace {
     width: 100%;
