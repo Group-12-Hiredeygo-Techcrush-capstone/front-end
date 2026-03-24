@@ -1,4 +1,4 @@
-/* registration.js */
+/* registration.js - Full Integrated Version (Token Capture Enabled) */
 document.getElementById("registerForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -11,7 +11,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     const message = document.getElementById("message");
     const submitBtn = document.getElementById("submitBtn");
 
-    message.textContent = "";
+    if (message) message.textContent = "";
     submitBtn.disabled = true;
     const originalBtnText = submitBtn.textContent;
     submitBtn.textContent = "Creating Account...";
@@ -31,17 +31,33 @@ document.getElementById("registerForm").addEventListener("submit", async functio
         const data = await response.json().catch(() => null);
 
         if (response.ok) {
+            // --- TOKEN CAPTURE FROM REGISTRATION ---
+            // Grabbing the token immediately as shown in your backend screenshot
+            const authToken = data?.tokens?.accessToken || 
+                              data?.token || 
+                              data?.data?.token;
+
+            if (authToken) {
+                // Save to both keys to ensure eClear Profile Setup can find it later
+                localStorage.setItem("token", authToken);
+                localStorage.setItem("HireDeyGo_UserPlanStarterauth_token", authToken);
+                console.log("✅ Registration token secured.");
+            }
+
             message.textContent = "Account created! Redirecting...";
             message.style.color = "#10B981";
+            
+            // Save basic info for UI branding
             localStorage.setItem("company_name", companyName);
+
             setTimeout(() => { 
                 window.location.href = `emailverification.html?email=${encodeURIComponent(email)}`; 
             }, 1500);
+
         } else {
             // LOG THE REAL ERROR MESSAGE FROM BACKEND
             console.error("BACKEND ERROR DATA:", data);
             
-            // If the backend sent a specific message, show it. Otherwise, generic fail.
             message.textContent = data?.message || "Internal Server Error (500). Please check console.";
             message.style.color = "#e74c3c";
             submitBtn.disabled = false;

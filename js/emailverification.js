@@ -1,4 +1,4 @@
-/* emailverification.js */
+/* emailverification.js - Full Integrated Version (Backend Structure Aligned) */
 document.addEventListener("DOMContentLoaded", () => {
     const otpInputs = document.querySelectorAll(".otp-inputs input");
     const verifyBtn = document.querySelector(".verify-btn");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 3. Verify OTP Logic
     verifyBtn.addEventListener("click", async () => {
-        // Using 'String' as the variable name and keeping it as text for the backend
+       
         const String = Array.from(otpInputs).map(i => i.value).join("");
 
         // Basic validation
@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                // Sending the value of 'String' (the 6 digits) as the 'otp' property
                 body: JSON.stringify({ 
                     email: email, 
                     otp: String 
@@ -64,18 +63,31 @@ document.addEventListener("DOMContentLoaded", () => {
             const result = await response.json();
             console.log("Full Server Response:", result);
 
-           if (response.ok) {
-    const authToken = result.token || (result.data && result.data.token);
+            if (response.ok) {
+                // --- BACKEND-ALIGNED TOKEN EXTRACTION ---
+                // Specifically checking the 'tokens.accessToken' path from backend view
+                const authToken = (result.tokens && result.tokens.accessToken) || 
+                                  result.token || 
+                                  (result.data && result.data.token) || 
+                                  (result.data && result.data.accessToken) ||
+                                  result.accessToken;
 
-    if (authToken) {
-        localStorage.setItem("token", authToken);
-    }
+                if (authToken) {
+                    // SAVE TO BOTH KEYS FOR COMPATIBILITY: 
+                    // 1. 'token' for dashboard/login scripts
+                    // 2. 'HireDeyGo_UserPlanStarterauth_token' for Setup scripts
+                    localStorage.setItem("HireDeyGo_UserPlanStarterauth_token", authToken);
+                    localStorage.setItem("token", authToken);
+                    
+                    console.log("✅ Token secured in all local storage keys.");
+                } else {
+                    console.warn("⚠️ Token missing in response. Manual login might be required for Setup.");
+                }
 
-    // No alert, no check—just go to the next step
-    alert("Email verified successfully!");
-    window.location.href = "profilesetup1.html"; 
-} else {
-                // Shows the backend's specific error message (e.g., "OTP expired")
+                alert("Email verified successfully!");
+                // Direct redirect to the first setup page
+                window.location.href = "profilesetup1.html"; 
+            } else {
                 alert(result.message || "OTP verification failed. Please check the code.");
             }
         } catch (error) {
@@ -88,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 4. RESEND OTP Logic
-    resendLink.addEventListener("click", async (e) => {
+    resendLink?.addEventListener("click", async (e) => {
         e.preventDefault();
         if (!email || email === "your email") return alert("Email missing.");
 

@@ -1,0 +1,152 @@
+/* success-page.css */
+:root {
+    --primary-black: #000000;
+    --success-green: #10B981;
+    --border-light: #e0e0e0;
+    --text-muted: #666666;
+}
+
+body.success-page {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header Styles */
+.main-header {
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logoframe { display: flex; align-items: center; gap: 10px; }
+.logo-span { color: var(--success-green); }
+
+.progress-bar {
+    width: 200px;
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill-100 {
+    width: 100%;
+    height: 100%;
+    background: var(--success-green);
+}
+
+/* Success Card Styles */
+.success-screen {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.success-card {
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Animated Checkmark */
+.check-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.check-circle {
+    width: 80px;
+    height: 80px;
+    background-color: var(--success-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+}
+
+.check-mark {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transform: rotate(45deg) scaleX(-1); /* Creates the check shape from 'L' */
+    margin-top: -5px;
+}
+
+.success-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-black);
+    margin: 0 0 15px 0;
+}
+
+.success-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Button Layout */
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background: var(--primary-black);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background: white;
+    color: var(--primary-black);
+    border: 2px solid var(--primary-black);
+}
+
+.secondary-btn:hover {
+    background: #f9f9f9;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+    .action-grid { grid-template-columns: 1fr; }
+    .header-content { flex-direction: column; gap: 20px; }
+}

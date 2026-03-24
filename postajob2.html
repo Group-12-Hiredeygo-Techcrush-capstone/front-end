@@ -18,6 +18,7 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            background-color: #FFFFFF;
         }
 
         /* Ensure the main container fills the available height */
@@ -30,36 +31,53 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            background-color: #f9f9f9; /* Or your specific background color */
+            background-color: #FFFFFF !important;
         }
 
         .inner-container {
             flex: 1;
             display: flex;
             flex-direction: column;
+            background-color: #FFFFFF !important;
         }
 
         .container {
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 40px; /* Adjust based on your design */
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 40px 80px;
+            max-width: 100% !important;
+            margin: 0;
             width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Naked Highlight Badge Theme */
+        .company-id-badge {
+            background: #FFFFFF !important;
+            border: 2px solid #000000 !important;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+        }
+
+        .company-id-badge i, 
+        .company-id-badge label {
+            color: #000000 !important;
         }
 
         /* The trick: push the footer to the bottom */
         .footer-workspace {
             margin-top: auto; 
-            padding-top: 60px; /* Space between the last content and footer */
-            padding-bottom: 20px;
+            padding: 60px 0 20px 0;
+            border-top: 1px solid #EEE;
         }
 
         .section-divider {
             margin: 40px 0;
             border: 0;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #000000;
+            opacity: 0.1;
         }
     </style>
 
@@ -80,17 +98,17 @@
                         <h1>Post a New Job</h1>
                         <p class="subtitle">Fill the details below to post your job</p>
 
-
-<div class="company-id-badge">
-    <div class="badge-content">
-        <i class='bx bxs-badge-check'></i>
-        <div>
-            <label>Linked Company ID</label>
-            <input type="text" id="debug-company-id" readonly placeholder="Linking to profile...">
-        </div>
-    </div>
-    <small>This job will be posted under your verified recruiter profile.</small>
-</div>
+                        <div class="company-id-badge">
+                            <div class="badge-content" style="display: flex; align-items: flex-start; gap: 15px;">
+                                <i class='bx bxs-badge-check' style="font-size: 2.4rem;"></i>
+                                <div class="input-group" style="flex: 1;">
+                                    <label for="company-id-input" style="font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Company ID (Manual Entry):</label>
+                                    <input type="text" id="company-id-input" placeholder="Enter Company ID e.g. 69c1af..." required 
+                                           style="border: none; border-bottom: 1px solid #000; border-radius: 0; padding: 8px 0; font-family: monospace; width: 100%;">
+                                    <small style="display: block; margin-top: 10px; color: #666; font-style: italic;">This job will be posted under your verified recruiter profile.</small>
+                                </div>
+                            </div>
+                        </div>
                         
                         <h3>BASIC INFORMATION</h3>
                         <div class="form1">
@@ -152,52 +170,53 @@
                         <hr class="section-divider">
 
                         <h2>Advanced Information</h2>
-<div class="form4">
-    <div>
-        <label for="educationLevel">Education <span class="aestherisk">*</span></label>
-        <select id="educationLevel" required>
-            <option value="BSC">B.Sc / B.Eng</option>
-            <option value="MSC">M.Sc / Masters</option>
-            <option value="PHD">PhD</option>
-            <option value="HND">HND</option>
-        </select>
-    </div>
-    <div>
-        <label for="experienceLevel">Experience Level <span class="aestherisk">*</span></label>
-        <select id="experienceLevel" required>
-            <option value="ENTRY">Entry Level</option>
-            <option value="MID">Mid Level</option>
-            <option value="SENIOR">Senior Level</option>
-        </select>
-    </div>
-    <div>
-        <label for="experienceYears">Experience Years</label>
-        <select id="experienceYears">
-            <option value="0-2">0 - 2 Years</option>
-            <option value="3-5" selected>3 - 5 Years</option>
-            <option value="5-10">5 - 10 Years</option>
-            <option value="10+">10+ Years</option>
-        </select>
-    </div>
-</div> <div class="form4" style="margin-top: 26px;">
-    <div>
-        <label for="type">Job Type <span class="aestherisk">*</span></label>
-        <select id="type" required>
-            <option value="FULL_TIME">Full-time</option>
-            <option value="PART_TIME">Part-time</option>
-            <option value="HYBRID">Hybrid</option>
-            <option value="REMOTE">Remote</option>
-        </select>
-    </div>
-    <div>
-        <label for="vacancies">Vacancies <span class="aestherisk">*</span></label>
-        <input type="number" id="vacancies" placeholder="3" min="1" required />
-    </div>
-    <div>
-        <label for="deadline">Deadline <span class="aestherisk">*</span></label>
-        <input type="date" id="deadline" required />
-    </div>
-</div>
+                        <div class="form4">
+                            <div>
+                                <label for="educationLevel">Education <span class="aestherisk">*</span></label>
+                                <select id="educationLevel" required>
+                                    <option value="BSC">B.Sc / B.Eng</option>
+                                    <option value="MSC">M.Sc / Masters</option>
+                                    <option value="PHD">PhD</option>
+                                    <option value="HND">HND</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="experienceLevel">Experience Level <span class="aestherisk">*</span></label>
+                                <select id="experienceLevel" required>
+                                    <option value="ENTRY">Entry Level</option>
+                                    <option value="MID">Mid Level</option>
+                                    <option value="SENIOR">Senior Level</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="experienceYears">Experience Years</label>
+                                <select id="experienceYears">
+                                    <option value="0-2">0 - 2 Years</option>
+                                    <option value="3-5" selected>3 - 5 Years</option>
+                                    <option value="5-10">5 - 10 Years</option>
+                                    <option value="10+">10+ Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form4" style="margin-top: 26px;">
+                            <div>
+                                <label for="type">Job Type <span class="aestherisk">*</span></label>
+                                <select id="type" required>
+                                    <option value="FULL_TIME">Full-time</option>
+                                    <option value="PART_TIME">Part-time</option>
+                                    <option value="HYBRID">Hybrid</option>
+                                    <option value="REMOTE">Remote</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="vacancies">Vacancies <span class="aestherisk">*</span></label>
+                                <input type="number" id="vacancies" placeholder="3" min="1" required />
+                            </div>
+                            <div>
+                                <label for="deadline">Deadline <span class="aestherisk">*</span></label>
+                                <input type="date" id="deadline" required />
+                            </div>
+                        </div>
 
                         <hr class="section-divider">
 
@@ -345,14 +364,14 @@
 
                         <footer class="footer-workspace">
                             <div class="compliance-row">
-                                <span class="compliance-item">
-                                    <i class='bx bx-lock-alt'></i> End-to-end encrypted
+                                <span class="compliance-item" style="display: inline-flex; align-items: center; gap: 8px; color: #8E92BC; font-size: 14px;">
+                                    <i class='bx bx-lock-alt' style="font-size: 18px;"></i> End-to-end encrypted
                                 </span>
-                                <span class="compliance-item">
-                                    <i class='bx bx-check-shield'></i> SOC2 Compliant
+                                <span class="compliance-item" style="display: inline-flex; align-items: center; gap: 8px; color: #8E92BC; font-size: 14px; margin-left: 32px;">
+                                    <i class='bx bx-check-shield' style="font-size: 18px;"></i> SOC2 Compliant
                                 </span>
                             </div>
-                            <p class="copyright">© 2026 HiredeyGo Inc. All rights reserved.</p>
+                            <p class="copyright" style="color: #8E92BC; font-size: 13px; margin-top: 16px; opacity: 0.8; text-align: center;">© 2026 HiredeyGo Inc. All rights reserved.</p>
                         </footer>
                     </div>
                 </div>
