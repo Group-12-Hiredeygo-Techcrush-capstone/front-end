@@ -27,18 +27,29 @@
                 <div class="inner-container">
                     <div class="dashboard-container">
                         <h1>Candidate Rankings</h1>
-                        <p>Assessment results for Product Designer — sorted by performance</p>
+                        <p id="sub-header-text">Assessment results sorted by performance</p>
                     </div>
 
                     <div class="assessment">
                         <div class="assessment-test">
                             <div class="assessment-test1"><h3>ASSESSMENT TEST</h3></div>
-                            <div class="assessment-test2"><h2>UI/UX Design Skills Assessment</h2></div>
-                            <div class="assessment-test3">
+                            <div class="assessment-test2" style="display: flex; align-items: center; gap: 15px;">
+                                <button onclick="switchJob('prev')" class="nav-arrow" id="prevJobBtn" style="background:none; border:1px solid #ddd; border-radius:50%; cursor:pointer; padding:5px; display:flex; align-items:center;">
+                                    <i class='bx bx-chevron-left' style="font-size: 24px;"></i>
+                                </button>
+                                
+                                <h2 id="currentJobTitle">UI/UX Design Skills Assessment</h2>
+                                
+                                <button onclick="switchJob('next')" class="nav-arrow" id="nextJobBtn" style="background:none; border:1px solid #ddd; border-radius:50%; cursor:pointer; padding:5px; display:flex; align-items:center;">
+                                    <i class='bx bx-chevron-right' style="font-size: 24px;"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="assessment-test3" id="job-meta-data">
                                 <div><i class='bx bx-briefcase'></i> Product Designer</div>
-                                <div><i class='bx bx-group'></i> 5 candidates</div>
-                                <div><i class='bx bx-time-five'></i> 45 min</div>
-                                <div><i class='bx bx-calendar'></i> Mar 10, 2026</div>
+                                <div><i class='bx bx-group'></i> 0 candidates</div>
+                                <div><i class='bx bx-time-five'></i> -- min</div>
+                                <div><i class='bx bx-calendar'></i> Date</div>
                             </div>
                         </div>
                         <div class="view-test">
@@ -52,22 +63,22 @@
                     <div class="rank-candidate-box">
                         <div class="rank1">
                             <img src="images/Vector candidate icon.svg" alt="">
-                            <h1>5</h1>
+                            <h1 id="stat-total">0</h1>
                             <h3>Total Candidates</h3>
                         </div>
                         <div class="rank2">
                             <img src="images/mark Vector candidate.svg" alt="">
-                            <h1>4</h1>
+                            <h1 id="stat-passed">0</h1>
                             <h3>Passed (≥60%)</h3>
                         </div>
                         <div class="rank3">
                             <img src="images/Vector candidate chart.svg" alt="">
-                            <h1>75%</h1>
+                            <h1 id="stat-avg">0%</h1>
                             <h3>Average Score</h3>
                         </div>
                         <div class="rank4">
                             <img src="images/Vector clock.svg" alt="">
-                            <h1>32m</h1>
+                            <h1 id="stat-time">0m</h1>
                             <h3>Avg Time Taken</h3>
                         </div>
                     </div>
@@ -93,11 +104,12 @@
                             <span>Result</span>
                             <span>Actions</span>
                         </div>
-                        <div id="tableBody"></div>
+                        <div id="tableBody">
+                            </div>
                     </div>
                     
                     <div class="footer">
-                        <span>Showing 5 of 5 candidates</span>
+                        <span id="showing-text">Showing 0 of 0 candidates</span>
                         <div class="pagination">
                             <button class="btn-page"><i class='bx bx-chevron-left'></i></button>
                             <button class="active">1</button>

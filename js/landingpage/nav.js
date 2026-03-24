@@ -6,12 +6,14 @@ const Navbar = {
         target.innerHTML = `
             <div class="nav-container">
                 <div class="nav-logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
-                    <img src="images/logo.png" alt="HiredeyGo">
+                    <img src="images/HDGlogo.png" alt="HiredeyGo">
                 </div>
                 
                 <nav class="nav-menu" id="navMenu">
                     <a href="index.html" class="nav-link active">Home</a>
-                    <a href="#" class="nav-link">Find Jobs</a>
+                    <a href="index.html" class="nav-link">Find Jobs</a>
+                    <a href="#" class="nav-link">Companies</a>
+                    <a href="#" class="nav-link">Pricing</a>
                     <a href="./dashboard/index.html" class="nav-link">Dashboard</a>
                 </nav>
 

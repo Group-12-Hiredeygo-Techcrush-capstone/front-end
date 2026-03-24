@@ -94,6 +94,7 @@
                 });
                 const result = await response.json();
                 renderJobs(result.data || result.jobs || (Array.isArray(result) ? result : []));
+                
             } catch (err) {
                 console.error("Fetch error:", err);
                 const localData = JSON.parse(localStorage.getItem('my_local_jobs')) || [];

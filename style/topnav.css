@@ -1,9 +1,9 @@
-/* --- UPDATED BASE & PADDING --- */
+/* --- GLASS NAVBAR BASE --- */
 .glass-navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 70px; 
+    height: 80px; /* Comfortable height for hierarchy */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(115, 17, 212, 0.1);
@@ -14,7 +14,8 @@
 
 .nav-container {
     width: 100%;
-    padding: 0 24px; /* Matches padding for both sides */
+    max-width: 1440px; 
+    padding: 0 40px; 
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -22,13 +23,45 @@
     box-sizing: border-box;
 }
 
-.nav-logo img {
-    height: 32px; 
-    width: auto;
-    flex-shrink: 0;
+/* Push page content down so it's not hidden */
+body {
+    padding-top: 80px; 
 }
 
-/* --- THE ACTIONS (LOGIN & POST) --- */
+/* --- CENTER MENU LINKS --- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #0F172A;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #7311D4;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #7311D4;
+    border-radius: 2px;
+}
+
+/* --- ACTION BUTTONS (Login & Post) --- */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -36,12 +69,12 @@
     flex-shrink: 0;
 }
 
-/* Updated Login Button with Light Purple Box */
+/* The Light Purple Tinted Button */
 .btn-login {
-    background: rgba(115, 17, 212, 0.1); /* Light Purple Tint */
+    background: rgba(115, 17, 212, 0.1); 
     color: #7311D4;
     border: 1px solid rgba(115, 17, 212, 0.2);
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -55,11 +88,12 @@
     background: rgba(115, 17, 212, 0.15);
 }
 
+/* The Solid Primary Button */
 .btn-primary-nav {
     background: #7311D4;
     color: white;
     border: none;
-    padding: 9px 18px; /* Slightly larger than login for hierarchy */
+    padding: 11px 22px; /* Slightly larger for visual hierarchy */
     border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -67,62 +101,33 @@
     cursor: pointer;
     white-space: nowrap;
     box-shadow: 0 4px 12px rgba(115, 17, 212, 0.2);
+    transition: transform 0.2s ease;
 }
 
-/* --- MOBILE SPECIFICS --- */
-@media (max-width: 1023px) {
-    /* Hide the text on mobile if it gets too tight, or keep it concise */
-    .btn-login, .btn-primary-nav {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    /* THE SIDE DRAWER */
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: #FFFFFF;
-        display: flex;
-        flex-direction: column;
-        padding: 100px 30px;
-        gap: 25px;
-        transition: right 0.4s ease;
-        box-shadow: -5px 0 25px rgba(0,0,0,0.1);
-        z-index: 10000;
-    }
-
-    .nav-menu.mobile-active {
-        right: 0;
-    }
-
-    .nav-link {
-        text-decoration: none;
-        color: #0F172A;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 1.2rem;
-        border-bottom: 1px solid #f1f5f9;
-        padding-bottom: 10px;
-    }
+.btn-primary-nav:hover {
+    transform: translateY(-1px);
+    background: #620eb5;
 }
 
-/* --- DESKTOP VIEW --- */
-@media (min-width: 1024px) {
-    .nav-container { padding: 0 50px; } /* Wider padding for desktop */
-    .nav-menu { display: flex; gap: 32px; }
-    .mobile-toggle { display: none; }
-}
-
+/* --- MOBILE TOGGLE --- */
 .mobile-toggle {
-    display: block;
+    display: none; /* Hidden on desktop */
     background: none;
     border: none;
     font-size: 1.5rem;
     color: #7311D4;
     cursor: pointer;
-    padding: 0;
-    margin-left: 5px;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none; /* Hide center links on smaller screens */
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .nav-container {
+        padding: 0 24px;
+    }
 }

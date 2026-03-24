@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Posted Successfully - HiredeyGo</title>
-    <link rel="stylesheet" href="/css/success-page.css">
+    <link rel="stylesheet" href="css/jobsuccesspage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="success-page">
 
     <header class="main-header">
         <div class="header-content">
             <div class="logoframe">
-                <img src="/images/logo.png" alt="HiredeyGo Logo" width="50">
-                <h1 class="logo-writeup">
-                    Hire<span class="logo-span">dey</span>Go
-                </h1>
+                <span style="font-weight: 900; font-size: 1.5rem;">HireDey<span class="logo-span">Go</span></span>
             </div>
-            <div class="process-frame">
-                <div class="progress-top">
-                    <p class="process">Post Progress</p>
-                    <p class="percent">100% Completed</p>
-                </div>
+            <div class="progress-container">
+                <span class="progress-label">Step 3 of 3: Completed</span>
                 <div class="progress-bar">
                     <div class="progress-fill-100"></div>
                 </div>
@@ -29,28 +24,77 @@
     </header>
 
     <main class="success-screen">
-        <div class="success-card">
-            <div class="check-container">
-                <div class="check-circle">
-                    <span class="check-mark">L</span>
-                </div>
+    <div class="success-card">
+        <div class="check-container">
+            <div class="check-circle">
+                <i class='bx bx-check'></i>
             </div>
+        </div>
 
-            <h1 class="success-title">Job Successfully Posted!</h1>
-            <p class="success-subtitle">
-                Your job listing for <strong>TECH CRUSH</strong> is now live and visible to top talent. What would you like to do next?
-            </p>
+        <h1 class="success-title">Job Successfully Posted!</h1>
+        <p class="success-subtitle">
+            Your job listing for <strong id="dynamic-job-title">the role</strong> is now live. Share this link with candidates to start the assessment.
+        </p>
 
-            <div class="action-grid">
-                <button class="primary-btn" onclick="location.href='post-job.html'">
-                    Post More Jobs
-                </button>
-                <button class="secondary-btn" onclick="location.href='recruitersdashboard.html'">
-                    Go to Dashboard →
+        <div class="copy-link-container" style="margin: 20px 0; background: #f9f9f9; padding: 15px; border-radius: 10px; border: 1px dashed #ccc;">
+            <label style="display: block; font-size: 0.8rem; margin-bottom: 8px; color: #666; font-weight: 600;">CANDIDATE APPLICATION LINK</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="shareable-link" readonly 
+                    style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 0.9rem; background: #fff;">
+                <button id="copy-btn" class="secondary-btn" style="padding: 10px 15px; white-space: nowrap;">
+                    <i class='bx bx-copy'></i> Copy
                 </button>
             </div>
         </div>
-    </main>
 
+        <div class="action-grid">
+            <button class="primary-btn" onclick="navigateTo('candidateranking.html')">
+                View Ranked Candidates
+            </button>
+            <button class="secondary-btn" onclick="navigateTo('recruitersdashboard.html')">
+                Back to Dashboard
+            </button>
+        </div>
+        
+        <a href="postajob2.html" class="post-another">Post another position</a>
+    </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const jobId = localStorage.getItem("last_created_job_id");
+        const savedTitle = localStorage.getItem("last_created_job_title");
+        const linkInput = document.getElementById('shareable-link');
+        const copyBtn = document.getElementById('copy-btn');
+
+        // 1. Update Title
+        if (savedTitle) {
+            document.getElementById('dynamic-job-title').innerText = savedTitle;
+        }
+
+        // 2. Generate Application Link (Adjust the URL to your actual candidate-facing page)
+        if (jobId) {
+            const appUrl = `https://hiredeygo.vercel.app/apply.html?jobId=${jobId}`;
+            linkInput.value = appUrl;
+        }
+
+        // 3. Copy Link Logic
+        copyBtn.addEventListener('click', () => {
+            linkInput.select();
+            document.execCommand('copy');
+            copyBtn.innerHTML = "<i class='bx bx-check'></i> Copied!";
+            setTimeout(() => {
+                copyBtn.innerHTML = "<i class='bx bx-copy'></i> Copy";
+            }, 2000);
+        });
+    });
+
+    // 4. State-Preserving Navigation
+    function navigateTo(page) {
+        // We don't clear localStorage because the dashboard needs 'last_created_job_id' 
+        // to highlight the correct job on load.
+        window.location.href = page;
+    }
+</script>
 </body>
 </html>
