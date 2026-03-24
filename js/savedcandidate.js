@@ -1,6 +1,6 @@
 /**
  * HireDeyGo | Saved Candidates Logic
- * Integrated with global-nav.js and API-first architecture
+ * Integrated with global-nav.js
  */
 
 const BASE_URL = "https://hire-dey-go-be-8x3c.onrender.com";
@@ -45,7 +45,7 @@ function renderCandidates(candidates) {
     candidates.forEach(candidate => {
         const card = createCard(candidate);
 
-        // Grouping Logic: UI/UX vs Mobile
+        // Grouping Logic
         const role = candidate.role?.toLowerCase() || "";
         if (role.includes("ui") || role.includes("ux") || role.includes("design")) {
             uiuxContainer.appendChild(card);
@@ -60,7 +60,7 @@ function renderCandidates(candidates) {
 }
 
 /**
- * 3. CREATE CARD COMPONENT (Naked Highlight Style)
+ * 3. CREATE CARD
  */
 function createCard(candidate) {
     const div = document.createElement("div");
@@ -70,7 +70,7 @@ function createCard(candidate) {
     const skills = candidate.skills || ["General"];
     const fit = candidate.fit || Math.floor(Math.random() * 20 + 80);
     
-    // Dynamic color for the fit percentage
+    
     const fitColor = fit >= 90 ? "#10B981" : "#7F13EC";
 
     div.innerHTML = `

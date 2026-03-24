@@ -1,7 +1,4 @@
-/**
- * hero.js - Absolute Figma Spec Implementation
- * Includes: Overlapping Social Proof, Centered Glassmorphism Card, and Refined Typography
- */
+
 const HeroSection = {
     render(containerId) {
         const target = document.getElementById(containerId);

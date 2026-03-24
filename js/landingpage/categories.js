@@ -1,6 +1,4 @@
-/**
- * categories.js - Popular Job Categories Implementation
- */
+
 const JobCategories = {
     render(containerId) {
         const target = document.getElementById(containerId);

@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(result.message || "Invalid credentials.");
             }
 
-            // --- THE PLURAL FIX ---
-            // Your backend sends an object named 'tokens'
-            // We need the 'accessToken' inside of it.
+           
             const token = result.tokens?.accessToken || 
                           result.token || 
                           (result.data && (result.data.token || result.data.accessToken));
@@ -39,11 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const user = result.data || result.user || {};
 
             if (token) {
-                // Save to BOTH to satisfy the Dashboard script
+                // Save to BOTH 
                 localStorage.setItem("token", token);
                 sessionStorage.setItem("token", token);
                 
-                // Save branding info
+                // Save COMPANY info
                 const name = user.companyName || user.name || user.firstName || "Recruiter";
                 localStorage.setItem("userName", name);
                 localStorage.setItem("companyProfile_Full", JSON.stringify(user));

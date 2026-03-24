@@ -1,9 +1,7 @@
-/**
- * footer.js - Responsive Footer Component
- */
+
 const Footer = {
     init(customTargetId) {
-        // Use the passed ID or default to 'footer-target'
+        
         const targetId = customTargetId || 'footer-target';
         const target = document.getElementById(targetId);
         
@@ -28,7 +26,7 @@ const Footer = {
                        
                         <div class="brand-social-container">
                             <a href="#" class="social-link-circle" title="Website">
-                                <img src="images/share.png" alt="Web" class="social-icon-img">
+                                <img src="images/WEBPP.png" alt="Web" class="social-icon-img">
                             </a>
                             <a href="#" class="social-link-circle" title="Contact">
                                 <img src="images/shared.png" alt="Contact" class="social-icon-img">

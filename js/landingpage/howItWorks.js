@@ -106,7 +106,7 @@ const HowItWorks = {
                     fill.style.height = '100%';
                 }
                 
-            }, index * 600); // Slightly faster sequence for 4 steps
+            }, index * 800); // Slightly faster sequence for 4 steps
         });
     }
 };

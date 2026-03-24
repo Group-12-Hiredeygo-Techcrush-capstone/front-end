@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionsWrapper = document.getElementById('questions-wrapper');
     const addQuestionBtn = document.getElementById('add-question-btn');
 
-    // UI Elements for "Apply Job on"
+    
     const radioButtons = document.querySelectorAll('input[name="applyMethod"]');
     const emailContainer = document.getElementById('email-apply-container');
     const externalContainer = document.getElementById('external-apply-container');
 
     const getVal = (id) => document.getElementById(id)?.value.trim() || "";
 
-    // --- 1. TOKEN SANITIZATION ---
+    // --- 1. TOKEN  ---
     const getCleanToken = () => {
         const rawData = localStorage.getItem("token") || localStorage.getItem("HireDeyGo_UserPlanStarterauth_token");
         if (!rawData) return null;
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => btn.classList.toggle('active-benefit'));
     });
 
-    // --- 5. DYNAMIC ASSESSMENT UI LOGIC ---
+    // --- 5.  ASSESSMENT  LOGIC ---
     let questionCount = 1;
 
     questionsWrapper.addEventListener('change', (e) => {
