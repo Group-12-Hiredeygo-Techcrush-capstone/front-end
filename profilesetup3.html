@@ -1,180 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile Setup - Social Media</title>
-<link rel="stylesheet" href="/css/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup 3 - Social Media</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/profilesetup.js" defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="main-header">
+    <div class="header-content">
+        <div class="logoframe">
+            <img src="images/logo.png" alt="HiredeyGo Logo" width="50">
+            <h1 class="logo-writeup">
+                Hire<span class="logo-span">dey</span>Go
+            </h1>
+        </div>
 
-<div class="header-content">
+        <div class="process-frame">
+            <div class="progress-top">
+                <p class="process">Setup Progress</p>
+                <p class="percent">60%</p> 
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill-75" style="width: 60%;"></div>
+            </div>
+        </div>
+    </div>
 
-<div class="logoframe">
-<img src="images/logo.png" alt="HiredeyGo Logo">
-
-<h1 class="logo-writeup">
-Hire<span class="logo-span">dey</span>Go
-</h1>
-</div>
-
-<div class="process-frame">
-
-<div class="progress-top">
-<span>Setup Progress</span>
-<span class="percent">50% Completed</span>
-</div>
-
-<div class="progress-bar">
-<div class="progress-fill-50 social-progress"></div>
-</div>
-
-</div>
-
-</div>
-
-<!-- NAVBAR -->
-<nav class="navbox">
-
-<div class="navbar">
-
-<div class="nav1">
-<img src="images/cominfo.svg" alt="Company Info Icon">
-<p>Company Info</p>
-</div>
-
-<div class="nav2">
-<img src="images/foundinginfo.svg" alt="Founding Info Icon">
-<p>Founding Info</p>
-</div>
-
-<div class="nav3-active">
-<img src="images/socialmedia.svg" alt="Social Media Icon">
-<p>Social Media Profile</p>
-</div>
-
-<div class="nav4">
-<img src="images/contact.svg" alt="Contact Icon">
-<p>Contact</p>
-</div>
-
-</div>
-
-</nav>
-
+    <nav class="navbox">
+        <div class="navbar">
+            <div class="nav1">
+                <img src="images/cominfo.svg" alt="Icon">
+                <p>Company Info</p>
+            </div>
+            <div class="nav2">
+                <img src="images/foundinginfo.svg" alt="Icon">
+                <p>Founding Info</p>
+            </div>
+            <div class="nav3-active">
+                <img src="images/socialmedia.svg" alt="Icon">
+                <p>Social Media</p>
+            </div>
+            <div class="nav4">
+                <img src="images/contact.svg" alt="Icon">
+                <p>Contact</p>
+            </div>
+        </div>
+    </nav>
 </header>
 
-
-<!-- SOCIAL MEDIA FORM -->
 <section class="social-section">
+    <div class="social-container">
+        
+        <div class="social-item">
+            <label for="fb-link">Facebook</label>
+            <div class="social-input">
+                <div class="platform">
+                    <img src="images/facebook.svg" width="18">
+                    <span>Facebook</span>
+                </div>
+                <input type="text" id="fb-link" placeholder="https://facebook.com/yourpage">
+                <button type="button" class="remove">✖</button>
+            </div>
+        </div>
 
-<div class="social-container">
+        <div class="social-item">
+            <label for="tw-link">Twitter / X</label>
+            <div class="social-input">
+                <div class="platform">
+                    <img src="images/twitter.svg" width="18">
+                    <span>Twitter</span>
+                </div>
+                <input type="text" id="tw-link" placeholder="https://x.com/yourhandle">
+                <button type="button" class="remove">✖</button>
+            </div>
+        </div>
 
-<div class="social-item">
+        <div class="social-item">
+            <label for="ig-link">Instagram</label>
+            <div class="social-input">
+                <div class="platform">
+                    <img src="images/instagram.svg" width="18">
+                    <span>Instagram</span>
+                </div>
+                <input type="text" id="ig-link" placeholder="https://instagram.com/yourpage">
+                <button type="button" class="remove">✖</button>
+            </div>
+        </div>
 
-<label>Social Link 1</label>
+        <div class="social-item">
+            <label for="li-link">LinkedIn</label>
+            <div class="social-input">
+                <div class="platform">
+                    <img src="images/linkedin.svg" width="18">
+                    <span>LinkedIn</span>
+                </div>
+                <input type="text" id="li-link" placeholder="https://linkedin.com/company/yourpage">
+                <button type="button" class="remove">✖</button>
+            </div>
+        </div>
 
-<div class="social-input">
+        <button type="button" class="add-social">＋ Add New Social Link</button>
 
-<div class="platform">
-<img src="images/facebook.svg">
-<span>Facebook</span>
-<span><img src="images/arrowdown.svg" alt=""></span>
-</div>
-
-<input type="text" placeholder="Profile link/url...">
-
-<button class="remove">✖</button>
-
-</div>
-
-</div>
-
-
-<div class="social-item">
-
-<label>Social Link 2</label>
-
-<div class="social-input">
-
-<div class="platform">
-<img src="images/twitter.svg">
-<span>Twitter</span>
-<span><img src="images/arrowdown.svg" alt=""></span>
-</div>
-
-<input type="text" placeholder="Profile link/url...">
-
-<button class="remove">✖</button>
-
-</div>
-
-</div>
-
-
-<div class="social-item">
-
-<label>Social Link 3</label>
-
-<div class="social-input">
-
-<div class="platform">
-<img src="images/instagram.svg">
-<span>Instagram</span>
-<span><img src="images/arrowdown.svg" alt=""></span>
-</div>
-
-<input type="text" placeholder="Profile link/url...">
-
-<button class="remove">✖</button>
-
-</div>
-
-</div>
-
-
-<div class="social-item">
-
-<label>Social Link 4</label>
-
-<div class="social-input">
-
-<div class="platform">
-<img src="images/youtube.svg">
-<span>Youtube</span>
-<span><img src="images/arrowdown.svg" alt=""></span>
-</div>
-
-<input type="text" placeholder="Profile link/url...">
-
-<button class="remove">✖</button>
-
-</div>
-
-</div>
-
-
-<button class="add-social">
-＋ Add New Social Link
-</button>
-
-
-<div class="social-buttons">
-
-<button class="previous">Previous</button>
-
-<button class="save">
-Save & Continue →
-</button>
-
-</div>
-
-</div>
-
+        <div class="social-buttons">
+            <button type="button" class="previous">← Previous</button>
+            <button type="button" class="save">Save & Continue →</button>
+        </div>
+    </div>
 </section>
 
 </body>

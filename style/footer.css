@@ -1,0 +1,206 @@
+/* footer.css - Master "Chameleon" Sticky Footer */
+
+.main-footer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* Removed the massive 218px left padding for a centered container approach */
+    padding: 60px 20px 48px; 
+    gap: 48px;
+    
+    width: 100%;
+    max-width: 100%; 
+    min-height: 365px;
+    margin: 0 auto;
+    
+    /* CRITICAL: The Sticky Push */
+    margin-top: auto; 
+    
+    /* Your Original Gradient */
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.4) 0%, rgba(73, 100, 183, 0.4) 50.93%, rgba(127, 19, 236, 0.4) 100%);
+    border-top: 1px solid #F1F5F9;
+    font-family: 'Montserrat', sans-serif;
+    align-items: center; /* Centers the content row */
+}
+
+.footer-content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    gap: 48px;
+    width: 100%;
+    max-width: 1200px; /* Aligned with other section widths */
+}
+
+.footer-brand-col {
+    width: 100%;
+    max-width: 284px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+}
+
+.brand-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    color: #0F172A;
+}
+
+.brand-desc-container p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+.brand-social-container {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.social-link-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.social-link-circle:hover {
+    background: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+/* Link Column Styles */
+.footer-links-col, .footer-links-col-resources {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.footer-links-col h4, .footer-links-col-resources h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F172A;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-link-list, .footer-resources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-link-item, .footer-resource-link {
+    font-size: 14px;
+    text-decoration: none;
+    color: #475569;
+    transition: color 0.2s;
+}
+
+.footer-link-item:hover, .footer-resource-link:hover {
+    color: #7311D4;
+}
+
+/* Bottom Border Area */
+.footer-bottom-border {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    width: 100%;
+    max-width: 1200px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.footer-copyright-text, .footer-bottom-link {
+    font-size: 12px;
+    color: #64748B;
+    text-decoration: none;
+    margin: 0;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+/* --- IMAGE & ICON SIZE FIXES --- */
+
+.footer-logo-img {
+    width: 28px;
+    height: auto;
+    object-fit: contain;
+}
+
+.social-icon-img {
+    width: 18px; /* Keeps the icons inside the 36px circles */
+    height: 18px;
+    object-fit: contain;
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 1024px) {
+    .footer-content-row {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr; /* Brand gets more space */
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 60px 24px 40px;
+    }
+
+    .footer-content-row {
+        grid-template-columns: 1fr; /* Stack everything */
+        text-align: center;
+        justify-items: center;
+    }
+
+    .footer-brand-col {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .brand-logo-container, .brand-social-container {
+        justify-content: center;
+    }
+
+    .footer-links-col, .footer-links-col-resources {
+        max-width: 100%;
+    }
+
+    .footer-bottom-border {
+        flex-direction: column-reverse; /* Put copyright at the very bottom */
+        gap: 24px;
+        text-align: center;
+    }
+
+    .footer-bottom-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}

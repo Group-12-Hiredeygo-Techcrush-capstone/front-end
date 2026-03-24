@@ -1,0 +1,379 @@
+/* --- HiredeyGo: COMPLETE FULL-WIDTH WORKSPACE STYLES --- */
+
+/* 1. LAYOUT & "STRETCH" LOGIC */
+html, body {
+    background: #F8F9FA; /* Adjust this hex if your main page uses a different specific grey */
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    overflow-x: hidden;
+}
+
+.main-container {
+    display: flex !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: 100vh;
+}
+
+/* The Sidebar */
+.side-bar {
+    width: 280px;
+    min-width: 280px;
+    position: fixed;
+    height: 100vh;
+    z-index: 100;
+}
+
+/* THE FIX: Flex column allows the footer to stay at the bottom */
+.container2 {
+    flex: 1 !important;
+    margin-left: 280px !important; 
+    width: calc(100% - 280px) !important;
+    min-width: calc(100% - 280px) !important;
+    padding: 0 !important;
+    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* THE FIX: Form area stays white */
+.inner-container {
+    width: 100% !important;
+    max-width: none !important; 
+    background: #FFFFFF !important;
+    padding: 60px 80px;
+    border-radius: 0 !important; 
+    box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    flex-grow: 1; /* Pushes everything below it down */
+}
+
+.inner-container .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. TYPOGRAPHY */
+h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a1a; }
+.subtitle { font-size: 1.4rem; color: #505050; margin-bottom: 3rem; }
+h2 { font-size: 2rem; font-weight: 600; margin: 3.5rem 0 1.5rem 0; color: #000000; }
+h3 { 
+    font-size: 1.4rem; font-weight: 600; color: #7F13EC; 
+    margin-bottom: 1rem; border-bottom: 2px solid #7F13EC; 
+    width: fit-content; text-transform: uppercase;
+}
+h4 { font-size: 1.6rem; font-weight: 400; color: #505050; margin-bottom: 2rem; }
+
+/* 3. FORM GRIDS */
+.form1 { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 26px; }
+.form2 { width: 100%; margin-bottom: 26px; }
+.form3 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 26px; }
+.form4 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 26px; }
+.location-input { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
+
+/* 4. INPUTS & SELECT DROPDOWNS */
+label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 1.4rem; color: #000000; }
+.aestherisk { color: #DD1F1F; font-weight: bold; margin-left: 3px; }
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #505050;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    outline: none;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+/* 5. ASSESSMENT QUESTIONS */
+.assessment-section { margin-top: 40px; }
+.questions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px;
+    margin-bottom: 20px;
+}
+.question-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.card-header h3 {
+    border: none;
+    margin: 0;
+    font-size: 1.6rem;
+    color: #000;
+}
+.remove-btn {
+    background: none;
+    border: none;
+    color: #DD1F1F;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.question-input { margin-bottom: 15px; }
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.dropdown-group { display: flex; align-items: center; gap: 10px; }
+.answer-type {
+    padding: 6px 30px 6px 12px;
+    border-radius: 20px; 
+    font-size: 1.2rem;
+    width: auto;
+}
+.required-toggle { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; }
+.required-toggle input { width: 18px; height: 18px; accent-color: #7F13EC; }
+.add-btn-dashed {
+    background: none;
+    border: 2px dashed #7F13EC;
+    color: #7F13EC;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 6. BENEFITS & PERKS */
+.benefit-btn-box1 { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+.benefit-btn {
+    padding: 10px 20px;
+    background: #FFFFFF;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.benefit-btn.active-benefit {
+    border-color: #7F13EC;
+    color: #7F13EC;
+    background: #F1EFFC;
+    font-weight: 600;
+}
+
+/* 7. APPLY SECTION */
+.apply-on { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 20px; 
+}
+
+.apply-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apply-box:has(input:checked) {
+    border: 2px solid #7F13EC;
+    background: #F1EFFC;
+    box-shadow: 0 4px 12px rgba(127, 19, 236, 0.1);
+}
+
+.apply-box input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    accent-color: #7F13EC;
+    margin-top: 4px;
+}
+
+/* 8. FOOTER ACTIONS */
+.section-divider { border: 0; border-top: 1px solid #EEE; margin: 40px 0; }
+
+.submit-btn {
+    width: auto; 
+    padding: 16px 40px;
+    background: #6358E1;
+    color: white;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.submit-btn:hover {
+    background: #4f46c1;
+    transform: translateY(-1px);
+}
+
+
+/* 9. VERIFIED COMPANY BADGE (PRE-FILLED) */
+.company-id-badge {
+    background: #F1EFFC; /* Matches your active benefit/brand light purple */
+    border: 1px solid #7F13EC;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.badge-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.badge-content i {
+    font-size: 2.4rem;
+    color: #7F13EC;
+}
+
+.badge-text-group {
+    flex: 1;
+}
+
+.badge-text-group label {
+    display: block;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #7F13EC;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+#debug-company-id {
+    background: transparent !important;
+    border: none !important;
+    font-family: monospace;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    width: 100%;
+    outline: none;
+    cursor: default;
+    padding: 0 !important;
+    font-weight: 600;
+}
+
+.company-id-badge small {
+    display: block;
+    color: #505050;
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-left: 39px; /* Aligns text under the ID, skipping the icon width */
+}
+
+/* State for when ID is missing/Error */
+.id-missing {
+    background: #FFF0F0;
+    border-color: #DD1F1F;
+}
+.id-missing i, .id-missing label {
+    color: #DD1F1F;
+}
+
+/* --- THE STICKY FOOTER & COMPLIANCE --- */
+.footer-workspace {
+    width: 100%;
+    background-color: inherit !important; /* Forces it to match the main page background */
+    padding: 60px 0 40px 0; /* Clear spacing from white body */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto; /* Sticky logic: pushes to the very bottom */
+}
+
+.compliance-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 16px;
+}
+
+.compliance-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8E92BC;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.compliance-item i {
+    font-size: 18px;
+    color: #8E92BC;
+}
+
+.copyright {
+    color: #8E92BC;
+    font-size: 13px;
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* --- RESPONSIVE FIX FOR MOBILE VIEWPORT --- */
+@media (max-width: 1024px) {
+    .container2 {
+        margin-left: 0 !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    .inner-container {
+        padding: 120px 20px 40px 20px !important;
+    }
+
+    .form1, .form3, .form4, .location-input, .questions-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .questions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .submit-btn {
+        width: 100% !important;
+    }
+
+    .apply-on {
+        grid-template-columns: 1fr !important;
+    }
+}

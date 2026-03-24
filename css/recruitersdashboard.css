@@ -1,338 +1,182 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* =========================================
+   RECRUITER DASHBOARD: UNIQUE CONTENT ONLY
+   ========================================= */
+
+/* 1. DASHBOARD TITLES */
+.dashboard-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
 }
 
-body{
-    font-family:'Montserrat', sans-serif;
-    font-size: 1.3rem;
-}
-html{
-    font-size: 62.5%;
+.dashboard-container p {
+    color: #666;
 }
 
-/* HEADER */
-.header-container{
-    flex-direction: column;
-    position: fixed;
-    justify-content: center;
-    top: 0;
-    width: 70%;
-    margin: auto;
-    left: 0;
-    right: 0;
-    height: 4rem;
-    background:#F1EFFC;
+/* 2. STAT CARDS (Open Jobs & Saved Candidates) */
+.dashboard-box {
     display: flex;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
 }
-/* logo content here*/
-.logo{
-    background-color: #F1EFFC;
+
+.open-jobs, .saved-candidates {
+    background-color: #E9E4EE;
+    height: 13rem;
+    width: 28rem;
+    padding: 2.5rem;
+    border-radius: 12px;
+    color: #000000;
+}
+
+.open-jobs { border-right: 4px solid #7F13EC80; border-bottom: 4px solid #7F13EC80; }
+.saved-candidates { border-right: 4px solid #10B98180; border-bottom: 4px solid #10B98180; }
+
+.metric-box {
+    height: 0.8rem;
+    background: rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.inner-metric-box {
+    height: 100%;
+    background: #10B981;
+    border-radius: 8px;
+}
+
+/* 3. JOB LISTINGS TABLE GRID */
+.recent-jobs-view {
     display: flex;
     justify-content: space-between;
-    width: 70%;
-    position: fixed;
-    top: 3.9rem;
-    left: 0;
-    right: 0;
     align-items: center;
-    margin:auto;
-    border-radius: 0 0 15px 15px;
-    height: 5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 4rem 0 2rem 0;
+    width: 95%;
 }
- 
 
-.logo img{
-    height: 3.5rem;
-    margin: 2rem;
-}
-.postajob-container{
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin-right: 1rem;
-
-}
-.postajob-btn{
-    padding: 1rem 2rem;
-    background-color: #7F13EC;
-    border: none;
-    color: #fff;
-    border-radius: 5px;
-    letter-spacing: 1px;
+.view-all h4 {
+    color: #7F13EC;
     cursor: pointer;
-}
-.bx-bell, .bx-user-circle , .bx-chevron-down{
-    font-size: 2.5rem;    
-}
-.bx-bell:hover,
-.bx-user-circle:hover,
-.bx-check-circle:hover,
-.bx-chevron-down:hover{
-    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.1rem;
 }
 
-/* NAV */
-.nav-bar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem;
-}
-
-
-.nav-bar ul{
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 2rem;
-}
-.nav-bar ul li a{
-    text-decoration: none;
-    color: #000000;
-    position: relative;
-    padding-bottom: 5px;
-}
- .nav-bar ul li a:hover::after{
-    width: 100%;
-}
-.nav-bar ul li a::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background:#10B981;
-    transition:0.3s ease;
-}
-/* MAIN SECTION */
-.main-container{
-    display: flex;
-    min-height: 100vh;
-}
-    
-/* SIDEBAR */
-.side-bar{
-    width: 40rem;
-    background-color: #7F13EC;
+.job-posting-container {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding-top: 12rem;
-    align-items: end;
-    padding-right: 2rem;
+    gap: 1.2rem;
+    width: 95%;
+    overflow-x: auto; /* Ensures table is scrollable on very small screens */
 }
-.employer-title{
-    display: flex;
-    color: #fff;
-    font-size: 1rem;
-}
-.text-container{
-    display: flex;
-    flex-direction: column;
-    gap:15px;
-}
-.text-input{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding: 0.2rem;
 
+/* THE FIX: Unified grid for both Labels and Row Content */
+.job-posting-box1, .job-posting-box {
+    display: grid;
+    /* This ensures "Jobs", "Status", "Applications", and "Actions" stay in their lanes */
+    grid-template-columns: 2.5fr 1fr 1.5fr 1.5fr; 
+    align-items: center;
+    padding: 1.5rem 2rem;
+    min-width: 800px; /* Prevents columns from squishing on tablet */
 }
-.text-icon{
-    height: 2rem;
-    width: 2rem;
-    font-weight: 900;
-    
+
+.job-posting-box1 {
+    color: #888;
+    font-size: 1.1rem;
+    padding-bottom: 0;
 }
-.text-input a:hover{
-    color: #000000;
+
+.job-posting-box {
+    background-color: #fff;
+    border-radius: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
-.text-input a {
-    color: #fff;
-    font-size: 1.3rem;
-    text-decoration:none;
-    align-self: center;
+
+.job-posting-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.bx-check-circle {
+    color: #10B981;
     font-weight: 600;
 }
-.text-input:hover{
-    background:#fff;
-    border-radius:5px;
-    padding: 0.2rem;
-}
 
-/*SECOND CONTAINER OR THE MAIN*/
-.container2{
-    flex: 1;
-    /* min-height: 200vh; */
-    background-color: #F1EFFC;
-}
-.inner-container{
-    padding: 10rem 3rem;
-}
-
-
-
-
-.log-out-btn{
-    color: #fff;
+/* 4. ACTIONS & POPUPS */
+.application-box {
     display: flex;
-    margin-top: 5rem;
-    margin-left: 2rem;  
-    gap:1rem;  
-}
-.log-out-icon{
-    height: 1.3rem;
-}
-.dashboard-container{
-    display: flex;
-}
-.dashboard-container{
-    display: flex;
-    flex-direction: column;
-    font-family: 'Playfair Display';
-}
-.dashboard-container p{
-    font-family: 'Montserrat';
-}
-.dashboard-box{
-    display: flex;
-    gap: 10rem;
-    margin-top: 2rem;
-
-}
-.open-jobs, .saved-candidates{
-    background-color: #E9E4EE;
-    height: 12rem;
-    width: 300px;
-    padding: 2rem 2rem 2rem 2rem;
-    font-family: 'Montserrat';
-    border-radius: 8px;
-    color: #000000;
-    
-}
-.open-jobs{
-    border-right: 4px solid #7F13EC80;
-    border-bottom: 4px solid #7F13EC80;
-}
-.saved-candidates{
-    border-right: 4px solid #10B98180;
-    border-bottom: 4px solid #10B98180;
-}
-.open-jobs h3, .saved-candidates h3{
-    font-weight: lighter;
-}
-.metric-box{
-height:1rem;
-background:#10B9813B;
-border-radius:8px;
-margin-top:1rem;
-}
-
-.inner-metric-box{
-height:100%;
-width:60%;
-background:#10B981;
-border-radius:8px;
-}
-.recent-jobs-view{
-    display: grid;
-    font-family: 'Montserrat';
-    grid-template-columns: 1fr 1fr;
-    /* gap: 10rem; */
-    padding: 2rem 0rem;
-}
-.view-all{
-    justify-self: end;
-    padding-right: 9rem;
-}
-
-.job-posting-container{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.job-posting-box{
-    display: grid;
-    grid-template-columns:  2fr 1fr 1fr 1fr;
-    justify-content: center;
     align-items: center;
-    background-color: #fff;
-    border-radius: 0.7rem;
-    height: 5rem;
-    width: 90%;
-    gap: 1rem;
-    padding-left: 1rem;
-}
-.job-posting-box1{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    justify-content: center;
-}
-.double-profile-image-icon{
-    height: 1.3rem;
-}
-.bx-check-circle{
-    justify-items: center;
-    color: #10B981;
-}
-
-
-.application-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
+    gap: 1.2rem;
     position: relative;
 }
-.application-btn{
-    height: 3rem;
-    border-radius: 5px;
-    padding: 0rem 0.5rem;
-    width: 12rem;
+
+.application-btn {
+    height: 3.5rem;
+    border-radius: 6px;
+    padding: 0 1.5rem;
     border: 1px solid #10B981;
-}
-.application-btn:hover{
-    background-color: #10B981;
-    border: none;
+    background: transparent;
+    color: #10B981;
+    font-weight: 600;
+    transition: 0.3s;
     cursor: pointer;
+}
+
+.application-btn:hover {
+    background-color: #10B981;
     color: #fff;
 }
-.bx-dots-vertical-rounded,.bx-megaphone{
-    font-size: larger;
-}
-.application-popup{
-    width: 150px;
-    background-color: #fff;
-    height: 7rem;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    padding-left: 0.2rem;
+
+.application-popup {
     position: absolute;
-    top: 3rem;
-    width: 13rem;
+    top: 100%;
+    right: 0;
+    width: 16rem;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display:none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    padding: 0.8rem;
+    z-index: 100;
 }
-.application-box:hover .application-popup{
-    display:flex;
+
+.application-box:hover .application-popup {
+    display: flex;
 }
-.popup-btn{
-    border: none;
-    /* background-color: #fff; */
-    color: #000000;
-}
-.popup-btn:hover {
-    background-color: #10B981;
-    text-decoration: #000000;
+
+.popup-btn {
     width: 100%;
+    padding: 0.8rem;
+    text-align: left;
+    background: none;
+    border: none;
     cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.popup-btn:hover {
+    background-color: #f8fafc;
+    color: #7F13EC;
+}
+
+/* 5. RESPONSIVENESS */
+@media (max-width: 768px) {
+    .dashboard-box {
+        justify-content: center;
+    }
+    
+    .open-jobs, .saved-candidates {
+        width: 100%;
+        max-width: 28rem;
+    }
+
+    /* On mobile, we let the container scroll horizontally to keep the table structure */
+    .job-posting-container {
+        padding-bottom: 1rem;
+    }
 }

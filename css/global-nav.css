@@ -1,0 +1,265 @@
+/* =========================================
+   1. GLOBAL RESET & BASE
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    background-color: #F1EFFC;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. HEADER & LOGO BAR (Fixed Positions)
+   ========================================= */
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 4.5rem;
+    background: #F1EFFC;
+    display: flex;
+    align-items: center;
+    z-index: 1002; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 4.5rem; 
+    left: 0;
+    width: 100%;
+    height: 7rem;
+    padding: 0 4rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    z-index: 1001; 
+}
+
+.logo img {
+    height: 3.5rem;
+}
+
+/* =========================================
+   3. NAVIGATION LINKS (Top Bar)
+   ========================================= */
+.nav-bar {
+    width: 100%;
+    padding-left: 32rem; 
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-bar ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: 0.3s ease;
+}
+
+.nav-bar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1.2rem;
+    width: 0;
+    height: 3px;
+    background: #10B981;
+    transition: 0.3s ease;
+}
+
+.nav-bar ul li a:hover::after,
+.nav-bar ul li a.active::after {
+    width: 100%;
+}
+
+/* =========================================
+   4. SIDEBAR (Purple Master)
+   ========================================= */
+.side-bar {
+    width: 28rem;
+    background-color: #7F13EC;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    padding-top: 14rem; 
+    padding-left: 2.5rem;
+    z-index: 1000;
+    transition: left 0.4s ease; /* Smooth slide for mobile */
+}
+
+.side-bar .employer-title h2 {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 3rem 0 !important;
+    opacity: 0.9;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.text-input {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 2rem;
+    transition: all 0.3s ease;
+    border-radius: 30px 0 0 30px; 
+    width: 100%;
+    cursor: pointer;
+}
+
+.text-icon {
+    height: 2rem;
+    width: 2rem;
+    filter: brightness(0) invert(1); 
+    transition: filter 0.3s ease;
+}
+
+.text-input a {
+    color: #fff;
+    font-size: 1.35rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.text-input:hover, 
+.text-input.active {
+    background: #F1EFFC; 
+}
+
+.text-input:hover a, 
+.text-input.active a {
+    color: #7F13EC;
+}
+
+.text-input:hover .text-icon, 
+.text-input.active .text-icon {
+    filter: none; 
+}
+
+.log-out-btn {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+    gap: 1rem; 
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.log-out-btn:hover { opacity: 0.7; }
+.log-out-icon { height: 1.6rem; }
+
+/* =========================================
+   5. DYNAMIC PAGE STAGE (The "Shell")
+   ========================================= */
+.container2 {
+    margin-left: 28rem; 
+    background-color: #F1EFFC;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner-container {
+    padding: 14rem 4rem 4rem 4rem; 
+    flex-grow: 1;
+}
+
+.postajob-container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #555;
+}
+
+.postajob-btn {
+    padding: 1rem 2rem;
+    background-color: #7F13EC;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================================
+   6. RESPONSIVE OVERRIDES
+   ========================================= */
+@media (max-width: 1024px) {
+    #menu-toggle {
+        display: block !important;
+    }
+
+    .side-bar {
+        left: -28rem; /* Hide sidebar */
+        padding-top: 8rem;
+    }
+
+    .side-bar.open {
+        left: 0; /* Slide in */
+    }
+
+    .container2 {
+        margin-left: 0 !important;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    .inner-container {
+        padding: 14rem 2rem 4rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive Grid Logic */
+    .form1, .form3, .form4, .location-input, .questions-grid, .apply-on {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .logo {
+        padding: 0 2rem;
+    }
+
+    .postajob-container i {
+        display: none; /* Hide bell/user icons to save space on mobile */
+    }
+}

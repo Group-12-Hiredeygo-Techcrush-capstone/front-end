@@ -1,0 +1,180 @@
+/* Featured Jobs - Figma Specs (Frame 242) */
+
+.jobs-section {
+    width: 100%;
+    min-height: 523px; /* Changed from height to min-height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px; /* Added side padding for mobile */
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.jobs-container {
+    width: 100%; /* Changed from 1280px */
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.jobs-header {
+    text-align: left;
+    /* On mobile, center the header for better balance */
+}
+
+.jobs-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 6vw, 36px); /* Fluid font size */
+    color: #0F172A;
+    margin: 0 0 8px 0;
+}
+
+.jobs-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #64748B;
+    margin: 0;
+}
+
+.jobs-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    width: 100%;
+    flex-wrap: wrap; /* Essential for mobile wrapping */
+}
+
+.job-card {
+    flex: 1;
+    min-width: 300px; /* Prevents cards from getting too skinny */
+    background: #FFFFFF;
+    border: 1px solid #F1F5F9;
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.job-card:hover {
+    border-color: #7311D440;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -12px rgba(115, 17, 212, 0.1);
+}
+
+.job-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.company-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-inner {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.tag {
+    padding: 6px 12px;
+    background: #F8FAFC;
+    border-radius: 99px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.job-role {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: #0F172A;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.job-company {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #64748B;
+    margin: 4px 0 0 0;
+}
+
+.job-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #F1F5F9;
+}
+
+.job-salary {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #0F172A;
+}
+
+.apply-btn {
+    padding: 10px 18px;
+    background: #7311D4;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: #5D0EB0;
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 1024px) {
+    .jobs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 680px) {
+    .jobs-section {
+        padding: 60px 20px;
+    }
+
+    .jobs-header {
+        text-align: center;
+    }
+
+    .jobs-grid {
+        grid-template-columns: 1fr; /* 1 per row on phones */
+    }
+
+    .job-card {
+        min-width: 0; /* Let it shrink to full screen width */
+        padding: 24px;
+    }
+}

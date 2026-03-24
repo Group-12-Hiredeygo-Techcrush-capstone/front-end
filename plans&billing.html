@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans & Billing | HireDeyGo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="css/global-nav.css"> <link rel="stylesheet" href="css/plans&billing.css"> <script src="js/global-nav.js" defer></script> <script src="js/plans&billing.js" defer></script> </head>
+<body>
+    <header id="global-header" class="header-container"></header>
+    <div id="global-logo-bar" class="logo"></div>
+    <aside id="global-sidebar" class="side-bar"></aside>
+
+    <div class="page-wrapper">
+        <main class="main-content-area">
+            <div class="content-container">
+                
+                <div class="intro-header">
+                    <h1><span class="username">Hello, </span>Choose a Job Posting Plan</h1>
+                    <p>Find the right candidates faster. Select a plan that works best for your hiring needs.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    
+                    <div class="plan-card starter">
+                        <div class="plan-header">
+                            <h2>Starter Plan</h2>
+                            <h4>Best for small businesses hiring occasionally</h4>
+                            <p class="price-tag">Free Trial</p>
+                        </div>
+                        <div class="plan-features">
+                            <p class="feature-title">What you get:</p>
+                            <ul>
+                                <li><i class='bx bx-check'></i> Up to 5 job listings</li>
+                                <li><i class='bx bx-check'></i> Active for 30 days</li>
+                                <li><i class='bx bx-check'></i> Employer Dashboard</li>
+                                <li><i class='bx bx-check'></i> View CVs & Profiles</li>
+                                <li><i class='bx bx-check'></i> Email alerts</li>
+                            </ul>
+                        </div>
+                        <button class="btn-plan starter-btn" onclick="selectPlan('Starter')">Get Started</button>
+                    </div>
+
+                    <div class="plan-card growth">
+                        <div class="plan-header">
+                            <h2>Growth Plan</h2>
+                            <h4>Best for companies hiring regularly</h4>
+                            <p class="price-tag">₦80,000 / 6 Months</p>
+                        </div>
+                        <div class="plan-features">
+                            <p class="feature-title">Everything in Starter, plus:</p>
+                            <ul>
+                                <li><i class='bx bx-check'></i> Up to 25 job listings</li>
+                                <li><i class='bx bx-check'></i> Priority Candidate Ranking</li>
+                                <li><i class='bx bx-check'></i> 60-Day Active listings</li>
+                                <li><i class='bx bx-check'></i> Social Media Promotion</li>
+                                <li><i class='bx bx-check'></i> Advanced Filtering tools</li>
+                            </ul>
+                        </div>
+                        <button class="btn-plan growth-btn" onclick="selectPlan('Growth')">Get Started</button>
+                    </div>
+
+                    <div class="plan-card professional">
+                        <div class="plan-header">
+                            <h2>Professional Plan</h2>
+                            <h4>Best for companies hiring at scale</h4>
+                            <p class="price-tag">₦150,000 / Year</p>
+                        </div>
+                        <div class="plan-features">
+                            <p class="feature-title">Everything in Growth, plus:</p>
+                            <ul>
+                                <li><i class='bx bx-check'></i> Unlimited job listings</li>
+                                <li><i class='bx bx-check'></i> Active for 90 days</li>
+                                <li><i class='bx bx-check'></i> Premium filtering tools</li>
+                                <li><i class='bx bx-check'></i> Dedicated Account Manager</li>
+                                <li><i class='bx bx-check'></i> API Access for hiring</li>
+                            </ul>
+                        </div>
+                        <button class="btn-plan professional-btn" onclick="selectPlan('Professional')">Get Started</button>
+                    </div>
+                </div>
+
+                <footer class="page-footer">
+                    <p>© 2026 HireDeyGo. All rights reserved.</p>
+                </footer>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

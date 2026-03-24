@@ -1,135 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile Setup 2</title>
-<link rel="stylesheet" href="css/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup 2 - Founding Info</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="/js/profilesetup.js" defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="main-header">
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logoframe">
+                <img src="images/logo.png" alt="HiredeyGo Logo" width="50">
+                <h1 class="logo-writeup">
+                    Hire<span class="logo-span">dey</span>Go
+                </h1>
+            </div>
 
-<div class="header-content">
+            <div class="process-frame">
+                <div class="progress-top">
+                    <p class="process">Setup Progress</p>
+                    <p class="percent">40%</p> 
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill-50" style="width: 40%;"></div>
+                </div>
+            </div>
+        </div>
 
-<div class="logoframe">
-<img src="images/logo.png" alt="HiredeyGo Logo">
+        <nav class="navbox">
+            <div class="navbar">
+                <div class="nav1">
+                    <img src="images/cominfo.svg" alt="Icon">
+                    <p>Company Info</p>
+                </div>
+                <div class="nav2-active">
+                    <img src="images/foundinginfo.svg" alt="Icon">
+                    <p>Founding Info</p>
+                </div>
+                <div class="nav3">
+                    <img src="images/socialmedia.svg" alt="Icon">
+                    <p>Social Media</p>
+                </div>
+                <div class="nav4">
+                    <img src="images/contact.svg" alt="Icon">
+                    <p>Contact</p>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<h1 class="logo-writeup">
-Hire<span class="logo-span">dey</span>Go
-</h1>
-</div>
-
-<div class="process-frame">
-
-<div class="progress-top">
-<span>Setup Progress</span>
-<span class="percent">25% Completed</span>
-</div>
-
-<div class="progress-bar">
-<div class="progress-fill-25"></div>
-</div>
-
-</div>
-
-</div>
-
-
-<!-- NAVBAR -->
-<nav class="navbox">
-
-<div class="navbar">
-
-<div class="nav1">
-<img src="images/cominfo.svg" alt="Company Info Icon">
-<p>Company Info</p>
-</div>
-
-<div class="nav2-active">
-<img src="images/foundinginfo.svg" alt="Founding Info Icon">
-<p>Founding Info</p>
-</div>
-
-<div class="nav3">
-<img src="images/socialmedia.svg" alt="Social Media Icon">
-<p>Social Media Profile</p>
-</div>
-
-<div class="nav4">
-<img src="images/contact.svg" alt="Contact Icon">
-<p>Contact</p>
-</div>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<!-- FORM SECTION -->
-<section class="form-section">
-
-<div class="form-grid">
-
-<div class="form-group">
-<label>Organization Type</label>
-<select>
-<option>Select...</option>
+    <section class="form-section">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="orgType">Organization Type</label>
+                <select id="orgType">
+    <option value="STARTUP">Startup</option>
+    <option value="PRIVATE">Private Company</option>
+    <option value="PUBLIC">Public Company</option>
+    <option value="NON_PROFIT">Non-Profit (NGO)</option>
 </select>
-</div>
+            </div>
 
-<div class="form-group">
-<label>Industry Type</label>
-<select>
-<option>Select...</option>
-</select>
-</div>
+            <div class="form-group">
+                <label for="industryType">Industry Type</label>
+                <select id="industryType">
+                    <option value="" disabled selected>Select...</option>
+                    <option value="Technology">Technology & Software</option>
+                    <option value="Finance">Finance & Banking</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                </select>
+            </div>
 
-<div class="form-group">
-<label>Team Size</label>
-<select>
-<option>Select...</option>
-</select>
-</div>
+            <div class="form-group">
+                <label for="teamSize">Team Size</label>
+                <select id="teamSize">
+                    <option value="" disabled selected>Select...</option>
+                    <option value="1-10">1-10 Employees</option>
+                    <option value="11-50">11-50 Employees</option>
+                    <option value="51-200">51-200 Employees</option>
+                    <option value="201-500">201-500 Employees</option>
+                </select>
+            </div>
 
-<div class="form-group">
-<label>Year of Establishment</label>
-<input type="date">
-</div>
+            <div class="form-group">
+                <label for="estDate">Year of Establishment</label>
+                <input type="date" id="estDate">
+            </div>
 
-<div class="form-group">
-<label>Company Website</label>
-<input type="text" placeholder="Website url...">
-</div>
+            <div class="form-group">
+                <label for="compWebsite">Company Website</label>
+                <input type="text" id="compWebsite" placeholder="https://website.com">
+            </div>
+        </div>
 
-</div>
+        <div class="about-section">
+            <label for="compVision">Company Vision & About</label>
+            <textarea id="compVision" placeholder="Tell us about your company vision..."></textarea>
+            <div class="editor-tools">
+                <span><strong>B</strong> <em>I</em> <u>U</u> | 🔗 Link | • List</span>
+            </div>
+        </div>
 
-
-<div class="about-section">
-
-<label>About Company</label>
-
-<textarea placeholder="Tell us about your company version..."></textarea>
-
-<div class="editor-tools">
-B I U S | 🔗 | • • •
-</div>
-
-</div>
-
-
-<div class="buttons">
-
-<button class="previous">Previous</button>
-<button class="save">Save & Continue →</button>
-
-</div>
-
-</section>
+        <div class="buttons">
+            <button type="button" class="previous">← Previous</button>
+            <button type="button" class="save">Save & Continue →</button>
+        </div>
+    </section>
 
 </body>
 </html>

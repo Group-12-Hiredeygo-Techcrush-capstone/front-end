@@ -3,98 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employers Profile</title>
+    <title>Employers Profile | HireDeyGo</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="/images/Background.png">
-    <!-- Icons -->
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- CSS -->
+    <link rel="stylesheet" href="/css/global-nav.css">
     <link rel="stylesheet" href="/css/employersprofile.css">
 
-    <!-- JS -->
+    <script src="/js/global-nav.js" defer></script>
     <script src="/js/employersprofile.js" defer></script>
 </head>
 <body>
     <main>
-        <header class="header-container">
-            <nav class="nav-bar">
-                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Find Candidates</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">My Jobs</a></li>
-                    <li><a href="#">Applications</a></li>
-                    <li><a href="#">Customer Support</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="logo">
-        <img src="/images/hiredeygologo.png" alt="">
-            <div class="postajob-container">
-                <i class="bx bx-bell"></i>
-                <button class="postajob-btn">Post A job</button>
-                <i class="bx bx-user-circle"></i>
-                <i class="bx bx-chevron-down"></i>
-            </div>
-        </div>
+        <header class="header-container" id="global-header"></header>
+        <div class="logo" id="global-logo-bar"></div>
+
         <section class="main-container">      
-            <aside class="side-bar">
-                <div class="employer-title">
-                    <h2>Employers Dashboard</h2>
-                </div>
-                <div class="text-container">
-                    <div class="text-input">
-                        <img src="/images/ri_stack-fill.svg" class="text-icon" alt="">
-                        <a href="/html/recruitersdashboard.html">Overveiw</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/profile.svg" class="text-icon" alt="">
-                        <a href="/html/employersprofile.html" target="_blank">Employers Profile</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/gg_add.svg" class="text-icon" alt="">
-                        <a href="/html/postajob.html">Post a Job</a>
-                    </div>
-                
-                    <div class="text-input">
-                        <img src="/images/uit_bag.svg" class="text-icon" alt="">
-                        <a href="#">My Jobs</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon" alt="">
-                        <a href="/html/candidateranking.html">Candidate Ranking</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/material-symbols_bookmark-outline.svg" class="text-icon" alt="">
-                        <a href="#">Saved Candidate</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/streamline-flex_bill-4.svg" class="text-icon" alt="">
-                        <a href="#">Plans and Billings</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/overveiw-icon.svg" class="text-icon" alt="">
-                        <a href="#">All companies</a>
-                    </div>
-
-                    <div class="text-input">
-                        <img src="/images/settings.svg" class="text-icon" alt="">
-                        <a href="#">Settings</a>
-                    </div>
-                </div>
-            </aside>
+            <aside class="side-bar" id="global-sidebar"></aside>
 
             <div class="container2">
                 <div class="inner-container">
@@ -102,120 +31,80 @@
                         <h1><span class="username">Employers Profile</span></h1>
                         <p>Fill in the details to create your job listing</p>
                     </div>
+
                     <div class="profile-box">
                         <div class="profile-gap">
                             <div>Profile completion</div>
                             <div>75%</div>
                         </div>
-                    <metric for the gradient-->
                         <div class="inner-metric-box">
-                            <div class="metric-box">
-                            </div>
+                            <div class="metric-box"></div>
                         </div>
-                          
                         <div class="profile-gap1">
                             <div>Add your social links and team members to reach 100% </div>
                             <div>75%</div>
                         </div>
                     </div>
-                    <!--Share and edit perofile box 
-                        to show the button-->
+
                     <div class="share-edit-profile-box">
                         <button class="share-btn" id="shareBtn">Share Profile</button>
-                        <button class="edit-btn id=editBtn">Edit Profile</button>
+                        <button class="edit-btn" id="editBtn">Edit Profile</button>
                     </div>
+
                     <div class="paystack-box">
                         <div class="paystack-image">
-                            <img src="/images/paystack-images.png" alt="">
+                            <img src="/images/paystack-images.png" alt="Paystack Logo">
                         </div>
-            
-                        <div class="paystack-text">
-                            Paystack
-                        </div>
+                        <div class="paystack-text">Paystack</div>
                         <div>
                             <h4>Making payments simple, reliable, and affordable for every African business.</h4>
                         </div>
                         <div class="paystack-sub">    
-                            <div>
-                                🏭 Financial Technology
-                            </div>
-                            <div>
-                                📍 Lagos, Nigeria
-                            </div>
-                            <div>
-                                👥 51–200 employees
-                            </div>
-                            <div>
-                                📅 Founded 2015
-                            </div>
-                            <div>
-                                🌐 paystack.com
-                            </div>
+                            <div>🏭 Financial Technology</div>
+                            <div>📍 Lagos, Nigeria</div>
+                            <div>👥 51–200 employees</div>
+                            <div>📅 Founded 2015</div>
+                            <div>🌐 paystack.com</div>
                         </div>
-
                     </div>
+
                     <div class="about-company">
                         <div class="about-section">
                             <div class="first-about-section">
                                 <div class="inner-box">
-                                    <div>
-                                        <h3>About the Company</h3>
-                                        <h4>Tell candidates what makes your company a great place to work</h4>
-                                    </div>
+                                    <h3>About the Company</h3>
+                                    <h4>Tell candidates what makes your company a great place to work</h4>
                                 </div>
                                 <div class="edit-icon-box">
-                                    <img src="/images/edit icon.svg" class="edit-icon" alt="">
+                                    <img src="/images/edit icon.svg" class="edit-icon" alt="Edit">
                                 </div>
                             </div>
                             <div class="second-about-section">
                                 <h4>
-                                    Paystack helps businesses in Africa get paid by anyone, anywhere in the  world. We believe that payments should 
-                                    work for Africa , so we build the tools, infrastructure, and support 
-                                    that businesses need to make it  happen.We're a fast-growing fintech 
-                                    company headquartered in  Lagos, Nigeria, with a team spread across 
-                                    Africa and beyond. We value  innovation, collaboration, and impact in 
-                                    everything we do.
+                                    Paystack helps businesses in Africa get paid by anyone, anywhere in the world...
                                 </h4>
                             </div>
                         </div>
+
                         <div class="verified-hiring">
                             <div class="verified">
-                                <div>
-                                    ✅
-                                </div>
-                                <div>
-                                    <h3>Verified Company</h3>
-                                </div>
-                                <div>
-                                    <h4>Your company is verified by HiredeyGo</h4>
-                                </div>
+                                <div>✅</div>
+                                <h3>Verified Company</h3>
+                                <h4>Your company is verified by HiredeyGo</h4>
                             </div>
                             <div class="hiring">
-                                <div>
-                                    <h4>CURRENTLY HIRING</h4>
-                                </div>
-                                <div>
-                                    <h1>4</h1>
-                                </div>
-                                <div>
-                                    <h4>Active job posts on HiredeyGo</h4>
-                                </div>
+                                <h4>CURRENTLY HIRING</h4>
+                                <h1>4</h1>
+                                <h4>Active job posts on HiredeyGo</h4>
                                 <div class="view-btn-box">
-                                    <button class="view-btn">view all Jobs</button>
+                                    <button class="view-btn">View all Jobs</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="company-details-stats">
-                        <div class="company-details">
-
-                        </div>
-                        <div class="company-stats"></div>
-                    </div>
-
                 </div>
             </div>
-        </section>
+            </section>
     </main>
 </body>
 </html>

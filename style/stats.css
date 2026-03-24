@@ -1,0 +1,102 @@
+/* stats.css - Metrics Implementation */
+
+.stats-outer-frame {
+    width: 100%;
+    /* Max-width removed or set to 100% to prevent horizontal scrolling */
+    max-width: 100%; 
+    min-height: 210px; /* Changed from height to min-height */
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin: 0 auto;
+    border-bottom: 1px solid #F1F5F9;
+    padding: 40px 20px; /* Added padding for mobile breathing room */
+    
+    /* THE BULLETPROOF LAYER FIX */
+    position: relative;
+    z-index: 999;
+    isolation: isolate;
+    box-sizing: border-box;
+}
+
+.stats-inner-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Changed from flex-start to center for better alignment */
+    width: 100%; /* Changed from fixed 1280px */
+    max-width: 1280px;
+    height: auto; /* Removed fixed 82px height */
+    justify-content: space-around; 
+    flex-wrap: wrap; /* Allows stats to wrap to next line on mobile */
+    gap: 32px; /* Added gap for when they wrap */
+}
+
+/* Base group for each stat */
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 150px; /* Ensures they don't get too thin before wrapping */
+}
+
+.stat-value {
+    min-height: 48px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(32px, 5vw, 48px); /* Scales down on smaller screens */
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: #0F172A;
+}
+
+.stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #64748B;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Override the specific color classes to black */
+.color-purple, 
+.color-green, 
+.color-dark { 
+    color: #0F172A !important; 
+}
+
+.stat-group:hover .stat-value {
+    transform: translateY(-5px);
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 768px) {
+    .stats-outer-frame {
+        padding: 60px 20px;
+    }
+
+    .stats-inner-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on mobile */
+        gap: 40px 20px;
+    }
+    
+    .stat-group {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-inner-container {
+        grid-template-columns: 1fr; /* 1 column on very small phones */
+    }
+}

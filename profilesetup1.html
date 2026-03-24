@@ -1,145 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profile Setup 1</title>
-<link rel="stylesheet" href="/css/profile.css">
-<script src="/js/profilesetup.js"defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup 1 - Company Info | HireDeyGo</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/profilesetup.js" defer></script>
 </head>
 
 <body>
 
-<!-- Header -->
 <header class="main-header">
+    <div class="header-content">
+        <div class="logoframe">
+            <img src="/images/logo.png" alt="HiredeyGo Logo" width="50">
+            <h1 class="logo-writeup">
+                Hire<span class="logo-span">dey</span>Go
+            </h1>
+        </div>
 
-<div class="header-content">
+        <div class="process-frame">
+            <div class="progress-top">
+                <p class="process">Setup Progress</p>
+                <p class="percent">20%</p> 
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill-25" style="width: 20%;"></div>
+            </div>
+        </div>
+    </div>
 
-<div class="logoframe">
-<img src="/images/logo.png" alt="HiredeyGo Logo">
-
-<h1 class="logo-writeup">
-Hire<span class="logo-span">dey</span>Go
-</h1>
-</div>
-
-<div class="process-frame">
-<div class="process">
-<h4>Setup Progress</h4>
-</div>
-<div class="line"></div>
-</div>
-
-</div>
-
-<!-- Navbar -->
-<nav class="navbox">
-
-<div class="navbar">
-
-<div class="nav1-active">
-<img src="/images/cominfo.svg" alt="Company Info Icon">
-<p>Company Info</p>
-</div>
-
-<div class="nav2">
-<img src="/images/foundinginfo.svg" alt="Founding Info Icon">
-<p>Founding Info</p>
-</div>
-
-<div class="nav3">
-<img src="/images/socialmedia.svg" alt="Social Media Icon">
-<p>Social Media Profile</p>
-</div>
-
-<div class="nav4">
-<img src="/images/contact.svg" alt="Contact Icon">
-<p>Contact</p>
-</div>
-
-</div>
-
-</nav>
-
+    <nav class="navbox">
+        <div class="navbar">
+            <div class="nav1-active">
+                <img src="/images/cominfo.svg" alt="Icon">
+                <p>Company Info</p>
+            </div>
+            <div class="nav2">
+                <img src="/images/foundinginfo.svg" alt="Icon">
+                <p>Founding Info</p>
+            </div>
+            <div class="nav3">
+                <img src="/images/socialmedia.svg" alt="Icon">
+                <p>Social Media</p>
+            </div>
+            <div class="nav4">
+                <img src="/images/contact.svg" alt="Icon">
+                <p>Contact</p>
+            </div>
+        </div>
+    </nav>
 </header>
 
-
-<!-- Section -->
 <section class="grid-container">
 
-<!-- Left Section -->
-<div class="left">
+    <div class="left">
+        <h1>Set Up Your Company Profile</h1>
+        <p class="subtitle">This will help candidates find and trust your listings.</p>
 
-<h1>Set Up Your Company Profile</h1>
-<p class="subtitle">This will help candidates find and trust your listings.</p>
+        <div class="logo-upload">
+            <div class="logo-box">
+                <img src="/images/companylogo.png" alt="Company Logo" id="logoPreview" style="max-width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="logo-text">
+                <p class="label">Company Logo</p>
+                <p class="small">PNG, JPG Max 2MB</p>
+                <input type="file" id="logoInput" accept="image/*" hidden>
+                <button type="button" id="uploadBtn" class="upload-btn">Upload Logo</button>
+                <p id="fileName" style="font-size: 12px; margin-top: 5px; color: #666;"></p>
+                <p id="errorMsg" style="color: red; font-size: 12px;"></p>
+            </div>
+        </div>
 
-<div class="logo-upload">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" placeholder="Enter company name">
 
-<div class="logo-box">
-    <img src="/images/companylogo.png" alt="Company Logo">
-</div>
+        <label for="industry">Industry</label>
+        <select id="industry">
+            <option value="Technology">Technology</option>
+            <option value="Finance">Finance</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+        </select>
 
-<div class="logo-text">
+        <label for="website">Company Website</label>
+        <input type="text" id="website" placeholder="https://">
 
-<p class="label">Company Logo</p>
-<p class="small">PNG, JPG Max 2MB</p>
+        <label for="address">Headquarters</label>
+        <input type="text" id="address" placeholder="e.g. Lagos, Nigeria">
+    </div>
 
-<input type="file" id="logoInput" accept="image/*" hidden />
-<button id="uploadBtn" class="upload-btn">Upload Logo</button>
+    <div class="right">
+        <label for="teamSize">Company Size</label>
+        <select id="teamSize">
+            <option value="1-10">1-10 employees</option>
+            <option value="11-50">11-50 employees</option>
+            <option value="51-200">51-200 employees</option>
+            <option value="200+">200+ employees</option>
+        </select>
 
-<p id="fileName"></p>
-<p id="errorMsg" style="color: red;"></p>
+        <label for="about">About Company</label>
+        <textarea id="about" placeholder="Tell candidates who you are..." style="min-height: 150px;"></textarea>
 
-</div>
-
-</div>
-
-
-<label>Company Name</label>
-<input type="text">
-
-<label>Industry</label>
-<select>
-<option>Technology</option>
-</select>
-
-<label>Company Website</label>
-<input type="text">
-
-<label>Headquarters</label>
-<input type="text">
-
-</div>
-
-
-<!-- Right Section -->
-<div class="right">
-
-<label>Company Size</label>
-<select>
-<option>11-50 employees</option>
-</select>
-
-<label>About Company</label>
-<textarea placeholder="Write down about your company here. Let the candidate know about who we are..."></textarea>
-
-<div class="file-upload">
-<img src="/images/uploadlogo.png" alt="upload file">
-<p>Upload your company CAC/Cert. of Incorporation</p>
-<span>PDF, DOC, DOCX MAX 5MB</span>
-
-<button class="browse">Browse File</button>
-
-</div>
-
-</div>
+        <div class="file-upload">
+            <img src="/images/uploadlogo.png" alt="upload icon" width="40">
+            <p>Upload your company CAC/Cert. of Incorporation</p>
+            <span>PDF, DOC, DOCX MAX 5MB</span>
+            <input type="file" id="cacInput" accept=".pdf,.doc,.docx" hidden>
+            <button type="button" class="browse" id="cacBtn">Browse File</button>
+            <p id="cacFileName" style="font-size: 12px; margin-top: 10px; color: #2ecc71; font-weight: 500;"></p>
+        </div>
+    </div>
 
 </section>
 
-
-<!-- Footer Button -->
 <div class="footer-btn">
-<button class="save">Save & Continue →</button>
+    <button type="button" class="save">Save & Continue →</button>
 </div>
 
 </body>

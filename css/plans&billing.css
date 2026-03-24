@@ -1,0 +1,241 @@
+/* --- RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F1EFFC;
+    color: #333;
+}
+
+/* --- LAYOUT STRUCTURE --- */
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Main Content Area - Default Desktop with Sidebar space */
+.main-content-area {
+    flex: 1;
+    margin-left: 280px; /* Space for the Global Sidebar */
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+}
+
+.content-container {
+    padding: 12rem 4rem 4rem 4rem; /* Top padding for fixed header */
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- TYPOGRAPHY --- */
+.intro-header {
+    margin-bottom: 4rem;
+}
+
+.intro-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.intro-header p {
+    font-size: 1.6rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.username {
+    font-weight: 700;
+    color: #7F13EC;
+}
+
+/* --- PRICING CARDS --- */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+}
+
+.plan-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+}
+
+.plan-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.plan-header h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.plan-header h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #666;
+    min-height: 4rem;
+}
+
+.price-tag {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+/* THEMED CARDS */
+.starter { border-top: 5px solid #10B981; }
+.growth { 
+    background-color: #7F13EC; 
+    color: #fff; 
+}
+.growth .plan-header h4, .growth .feature-title { color: #e0e0e0; }
+.professional { border-top: 5px solid #10B981; }
+
+/* FEATURES LIST */
+.plan-features {
+    flex: 1;
+    margin-bottom: 3rem;
+}
+
+.feature-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.plan-features ul {
+    list-style: none;
+}
+
+.plan-features li {
+    font-size: 1.35rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.plan-features li i {
+    font-size: 1.8rem;
+    color: #10B981;
+}
+
+.growth .plan-features li i { color: #fff; }
+
+/* BUTTONS */
+.btn-plan {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 700;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.starter-btn { background: #7F13EC; color: #fff; }
+.growth-btn { background: #fff; color: #7F13EC; }
+.professional-btn { background: #10B981; color: #fff; }
+
+.btn-plan:hover { opacity: 0.9; }
+
+/* FOOTER */
+.page-footer {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .main-content-area {
+        margin-left: 0; /* Removing sidebar gap for mobile/tablet */
+    }
+    
+    .content-container {
+        padding: 10rem 2rem 4rem 2rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Mobile Phones (Portrait) */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%; 
+    }
+
+    .intro-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .intro-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Single column stack */
+        padding: 0 1rem;
+    }
+
+    .plan-card {
+        padding: 2.5rem;
+    }
+
+    /* Disable hover lift on touch devices */
+    .plan-card:hover {
+        transform: none;
+    }
+    
+    .page-footer {
+        margin-top: 2rem;
+        padding-bottom: 4rem;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    .content-container {
+        padding-top: 8rem;
+    }
+
+    .plan-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .price-tag {
+        font-size: 1.8rem;
+    }
+}

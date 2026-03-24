@@ -1,0 +1,158 @@
+/* Popular Categories - Responsive Implementation */
+
+.categories-section {
+    width: 100%;
+    min-height: 490px; /* Changed from height to min-height */
+    background: rgba(115, 17, 212, 0.05); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px; /* Responsive side padding */
+    box-sizing: border-box;
+}
+
+.categories-container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    flex-wrap: wrap; /* Allows "View All" to wrap on small screens */
+    gap: 20px;
+}
+
+.cat-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(32px, 7vw, 48px); /* Fluid typography */
+    line-height: 1.1;
+    color: #0F172A;
+    margin: 0 0 12px 0;
+}
+
+.cat-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.5;
+    color: #475569;
+    margin: 0;
+}
+
+.view-all-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #7311D4;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+    padding-bottom: 5px; /* Alignment tweak */
+}
+
+.view-all-link:hover {
+    transform: translateX(5px);
+}
+
+/* The Cards Grid - Converted to Grid for better control */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default 4 columns */
+    gap: 24px;
+    width: 100%;
+}
+
+.category-card {
+    height: 146px;
+    background: #FFFFFF;
+    border: 1px solid #F1F5F9;
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.cat-icon-box {
+    position: absolute;
+    width: 25px;
+    height: 15px; 
+    left: 27.5px;
+    top: 35.5px;
+    border-radius: 4px;
+    background: #7311D4; /* Added visible color for icon placeholder */
+}
+
+/* Figma specific icon offsets */
+.category-card:nth-child(2) .cat-icon-box { height: 25px; top: 30.5px; }
+.category-card:nth-child(3) .cat-icon-box { height: 20px; top: 33px; }
+.category-card:nth-child(4) .cat-icon-box { height: 22.5px; top: 31.75px; }
+
+.cat-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 18px; /* Slightly larger for better legibility */
+    line-height: 1.2;
+    color: #0F172A;
+    margin: 0;
+}
+
+.cat-count {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #64748B;
+    margin: 4px 0 0 0;
+}
+
+.category-card:hover {
+    border-color: #7311D4;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(115, 17, 212, 0.1);
+}
+
+/* --- MOBILE & TABLET RESPONSIVE --- */
+
+@media (max-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .categories-section {
+        padding: 60px 20px;
+    }
+
+    .categories-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr; /* Full width stack on phones */
+    }
+
+    .category-card {
+        height: 120px; /* Slimmer cards for vertical stack */
+    }
+    
+    .view-all-link {
+        align-self: flex-start;
+    }
+}

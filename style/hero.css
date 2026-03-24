@@ -1,0 +1,219 @@
+/* hero.css - Refined Figma Implementation */
+
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1728px;
+    min-height: 808.75px; /* Changed from height to min-height */
+    margin: 0 auto;
+    background: #FFFFFF;
+    overflow: hidden;
+    display: flex; /* Added flex to handle layout */
+    align-items: center;
+}
+
+/* LEFT CONTENT SECTION */
+.hero-content-stack {
+    position: relative; /* Changed from absolute */
+    width: 100%;
+    max-width: 883.5px;
+    padding: 160px 48px 80px; /* Replaced left/top with padding */
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    box-sizing: border-box;
+}
+
+.hero-badge-f {
+    width: fit-content; /* Allow it to shrink */
+    min-width: 279px;
+    height: 37px;
+    background: rgba(127, 19, 236, 0.1);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0F172A;
+    margin-bottom: 24px; /* Space instead of absolute top */
+}
+
+.hero-h1-f {
+    width: 100%;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 90px); /* Fluid typography */
+    line-height: 1;
+    color: #0F172A;
+    margin: 0 0 30px 0;
+}
+
+.hero-h1-f span { color: #7F13EC; }
+
+.hero-p-f {
+    width: 100%;
+    max-width: 492.89px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 40px;
+}
+
+/* SEARCH BAR */
+.hero-search-f {
+    width: 100%;
+    max-width: 672px;
+    height: 70px; /* Slightly slimmer for better feel */
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0px 25px 50px -12px rgba(226, 232, 240, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 40px;
+}
+
+/* SOCIAL PROOF SECTION */
+.hero-social-proof {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.avatar-stack {
+    position: relative;
+    width: 96px;
+    height: 40px;
+    display: flex;
+}
+
+.avatar-f {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #FFFFFF;
+}
+
+.avatar-f:nth-child(1) { left: 0px; z-index: 3; }
+.avatar-f:nth-child(2) { left: 28px; z-index: 2; }
+.avatar-f:nth-child(3) { left: 56px; z-index: 1; }
+
+.social-proof-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0F172A;
+}
+
+/* RIGHT VISUAL SECTION */
+.hero-visual-f {
+    position: absolute; /* Kept absolute for desktop layering */
+    width: 45%;
+    max-width: 883.5px;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-img-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-border-layer {
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 575 / 714;
+    background: rgba(255, 255, 255, 0.002);
+    border: 8px solid #FFFFFF;
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+    z-index: 2;
+}
+
+.hero-main-img {
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    left: 8px;
+    top: 8px;
+    border-radius: 16px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-floating-f {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    min-height: 80px;
+    left: 5%; 
+    bottom: 24px; 
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    box-sizing: border-box;
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 1100px) {
+    .hero-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding-top: 80px;
+    }
+
+    .hero-content-stack {
+        max-width: 100%;
+        padding: 60px 24px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-visual-f {
+        position: relative;
+        width: 100%;
+        right: auto;
+        top: auto;
+        transform: none;
+        padding: 0 24px 60px;
+        justify-content: center;
+    }
+
+    .hero-search-f {
+        height: 60px;
+    }
+
+    .hero-social-proof {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-h1-f {
+        font-size: 48px;
+        line-height: 1.1;
+    }
+
+    .hero-floating-f {
+        display: none; /* Usually too cluttered for small phones */
+    }
+}

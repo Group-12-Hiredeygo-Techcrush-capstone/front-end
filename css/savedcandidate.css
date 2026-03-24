@@ -1,0 +1,200 @@
+/* =========================================
+   SAVED CANDIDATE: FULL-WIDTH GRID
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    background-color: #F1EFFC;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* 1. MAIN LAYOUT */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container2 {
+    flex: 1;
+    width: 100%;
+}
+
+.inner-container {
+    padding: 12rem 5% 5rem 5%; /* Responsive side padding */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 2. TOP BAR & SEARCH */
+.top-bar {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.top-bar input {
+    flex: 2;
+    min-width: 250px;
+    padding: 1.2rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1.4rem;
+    outline-color: #7F13EC;
+}
+
+.filter-btn, #sortSelect {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* 3. SECTION TITLES */
+.section-title h1 {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* 4. CANDIDATE GRID */
+.grid {
+    display: grid;
+    /* Flexible grid that fits 1 to 4 cards depending on screen size */
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 2.5rem;
+}
+
+/* 5. NAKED HIGHLIGHT CARDS */
+.card {
+    background: white;
+    border-radius: 1.2rem;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.avatar {
+    background: #E9E4EE;
+    color: #7F13EC;
+    font-size: 1.4rem;
+    font-weight: 700;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.location {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.progress {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    border: 3px solid #10B981;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #10B981;
+}
+
+.tags {
+    margin: 1.5rem 0 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tag {
+    background: #F8F7FF;
+    color: #7F13EC;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.view {
+    background: #7F13EC;
+    color: white;
+}
+
+.message {
+    background: #F1EFFC;
+    color: #7F13EC;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* =========================================
+   SIDEBAR INJECTION RESPONSIVENESS
+   ========================================= */
+@media (max-width: 1024px) {
+    .inner-container {
+        padding-top: 15rem;
+    }
+}

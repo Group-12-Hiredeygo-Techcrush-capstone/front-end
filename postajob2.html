@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Job | HireDeyGo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/global-nav.css">
+    <link rel="stylesheet" href="/css/postajob2.css">
+
+    <style>
+        /* Specific Fixes for Footer Positioning */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        /* Ensure the main container fills the available height */
+        .main-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .container2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFFFFF !important;
+        }
+
+        .inner-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: #FFFFFF !important;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 80px;
+            max-width: 100% !important;
+            margin: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Naked Highlight Badge Theme */
+        .company-id-badge {
+            background: #FFFFFF !important;
+            border: 2px solid #000000 !important;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 35px;
+        }
+
+        .company-id-badge i, 
+        .company-id-badge label {
+            color: #000000 !important;
+        }
+
+        /* The trick: push the footer to the bottom */
+        .footer-workspace {
+            margin-top: auto; 
+            padding: 60px 0 20px 0;
+            border-top: 1px solid #EEE;
+        }
+
+        .section-divider {
+            margin: 40px 0;
+            border: 0;
+            border-top: 1px solid #000000;
+            opacity: 0.1;
+        }
+    </style>
+
+    <script src="/js/global-nav.js" defer></script>
+    <script src="/js/postajob2.js" defer></script>
+</head>
+<body>
+    <main>
+        <header id="global-header" class="header-container"></header>
+        <div id="global-logo-bar" class="logo"></div>
+
+        <section class="main-container">      
+            <aside id="global-sidebar" class="side-bar"></aside>
+
+            <div class="container2">
+                <div class="inner-container">
+                    <div class="container">
+                        <h1>Post a New Job</h1>
+                        <p class="subtitle">Fill the details below to post your job</p>
+
+                        <div class="company-id-badge">
+                            <div class="badge-content" style="display: flex; align-items: flex-start; gap: 15px;">
+                                <i class='bx bxs-badge-check' style="font-size: 2.4rem;"></i>
+                                <div class="input-group" style="flex: 1;">
+                                    <label for="company-id-input" style="font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Company ID (Manual Entry):</label>
+                                    <input type="text" id="company-id-input" placeholder="Enter Company ID e.g. 69c1af..." required 
+                                           style="border: none; border-bottom: 1px solid #000; border-radius: 0; padding: 8px 0; font-family: monospace; width: 100%;">
+                                    <small style="display: block; margin-top: 10px; color: #666; font-style: italic;">This job will be posted under your verified recruiter profile.</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>BASIC INFORMATION</h3>
+                        <div class="form1">
+                            <div>
+                                <label for="title">Job Title <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="e.g. Backend Engineer" id="title" required />
+                            </div>
+                            <div>
+                                <label for="tags">Tags <span class="aestherisk">*</span> (Comma separated)</label>
+                                <input type="text" placeholder="nodejs, backend, api" id="tags" required />
+                            </div>
+                            <div>
+                                <label for="requiredSkills">Required Skills <span class="aestherisk">*</span></label>
+                                <input type="text" placeholder="Node.js, MongoDB, Docker" id="requiredSkills" required />
+                            </div>
+                            <div>
+                                <label for="category">Category <span class="aestherisk">*</span></label>
+                                <select id="category" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Design">Design</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Sales">Sales</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form2">
+                            <label for="companyName">Company Name <span class="aestherisk">*</span></label>
+                            <input type="text" placeholder="e.g. Acme Corp" id="companyName" required />
+                        </div>
+
+                        <div class="form3">
+                            <div>
+                                <label for="salaryType">Salary Type <span class="aestherisk">*</span></label>
+                                <select id="salaryType">
+                                    <option value="MONTHLY">Monthly</option>
+                                    <option value="YEARLY">Yearly</option>
+                                    <option value="HOURLY">Hourly</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="salaryMin">Salary Min</label>
+                                <input type="number" placeholder="150000" id="salaryMin" />
+                            </div>
+                            <div>
+                                <label for="salaryMax">Salary Max</label>
+                                <input type="number" placeholder="300000" id="salaryMax" />
+                            </div>
+                            <div>
+                                <label for="isSalaryNegotiable">Negotiable?</label>
+                                <select id="isSalaryNegotiable">
+                                    <option value="false">No</option>
+                                    <option value="true">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <h2>Advanced Information</h2>
+                        <div class="form4">
+                            <div>
+                                <label for="educationLevel">Education <span class="aestherisk">*</span></label>
+                                <select id="educationLevel" required>
+                                    <option value="BSC">B.Sc / B.Eng</option>
+                                    <option value="MSC">M.Sc / Masters</option>
+                                    <option value="PHD">PhD</option>
+                                    <option value="HND">HND</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="experienceLevel">Experience Level <span class="aestherisk">*</span></label>
+                                <select id="experienceLevel" required>
+                                    <option value="ENTRY">Entry Level</option>
+                                    <option value="MID">Mid Level</option>
+                                    <option value="SENIOR">Senior Level</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="experienceYears">Experience Years</label>
+                                <select id="experienceYears">
+                                    <option value="0-2">0 - 2 Years</option>
+                                    <option value="3-5" selected>3 - 5 Years</option>
+                                    <option value="5-10">5 - 10 Years</option>
+                                    <option value="10+">10+ Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form4" style="margin-top: 26px;">
+                            <div>
+                                <label for="type">Job Type <span class="aestherisk">*</span></label>
+                                <select id="type" required>
+                                    <option value="FULL_TIME">Full-time</option>
+                                    <option value="PART_TIME">Part-time</option>
+                                    <option value="HYBRID">Hybrid</option>
+                                    <option value="REMOTE">Remote</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="vacancies">Vacancies <span class="aestherisk">*</span></label>
+                                <input type="number" id="vacancies" placeholder="3" min="1" required />
+                            </div>
+                            <div>
+                                <label for="deadline">Deadline <span class="aestherisk">*</span></label>
+                                <input type="date" id="deadline" required />
+                            </div>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <h2>Location</h2>
+                        <div class="location-input">
+                            <div>
+                                <label for="country">Country</label>
+                                <input type="text" id="country" placeholder="Nigeria" />
+                            </div>
+                            <div>
+                                <label for="city">City</label>
+                                <input type="text" id="city" placeholder="Lagos" />
+                            </div>
+                        </div>
+                        <div class="form2" style="margin-top: 20px;">
+                            <label for="location">Specific Address/Area</label>
+                            <input type="text" id="location" placeholder="Victoria Island, Lagos" />
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <h2>Job Description</h2>
+                        <textarea id="description" placeholder="General overview of the role..." style="height: 150px;"></textarea>
+                        
+                        <label style="margin-top: 20px; display: block;">Responsibilities <span class="aestherisk">*</span></label>
+                        <textarea id="responsibilities" placeholder="Design and implement REST APIs..." style="height: 120px;"></textarea>
+
+                        <label style="margin-top: 20px; display: block;">Requirements <span class="aestherisk">*</span></label>
+                        <textarea id="requirements" placeholder="3+ years experience with Node.js..." style="height: 120px;"></textarea>
+
+                        <hr class="section-divider">
+
+                        <h2>Job Benefits</h2>
+                        <p>Select the Perks you offer</p>
+                        <div class="benefit-btn-box1">
+                            <button type="button" class="benefit-btn">Distributed Team</button>
+                            <button type="button" class="benefit-btn">Medical Insurance</button>
+                            <button type="button" class="benefit-btn">Company Retreats</button>
+                            <button type="button" class="benefit-btn">401K Matching</button>
+                            <button type="button" class="benefit-btn">Async</button>
+                            <button type="button" class="benefit-btn">Vision Insurance</button>
+                            <button type="button" class="benefit-btn">401K Salary</button>
+                            <button type="button" class="benefit-btn">Unlimited Vacation</button>
+                            <button type="button" class="benefit-btn">Dental Insurance</button>
+                            <button type="button" class="benefit-btn">Housing Allowance</button>
+                            <button type="button" class="benefit-btn">Profit Sharing</button>
+                            <button type="button" class="benefit-btn">Flexible Hours</button>
+                            <button type="button" class="benefit-btn">Learning Budget</button>
+                            <button type="button" class="benefit-btn">Equity Compensation</button>
+                            <button type="button" class="benefit-btn">Pay in Crypto</button>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <div class="assessment-section">
+                            <div class="section-header-flex" style="display: flex; justify-content: space-between; align-items: center;">
+                                <h2>Assessment Details</h2>
+                                <div class="time-limit-box">
+                                    <label for="timeLimit">Total Time (Minutes)</label>
+                                    <input type="number" id="timeLimit" value="30" min="1" class="small-input" style="width: 80px; margin-left: 10px;">
+                                </div>
+                            </div>
+                            <p class="subtitle">Add questions and correct answers for auto-grading</p>
+                            
+                            <div id="questions-wrapper" class="questions-grid">
+                                <div class="question-card">
+                                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+                                        <h3>Question 1</h3>
+                                        <div class="points-box">
+                                            <label>Points:</label>
+                                            <input type="number" class="q-points" value="5" min="1" style="width: 50px;">
+                                        </div>
+                                        <button type="button" class="remove-btn"><i class='bx bx-x'></i></button>
+                                    </div>
+                                    
+                                    <input type="text" placeholder="e.g. What is the output of 2 + 2?" class="question-input" required>
+                                    
+                                    <div class="mcq-options-container" style="display: none; margin-top: 15px;">
+                                        <label>Options (Comma separated):</label>
+                                        <input type="text" class="q-options-input" placeholder="e.g. Library, Framework, Database">
+                                    </div>
+
+                                    <div class="answer-logic-area" style="margin-top: 15px;">
+                                        <label>Correct Answer:</label>
+                                        <input type="text" placeholder="The exact correct response" class="q-correct-answer" required>
+                                    </div>
+
+                                    <div class="card-footer" style="margin-top: 15px;">
+                                        <div class="dropdown-group">
+                                            <label>Type:</label>
+                                            <select class="answer-type">
+                                                <option value="TEXT" selected>Short Text</option>
+                                                <option value="MCQ">Multiple Choice (MCQ)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="button" id="add-question-btn" class="add-btn-dashed" style="margin-top: 20px;">
+                                <i class='bx bx-plus'></i> Add another question
+                            </button>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <h2>Apply Job on</h2>
+                        <div class="apply-on">
+                            <div class="apply-box">
+                                <input type="radio" name="applyMethod" id="onApp" value="HiredeyGo" checked />
+                                <label for="onApp">
+                                    <h4>On HiredeyGo</h4>
+                                    <p>Track everything on your dashboard.</p>
+                                </label>
+                            </div>
+                            <div class="apply-box">
+                                <input type="radio" name="applyMethod" id="external" value="External" />
+                                <label for="external">
+                                    <h4>External Platform</h4>
+                                    <p>Redirect to your website.</p>
+                                </label>
+                            </div>
+                            <div class="apply-box">
+                                <input type="radio" name="applyMethod" id="onEmail" value="Email" />
+                                <label for="onEmail">
+                                    <h4>On Your Email</h4>
+                                    <p>Applications sent to your inbox.</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="email-apply-container" style="display: none; margin-top: 20px;">
+                            <label for="applyEmail">Application Email <span class="aestherisk">*</span></label>
+                            <input type="email" id="applyEmail" placeholder="hr@company.com" />
+                        </div>
+
+                        <div id="external-apply-container" style="display: none; margin-top: 20px;">
+                            <label for="applyUrl">External Link (URL) <span class="aestherisk">*</span></label>
+                            <input type="url" id="applyUrl" placeholder="https://company.com/careers" />
+                        </div>
+
+                        <div style="margin-top: 40px; text-align: right;">
+                            <button type="button" class="submit-btn">Publish Job</button>
+                        </div>
+
+                        <footer class="footer-workspace">
+                            <div class="compliance-row">
+                                <span class="compliance-item" style="display: inline-flex; align-items: center; gap: 8px; color: #8E92BC; font-size: 14px;">
+                                    <i class='bx bx-lock-alt' style="font-size: 18px;"></i> End-to-end encrypted
+                                </span>
+                                <span class="compliance-item" style="display: inline-flex; align-items: center; gap: 8px; color: #8E92BC; font-size: 14px; margin-left: 32px;">
+                                    <i class='bx bx-check-shield' style="font-size: 18px;"></i> SOC2 Compliant
+                                </span>
+                            </div>
+                            <p class="copyright" style="color: #8E92BC; font-size: 13px; margin-top: 16px; opacity: 0.8; text-align: center;">© 2026 HiredeyGo Inc. All rights reserved.</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
