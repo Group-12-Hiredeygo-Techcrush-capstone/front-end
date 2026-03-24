@@ -38,7 +38,7 @@ const navigationData = {
             </div>
             <div class="text-input" data-page="myjobs.html">
                 <img src="images/uit_bag.svg" class="text-icon">
-                <a href="#">My Jobs</a>
+                <a href="myjobs.html">My Jobs</a>
             </div>
             <div class="text-input" data-page="candidateranking.html">
                 <img src="images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon">

@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (footerSpan) footerSpan.innerText = `Total Applications: ${data.totalApplications || 0}`;
     }
 
-    // --- 6. TABLE RENDER LOGIC ---
+    // --- 6. TABLE ---
     function renderTable(data) {
         if (!tableBody) return;
         tableBody.innerHTML = "";
