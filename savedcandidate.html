@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HireDeyGo | Saved Candidates</title>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link rel="icon" href="images/Background.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Montserrat:wght@400;500;700&display=swap">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    
     <link rel="stylesheet" href="css/global-nav.css">
     <link rel="stylesheet" href="css/savedcandidate.css">
 
@@ -17,37 +16,80 @@
     <script src="js/savedcandidate.js" defer></script>
 </head>
 <body>
-    <main>
-        <header class="header-container" id="global-header"></header>
-        <div class="logo" id="global-logo-bar"></div>
+    <header class="header-container" id="global-header"></header>
+    <div class="logo" id="global-logo-bar"></div>
 
-        <section class="main-container">      
-            <aside class="side-bar" id="global-sidebar"></aside>
+    <main class="container2">
+        <aside class="side-bar" id="global-sidebar"></aside>
 
-            <div class="container2">
-                <div class="inner-container">
-                    <div class="top-bar">
-                        <input type="text" id="candidateSearch" placeholder="Search candidates..." />
-                        <button class="filter-btn">Filters</button>
+        <div class="workspace-area">
+            
+            <div class="controls-frame-1048">
+                <div class="search-input-wrapper">
+                    <i class='bx bx-search'></i> <input type="text" id="candidateSearch" placeholder="Search candidates">
+                </div>
+
+                <div class="filter-sort-group">
+                    <button class="filter-btn-frame">
+                        <i class='bx bx-filter-alt'></i> Filters
+                    </button>
+                    <div class="sort-dropdown-frame">
+                        <span>Sort by:</span>
                         <select id="sortSelect">
-                            <option>Newest</option>
-                            <option>Oldest</option>
+                            <option value="Newest">Newest</option>
+                            <option value="Oldest">Oldest</option>
                         </select>
+                        <i class='bx bx-chevron-down'></i>
                     </div>
-
-                    <div class="section-title">
-                        <h1>UI/UX Designers</h1>
-                        <p class="subtitle">Review and manage all candidate applications across your job posts</p>
-                    </div>
-                    <div id="uiux" class="grid"></div>
-
-                    <div class="section-title" style="margin-top: 5rem;">
-                        <h1>Mobile Developers</h1>
-                    </div>
-                    <div id="mobile" class="grid"></div>
                 </div>
             </div>
-        </section>
+
+            <div class="header-frame-784">
+                <h1 class="job-title-784">UI/UX Designers</h1>
+                <p class="description-784">Review and manage all candidate applications across your job posts</p>
+            </div>
+
+            <div class="inner-container">
+                <div class="row-frame-785">
+                    <div class="card-frame-544">
+                        <div class="card-left-content">
+                            <div class="avatar-frame-390">
+                                <span class="avatar-text">AO</span>
+                            </div>
+                            <div class="candidate-info">
+                                <h3 class="candidate-name">Ajayi Temitope</h3>
+                                <span class="candidate-location">Lagos, Nigeria</span>
+                            </div>
+                        </div>
+
+                        <div class="fit-score-wrapper">
+                            <svg class="fit-score-svg" viewBox="0 0 75 75">
+                                <circle class="fit-score-circle-bg" cx="37.5" cy="37.5" r="33.5"></circle>
+                                <circle class="fit-score-circle-fill" cx="37.5" cy="37.5" r="33.5"></circle>
+                            </svg>
+                            <div class="fit-percentage-text">
+                                <span class="fit-num">94%</span>
+                                <span class="fit-label">fit</span>
+                            </div>
+                        </div>
+
+                        <div class="actions-frame-535">
+                            <button class="btn-view">View Profile</button>
+                            <button class="btn-message">Message</button>
+                        </div>
+                    </div> 
+                    </div> 
+            </div>
+
+            <div class="pagination-footer">
+                <span class="showing-text">Showing 1 of 1 candidates</span>
+                <div class="page-controls">
+                    <button class='bx bx-chevron-left'></button>
+                    <button class="page-num active">1</button>
+                    <button class='bx bx-chevron-right'></button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 </html>

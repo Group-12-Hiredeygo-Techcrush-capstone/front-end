@@ -1,200 +1,243 @@
-/* =========================================
-   SAVED CANDIDATE: FULL-WIDTH GRID
-   ========================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --brand-purple: #7F13EC;
+    --brand-teal: #10B981;
+    --brand-teal-75: rgba(16, 185, 129, 0.75);
+    --text-muted: #B5B5B5;
+    --bg-light-teal: #99f6e4;
+    --sidebar-width: 28rem;
 }
+
+/* Base Layout - Responsive Grid */
+html { font-size: 62.5%; } /* 1rem = 10px */
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
+    margin: 0;
+    padding: 0;
     background-color: #F1EFFC;
-}
-
-html {
-    font-size: 62.5%;
-}
-
-/* 1. MAIN LAYOUT */
-.main-container {
-    display: flex;
-    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container2 {
-    flex: 1;
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    background-color: #F1EFFC;
+    position: relative;
+    padding-top: 14rem;
+    padding-right: 5rem; /* Right padding to keep content off the edge */
+    box-sizing: border-box;
+}
+
+/* --- Search & Filters --- */
+.controls-frame-1048 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 2.4rem;
+    position: absolute;
+    width: 61.2rem;
+    height: 4.2rem;
+    
+    /* Responsive Anchor: Anchors to the right of workspace instead of a fixed left */
+    right: 5rem; 
+    top: 4.3rem; 
+    z-index: 10;
+}
+
+.search-input-wrapper, 
+.filter-btn-frame, 
+.sort-dropdown-frame {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    font-family: 'Montserrat';
+    font-size: 1.4rem;
+}
+
+.search-input-wrapper { flex: 1; gap: 1rem; }
+.search-input-wrapper input { border: none; outline: none; width: 100%; font-family: 'Montserrat'; background: transparent; }
+.sort-dropdown-frame select { border: none; outline: none; background: transparent; font-weight: 700; cursor: pointer; }
+
+/* Joined Filter & Sort Pill Style */
+.filter-sort-group {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 1.2rem;
+    height: 100%;
+}
+
+.filter-btn-frame {
+    border: none;
+    border-right: 1px solid #000000;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+/* --- Workspace Layout --- */
+.workspace-area { 
+    margin-left: 5rem; 
+    position: relative;
+}
+
+.header-frame-784 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 5.6rem;
+}
+
+.job-title-784 {
+    font-family: 'Playfair Display';
+    font-weight: 900;
+    font-size: 4.8rem;
+    color: #000;
+    margin: 0;
+}
+
+.description-784 {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+}
+
+/* --- Responsive Candidate Grid --- */
+.row-frame-785 {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to next line instead of going off-screen */
+    align-items: flex-start;
+    gap: 2.5rem;
     width: 100%;
 }
 
-.inner-container {
-    padding: 12rem 5% 5rem 5%; /* Responsive side padding */
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* 2. TOP BAR & SEARCH */
-.top-bar {
+.card-frame-544 {
+    box-sizing: border-box;
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-    flex-wrap: wrap;
-}
-
-.top-bar input {
-    flex: 2;
-    min-width: 250px;
-    padding: 1.2rem 2rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 1.4rem;
-    outline-color: #7F13EC;
-}
-
-.filter-btn, #sortSelect {
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: white;
-    cursor: pointer;
-    font-weight: 500;
-}
-
-/* 3. SECTION TITLES */
-.section-title h1 {
-    font-size: 2.8rem;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1.3rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-/* 4. CANDIDATE GRID */
-.grid {
-    display: grid;
-    /* Flexible grid that fits 1 to 4 cards depending on screen size */
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-    gap: 2.5rem;
-}
-
-/* 5. NAKED HIGHLIGHT CARDS */
-.card {
-    background: white;
+    flex-direction: column;
+    align-items: flex-end;    
+    justify-content: flex-end; 
+    padding: 1.5rem;
+    gap: 1.8rem;               
+    width: 52.4rem; 
+    height: 20.3rem; 
+    background: #FFFFFF;
     border-radius: 1.2rem;
-    padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.05);
     position: relative;
-    transition: transform 0.2s;
+    border: none; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.avatar {
-    background: #E9E4EE;
-    color: #7F13EC;
-    font-size: 1.4rem;
-    font-weight: 700;
-    width: 4.5rem;
-    height: 4.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
-
-.name {
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
-.location {
-    font-size: 1.2rem;
-    color: #888;
-}
-
-.progress {
+/* --- Card Internal Content --- */
+.card-left-content {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    width: 4.5rem;
-    height: 4.5rem;
-    border-radius: 50%;
-    border: 3px solid #10B981;
+    left: 1.5rem; 
+    top: 1.5rem;  
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+}
+
+.avatar-frame-390 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #10B981;
+    width: 5rem;
+    height: 5rem;
+    background: var(--brand-teal-75);
+    border-radius: 1.2rem;
 }
 
-.tags {
-    margin: 1.5rem 0 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+.avatar-text { color: white; font-weight: 700; font-size: 1.6rem; }
+.candidate-name { font-family: 'Montserrat'; font-weight: 700; font-size: 2.4rem; margin: 0; }
+.candidate-location { font-family: 'Montserrat'; color: var(--text-muted); font-size: 1.4rem; }
+
+.fit-score-wrapper {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    width: 7.5rem; 
+    height: 7.5rem;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
-.tag {
-    background: #F8F7FF;
-    color: #7F13EC;
-    padding: 0.5rem 1.2rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: 500;
+.fit-score-svg { transform: rotate(-90deg); width: 7.5rem; height: 7.5rem; }
+.fit-score-circle-bg { fill: none; stroke: #E2E8F0; stroke-width: 8; }
+.fit-score-circle-fill {
+    fill: none; stroke: var(--brand-teal); stroke-width: 8; stroke-linecap: round;
+    stroke-dasharray: 210; stroke-dashoffset: 20; 
 }
 
-.actions {
-    display: flex;
-    gap: 1rem;
+.fit-percentage-text { position: absolute; display: flex; flex-direction: column; align-items: center; }
+.fit-num { font-size: 1.8rem; font-weight: 900; color: var(--brand-teal); line-height: 1; }
+.fit-label { font-size: 1.1rem; color: var(--text-muted); font-weight: 700; }
+
+.actions-frame-535 { display: flex; gap: 1.2rem; }
+
+.btn-view {
+    background: var(--brand-purple); color: white; border: none;
+    border-radius: 1rem; padding: 1rem 2rem; font-weight: 700; cursor: pointer;
 }
 
-.btn {
-    flex: 1;
-    padding: 1rem;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: 0.3s;
+.btn-message {
+    background: var(--bg-light-teal); color: #0f766e; border: none;
+    border-radius: 1rem; padding: 1rem 2rem; font-weight: 700; cursor: pointer;
 }
 
-.view {
-    background: #7F13EC;
-    color: white;
+/* --- Footer --- */
+.pagination-footer {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 4rem; 
+    padding: 1.5rem 0; 
+    border-top: 1px solid #E2E8F0;
 }
 
-.message {
-    background: #F1EFFC;
-    color: #7F13EC;
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+
+/* Tablet and Small Laptops */
+@media (max-width: 1200px) {
+    .controls-frame-1048 {
+        position: relative; /* Moves below title */
+        top: 0;
+        right: 0;
+        margin-bottom: 2rem;
+        left: 0; /* Resets the left value */
+        width: 100%;
+    }
+    
+    .container2 {
+        padding-top: 10rem;
+    }
 }
 
-.btn:hover {
-    opacity: 0.9;
-}
+/* Mobile Screens */
+@media (max-width: 768px) {
+    .container2 {
+        margin-left: 0; /* Sidebar usually hides on mobile */
+        padding: 8rem 2rem 2rem 2rem;
+    }
+    
+    .workspace-area {
+        margin-left: 0;
+    }
 
-/* =========================================
-   SIDEBAR INJECTION RESPONSIVENESS
-   ========================================= */
-@media (max-width: 1024px) {
-    .inner-container {
-        padding-top: 15rem;
+    .job-title-784 {
+        font-size: 3.2rem;
+    }
+
+    .card-frame-544 {
+        width: 100%; /* Card fills screen width */
+        height: auto;
+        min-height: 20rem;
     }
 }

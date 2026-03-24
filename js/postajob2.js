@@ -6,7 +6,38 @@
  * 3. Link Assessment to Job (Handshake) -> 
  * 4. Save JobID for Ranked Candidates
  */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Target your specific ID
+    const companyInput = document.getElementById('company-id-input'); 
+    
+    // 2. Fetch the profile from localStorage
+    const rawProfile = localStorage.getItem("companyProfile_Full");
+    
+    if (rawProfile && companyInput) {
+        try {
+            const profileData = JSON.parse(rawProfile);
+            
+            // 3. Extract the userId (as we confirmed earlier)
+            const companyId = profileData.userId;
 
+            if (companyId) {
+                // 4. Inject the ID
+                companyInput.value = companyId;
+                
+                // 5. Make it Read-Only so the user can't break the link
+                companyInput.readOnly = true; 
+                
+                // Subtle visual cue that matches your minimalist style
+                companyInput.style.color = "#7311D4"; 
+                companyInput.style.cursor = "default";
+                
+                console.log("✅ Company ID synced into your minimalist layout.");
+            }
+        } catch (e) {
+            console.error("❌ Profile parse error:", e);
+        }
+    }
+});
 document.addEventListener('DOMContentLoaded', () => {
     const BASE_URL = "https://hire-dey-go-be-8x3c.onrender.com";
     const submitBtn = document.querySelector('.submit-btn');
