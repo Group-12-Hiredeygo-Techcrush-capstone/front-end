@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+
+.text-container {
+    margin: 1rem 1rem;
+}
+
+.text-container h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', ;
+    text-align: center;
+}
+
+.termsandcondition-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.left-container {
+    flex: 7;
+    padding-right: 3rem;
+}
+
+.left-container h4 {
+   color: blueviolet;
+}
+
+.left-container span {
+    font-weight: 600;
+}
+
+.right-container {
+    flex: 3;
+    padding-left: 1.5rem;
+    height: 26rem;
+    border-left: 1px solid black;
+}
+
