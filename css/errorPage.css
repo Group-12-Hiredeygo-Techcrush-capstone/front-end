@@ -1,0 +1,96 @@
+*{
+    box-sizing: border-box;
+}
+/* 62.5% is approximately 10px */
+html {
+    font-size: 62.5%;
+}
+/* 50% is approximately 8px for devices of 1280px and below */
+@media (max-width: 1204px) {    
+    html {                           
+        font-size: 50%;  
+    }
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.error-wrapper {
+    padding: 5rem;
+}
+
+.error-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 632px) {
+    .error-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
+
+.error-container .error-text {
+  max-width: 27rem;
+}
+@media (max-width: 632px) {
+    .error-text {
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+}
+
+.error-text h1 {
+    font-size: 2.5rem;
+}
+
+.error-text p {
+    font-weight: 600;
+}
+
+.error-image img{
+    height: 30rem;
+    width: 37rem;
+    display: inline-block;
+}
+   
+
+.error-button {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+@media (max-width: 1204px) {
+    .error-button {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-right: 2rem;
+    }
+}
+
+.error-button .dashboard {
+    padding: 0.6rem 1.5rem;
+   border-radius: 0.3rem;
+   background-color: #7F13EC;
+   color: white;
+   outline: none;
+   border: none;
+}
+
+.error-button .back {
+   color: #10B981;
+   background-color: white;
+   border: 1px solid #7F13EC;
+   border-radius: 0.3rem;
+   padding: 0.6rem 1.5rem;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+}
