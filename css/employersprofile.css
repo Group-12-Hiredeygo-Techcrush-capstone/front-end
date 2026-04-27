@@ -19,72 +19,65 @@
 }
 
 /* PROFILE COMPLETION BOX */
-.profile-box {
-    background-color: #FFFFFF;
-    padding: 2.5rem;
-    border-radius: 12px;
-    margin-top: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+.employer-box p{
+    font-size: 2rem;
+    margin: 0;
 }
 
-.profile-gap, .profile-gap1 {
+.employer-profile h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+}
+span{
+
+}
+.employer-profile{
     display: flex;
-    justify-content: space-between;
+    gap: 20rem;
+}
+.edit-box img{
+    display: flex;
+    height: 1.5rem;
     align-items: center;
-    margin-bottom: 1rem;
+
 }
-
-/* Metric Bar logic */
-.inner-metric-box {
-    height: 1rem;
-    width: 100%;
-    background: #D9D9D9;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.metric-box {
-    height: 100%;
-    width: 75%; /* Controlled by JS or inline style */
-    background: linear-gradient(90deg, #7F13EC, #10B981);
-    border-radius: 8px;
-}
-
-/* COMPANY INFO & GRID */
-.paystack-box { margin-top: 4rem; }
-.paystack-image img { height: 6rem; }
-.paystack-text { font-size: 2.4rem; font-weight: 700; margin: 1rem 0; }
-.paystack-sub { display: flex; gap: 3rem; color: #666; }
-
-.about-company {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.about-section {
-    background: #fff;
-    padding: 3rem;
-    border-radius: 12px;
-}
-
-.verified, .hiring {
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 12px;
-    margin-bottom: 2rem;
-}
-
-.hiring h1 { font-size: 4rem; color: #7F13EC; margin: 1rem 0; }
-
-.view-btn {
-    width: 100%;
-    padding: 1.2rem;
-    background: #7F13EC;
-    color: #fff;
+.edit-btn{
+    padding: 1rem 4rem;
     border: none;
-    border-radius: 6px;
+    background-color: #7F13EC;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 600;
+    color: #F1EFFC;
+    /* gap: 1rem; */
+}
+/*The board tag*/
+.card-banner{
+    display: flex;
+    padding:2rem;
+    gap: 4rem;
+
+    width: 90rem;
+    border-radius: 1rem;
+    background: linear-gradient(175.74deg, #7F13EC 26.21%, #10B981 118.77%);
+;
+    height: 15rem;
+}
+.card-image{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 8px;
+    background-color: #ffff;
+    align-self: center;
+   
+}
+.card-text{
+    color: #fff;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+}
+.bottom-card{
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+    line-height: 1rem;
 }
