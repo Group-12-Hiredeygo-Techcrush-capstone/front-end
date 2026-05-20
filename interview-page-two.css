@@ -1,0 +1,444 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.section-one{
+    width: 100%;
+    min-height: 100vh;
+    padding-bottom: 5rem;
+    align-items: center;
+    border: 3px solid green;
+    position: relative;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.aside-section{
+    border: 1px solid black;
+    width: 17.8rem;
+    height: 47.9rem;
+    padding-top: 19.4rem;
+    /* padding-left: 38.3rem; */
+}
+
+.header-title{
+    font-size: 4.8rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 100%;
+    font-family: "Playfair Display", serif;
+    letter-spacing: -0.5px;
+    padding-top: 4rem;
+}
+
+.title-p{
+   font-family: "Montserrat", sans-serif;
+   font-weight: 400;
+   font-size: 1.6rem;
+   line-height: 100%;
+   margin-top: 1rem;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.main-div-left{
+    min-width: 50rem;
+    height: fit-content;
+    /* border: 1px solid red; */
+    gap: 2.8rem;
+    display: flex;
+    flex-direction: column;
+     font-family: "Montserrat", sans-serif;
+}
+.init-bx{
+    width: 6.1rem;
+    height: 6rem;
+    /* border: 1px solid rgba(16, 185, 129, 0.75); */
+    border-radius: 1.3rem;
+    /* align-self: center; */
+    background-color: rgba(16, 185, 129, 0.75);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: payfair Display;
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-style: bold;
+    color: white;
+}
+
+.init-box-container{
+    width: 118%;
+    height: 6rem;
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4em;
+}
+
+.boxes-btn-complete{
+   height: 100%;
+    background-color:rgba(16, 185, 129, 0.25);
+    width: 100%;
+    font-size: 1.6rem;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+     width: 19.7rem;
+    height: 4rem;
+    border-radius: 8px;
+    padding: 1rem;
+    font-weight: 500;
+    display: flex;
+    gap: 8px; 
+    outline: none;
+}
+
+.info-bx{
+    width: fit-content;
+    height: fit-content;
+    gap: 1.9rem;
+    /* border: 1px solid red; */
+}
+
+.name-tag-title{
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+}
+
+.job-description-p{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: 0px;
+    color: rgba(181, 181, 181, 1);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.btn-sections{
+    width: fit-content;
+    height: 5rem;
+    /* border: 5px solid purple; */
+    display: flex;
+    flex-direction: row;
+    gap: 3.4rem;
+}
+
+.boxes-one{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: fit-content;
+}
+.boxes-one{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: 18.5rem;
+}
+.boxes-two{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: 15.2rem;
+}
+.boxes-three{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: 19.8rem;
+}
+.boxes-four{
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: 15.1rem;
+
+}
+
+.paw{
+    font-size: 2.2rem;
+    color: rgba(16, 185, 129, 1);
+}
+
+.job-description{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: rgba(181, 181, 181, 1);
+    line-height: 100%;
+    letter-spacing: -0.5px;
+}
+
+.ph-handbag-simple{
+    font-size: 2.2rem;
+    color: rgba(127, 19, 236, 1);
+}
+
+.ph-calendar{
+    font-size: 2.2rem;
+    color: rgba(127, 19, 236, 1);
+}
+
+.ph-building-office{
+    font-size: 2.2rem;
+    color:rgba(16, 185, 129, 1);
+}
+
+.ph-trophy{
+    font-size: 2.2rem;
+    color: rgba(255, 206, 49, 1);
+}
+
+.boxes-btn-scheduled{
+    width: 16rem;
+    height: 3.2rem;
+    padding: 1rem;
+    gap: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgba(193, 193, 193, 0.2);
+    border: 1px solid rgba(127, 19, 236, 1);
+    outline: none;
+}
+
+.assessment-section{
+    width: 65.7rem;
+    height: 7.7rem;
+    border: 1px solid rgba(16, 185, 129, 1);
+    border-radius: 8px;
+    gap: 12.6rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-top: 3em;
+}
+
+.assessment-score{
+    width: 15.1rem;
+    height: 5.6rem;
+    /* border: 1px solid black; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    white-space: nowrap;
+    
+}
+.question-correct-bx{
+    width: 15rem;
+    height: 5.6rem;
+    /* border: 1px solid black; */
+     display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+    white-space: nowrap;
+    
+}
+.time-used-bx{
+    width: 8.4rem;
+    height: 5.6rem;
+    /* border: 1px solid black; */
+     display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+    white-space: nowrap;
+    
+}
+
+h6{
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 2rem;
+
+}
+
+p{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2rem;
+
+}
+.last-box-p{
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+    color: rgba(30, 30, 30, 1);
+}
+
+.ph-check{
+    color: rgba(16, 185, 129, 1);
+    font-weight:  bolder;
+    
+}
+
+
+.text-area-bx{
+    /* border: 1px solid purple; */
+    width: 72.9rem;
+    height: 18.6rem;
+}
+
+.interview-title-bx{
+    /* border: 1px solid red; */
+    width: 28.1rem;
+    height: 2rem;
+}
+
+.interview-title{
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: -0.5px;
+    font-family:"Montserrat", sans-serif ;
+}
+.interview-title .optional{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+    font-family:"Montserrat", sans-serif ;
+    color: rgba(181, 181, 181, 1);
+}
+
+.ph-note{
+    font-size: 1.75rem;
+    color: rgba(30, 30, 30, 1);
+}
+
+textarea{
+    width: 100%;
+    min-height: 14.7rem;
+    margin-top: 2rem;
+    outline: none;
+    border: 1px solid rgba(127, 19, 236, 0.2);
+    border-radius: 8px ;
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+
+}
+
+::placeholder{
+    color: rgba(181, 181, 181, 1);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+    font-family:"Montserrat", sans-serif ;
+}
+
+.final-decision-bx{
+    /* border: 1px solid navy; */
+    width: 39.1rem;
+    height: 11.8rem;
+    padding: 1rem;
+    gap: 3.4rem;
+    margin-right: 5rem;
+}
+
+.final-decision-p{
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+    font-family:"Montserrat", sans-serif ;
+}
+
+.btn-section{
+    width: 100%;
+    /* border: 1px solid blue; */
+    height: 4.4rem;
+    gap: 2.6rem;
+    display: flex;
+    margin-top: 4rem;
+}
+
+.accept-btn{
+    width: 17rem;
+    height: 4.4rem;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    background-color: rgba(16, 185, 129, 0.25);
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.45px;
+    color: rgba(16, 185, 129, 1);
+    font-family:"Montserrat", sans-serif;
+    gap: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}   
+.reject-btn{
+    width: 17rem;
+    height: 4.4rem;
+    border: 1px solid rgba(230, 57, 57, 0.25);
+    background-color:rgba(230, 57, 57, 0.25);
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: -0.45px;
+    color: rgba(230, 57, 57, 1);
+    font-family:"Montserrat", sans-serif;
+    gap: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+
+}   
+
+.ph-check-square{
+    /* font-size: 1.9rem; */
+    background-color: rgba(16, 185, 129, 1) ;
+    color: white;
+    
+}
+
+.ph-x-square{
+    font-size: 1.95rem;
+}
+
+.accept-btn, .reject-btn:hover{
+    cursor: pointer;
+}
+
+

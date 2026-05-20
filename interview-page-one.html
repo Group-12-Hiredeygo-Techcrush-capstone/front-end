@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="interview-page-one.css">
+    <title>Interview Page One</title>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxi-icons/web@2.1.4/css/boxiicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Science+Gothic:wdth,wght,CTRS@87.5,100..900,26&family=Sekuya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wdth,wght@0,87.5,100..900;1,87.5,100..900&family=Science+Gothic:wdth,wght,CTRS@87.5,100..900,26&family=Sekuya&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+</head>
+<body>
+   <section class="section-one">
+     <h1 class="header-title">Interview Schedule</h1>
+    <p class="title-p">Candidates invited for interview — physical or virtual</p>
+
+    <div class="first-grid-container">
+        <div class="first-box">
+           <i class="ph-bold ph-users icons" ></i>
+           <p class="first-box-no">6</p>
+           <p class="description">Total invited</p>
+        </div>
+        <div class="second-box">
+            <i class="ph-bold ph-calendar icons" ></i>
+            <p class="first-box-no">3</p>
+           <p class="description">Scheduled</p>
+        </div>
+        <div class="third-box">
+            <i class="ph-bold ph-clock icons"></i>
+            <p class="first-box-no">2</p>
+           <p class="description">In Progress</p>
+        </div>
+        <div class="fourth-box">
+            <i class="ph-bold ph-check icons" ></i>
+            <p class="first-box-no">1</p>
+           <p class="description">Completed</p>
+        </div>
+    </div>
+
+    <div class="section-one-second-box">
+        <div class="top-section">
+            <p class="interview-type">Interview Type:</p>
+            <i class="ph-bold ph-laptop"></i>
+            <p class="virtual-call">Virtual — online video call</p>
+            <p class="physical">Physical — in person at office</p>
+        </div>
+        <div class="bottom-section">
+           <div class="bottom-first-outline">
+             <div class="small-circle"></div>
+             <p class="outline-p">Scheduled</p>
+           </div>
+           
+           <div class="bottom-first-outline">
+             <div class="second-small-circle"></div>
+             <p class="outline-p">Scheduled</p>
+           </div>
+           
+           <div class="bottom-first-outline">
+             <div class="third-small-circle"></div>
+             <p class="outline-p">Scheduled</p>
+           </div>
+           
+        </div>
+    </div>
+<div class="filter-button-section">
+  <div class="search-input-wrapper">
+    <input id="searchInput" class="search-candidates" type="text" placeholder="Search candidates or jobs">
+  </div>
+
+
+
+  <div class="main-filter-dropdown-frame-container">
+
+    <div class="left-section"><i class="ph ph-funnel-x"></i>Filters<i class='bx bx-filter-alt'></i><span class="span">Sort by:</span></div><button id="filterToggle" class="filter-btn-frame">
+     <p id="filterP">All status</p><i class="ph ph-caret-down"></i></button>
+   <div id="filterPanel" class="filter-panel hidden">
+      <label class="filter-label">
+        All Status
+        <select id="statusFilter">
+          <option value="all">Location</option>
+    
+          <option value="pending">Time joined</option>
+        </select>
+      </label>
+     
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+   </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="main-div-container">
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">AO</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">Adaeze Okonkwo</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 95%</p></div>
+          <div class="boxes"><button class="boxes-btn"><i class="ph ph-hourglass-medium"></i><p class="last-box-p">In Progress</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-laptop laptop"></i>
+       <button type="button" disable class="google-meet-btn">Google Meet</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 11, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">10:00 AM-11:00 AM</p>
+      </div>
+      <div class="third">
+        <button type="button" class="third-div-btn">Mark As Done</button>
+        <button type="button" class="third-div-second-btn">Reschedule</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">EM</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">Emeka Madu</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
+          <div class="boxes"><button class="boxes-btn"><i class="ph ph-hourglass-medium"></i><p class="last-box-p">In Progress</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-building-office office"></i>
+       <button type="button" disable class="google-meet-office-btn">In Office</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 11, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">2:00 PM-3:00 PM</p>
+      </div>
+      <div class="third">
+        <button type="button" class="third-div-btn">Mark As Done</button>
+        <button type="button" class="third-div-second-btn">Reschedule</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">CE</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">Chisom Eze</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Customer Support</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Customer Care</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
+          <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i></i><p class="scheduled-p">Scheduled</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-laptop laptop"></i>
+       <button type="button" disable class="google-meet-btn">Zoom</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 13, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">9:00 AM-10:00 AM</p>
+      </div>
+      <div class="third">
+        <button type="button" class="Send-reminder-btn">Send Reminder</button>
+        <button type="button" class="third-div-second-btn">Reschedule</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">DA</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">David Abiodun</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Frontend Developer</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Software</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
+          <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i></i><p class="scheduled-p">Scheduled</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-building-office office"></i>
+       <button type="button" disable class="google-meet-office-btn">In Office</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 14, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">11:00 PM-12:00 PM</p>
+      </div>
+      <div class="third">
+        <button type="button"class="Send-reminder-btn">Send Reminder</button>
+        <button type="button" class="third-div-second-btn">Reschedule</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">FB</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">Fatima Bello</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Customer Support</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Customer Care</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
+          <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i> <p class="scheduled-p">Scheduled</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-laptop laptop"></i>
+       <button type="button" disable class="google-meet-btn">Google Meet</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 15, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">3:00 PM-4:00 PM</p>
+      </div>
+      <div class="third">
+        <button type="button" class="Send-reminder-btn">Send Reminder</button>
+        <button type="button" class="third-div-second-btn" data-id = "1" data-name="Fatima Bello" data-email = "adibelibenedict1@gmail.com" data-status ="Marked">Reschedule</button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="main-div-first-box">
+    <div class="main-div-left">
+      <div class="init-bx">TA</div>
+      <div class="info-bx">
+        <h6 class="name-tag-title">Tolu Adeyemi</h6>
+        <div class="info-grid-bx">
+          <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
+          <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
+          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 75%</p></div>
+          <div class="boxes"><button class="boxes-btn-complete"><i class="ph-bold ph-check"></i><p class="last-box-p"> Interview Complete</p></button disabled></div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="middle">
+       <i class="ph-bold ph-building-office office"></i>
+       <button type="button" disable class="google-meet-office-btn">In Office</button>
+    </div>
+
+   
+    <div class="main-div-right">
+      <div class="first">
+         <i class="ph-bold ph-calendar first-div-icons" ></i>
+         <p class="first-div-p">Mar 11, 2026</p>
+      </div>
+      <div class="second">
+        <i class="ph-bold ph-clock first-div-icons" ></i>
+        <p class="second-div-p">10:00 AM-11:00 AM</p>
+      </div>
+      <div class="third">
+        <button type="button" class="third-div-final-btn">Give Final Decision</button>
+       
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="last-container">
+    <div class="text-area"><input type="text" name="" id="" placeholder="Showing 4 of 4 candidates" class="text-area-input"></div>
+    <div class="icon-area">
+     <button class="first-left-icon"><i class="ph-bold ph-caret-left"></i></button>
+     <button class="middle-btn">1</button>
+     <button class="second-right-icon"><i class="ph-bold ph-caret-right"></i></button>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+    
+   </section>
+
+
+
+
+   
+   <script src="interview-page-one.js"></script>
+</body>
+</html>
