@@ -14,6 +14,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 </head>
 <body>
+
+</head>
+<body>
    <section class="section-one">
      <h1 class="header-title">Interview Schedule</h1>
     <p class="title-p">Candidates invited for interview — physical or virtual</p>
@@ -46,7 +49,7 @@
             <p class="interview-type">Interview Type:</p>
             <i class="ph-bold ph-laptop"></i>
             <p class="virtual-call">Virtual — online video call</p>
-            <p class="physical">Physical — in person at office</p>
+            <p class="physical"><i class="ph-bold ph-building-office icons"></i>Physical — in person at office</p>
         </div>
         <div class="bottom-section">
            <div class="bottom-first-outline">
@@ -56,37 +59,37 @@
            
            <div class="bottom-first-outline">
              <div class="second-small-circle"></div>
-             <p class="outline-p">Scheduled</p>
+             <p class="outline-p">In Progress</p>
            </div>
            
            <div class="bottom-first-outline">
              <div class="third-small-circle"></div>
-             <p class="outline-p">Scheduled</p>
+             <p class="outline-p">Completed</p>
            </div>
            
         </div>
     </div>
-<div class="filter-button-section">
-  <div class="search-input-wrapper">
-    <input id="searchInput" class="search-candidates" type="text" placeholder="Search candidates or jobs">
-  </div>
+<!-- <div class="filter-button-section"> -->
+  <div class="controls-frame-1048">
+                <div class="search-input-wrapper">
+                    <i class='bx bx-search'></i> <input type="text" id="candidateSearch" placeholder="Search candidates">
+                </div>
 
-
-
-  <div class="main-filter-dropdown-frame-container">
-
-    <div class="left-section"><i class="ph ph-funnel-x"></i>Filters<i class='bx bx-filter-alt'></i><span class="span">Sort by:</span></div><button id="filterToggle" class="filter-btn-frame">
-     <p id="filterP">All status</p><i class="ph ph-caret-down"></i></button>
-   <div id="filterPanel" class="filter-panel hidden">
-      <label class="filter-label">
-        All Status
-        <select id="statusFilter">
-          <option value="all">Location</option>
-    
-          <option value="pending">Time joined</option>
-        </select>
-      </label>
-     
+                <div class="filter-sort-group">
+                    <button class="filter-btn-frame">
+                        <i class='bx bx-filter-alt'></i> Filters
+                        <div class="vertical-line"></div>
+                    </button>
+                    <div class="sort-dropdown-frame">
+                        <span class="sort-by">Sort by:</span>
+                        <select id="sortSelect">
+                            <option value="Newest">All Status</option>
+                            <option value="Oldest">Oldest</option>
+                        </select>
+                        <i class='bx bx-chevron-down'></i>
+                    </div>
+                
+            </div>     
     </div>
 
 
@@ -117,7 +120,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 95%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 95%</p></div>
           <div class="boxes"><button class="boxes-btn"><i class="ph ph-hourglass-medium"></i><p class="last-box-p">In Progress</p></button disabled></div>
         </div>
       </div>
@@ -155,7 +158,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
           <div class="boxes"><button class="boxes-btn"><i class="ph ph-hourglass-medium"></i><p class="last-box-p">In Progress</p></button disabled></div>
         </div>
       </div>
@@ -193,7 +196,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Customer Support</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Customer Care</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
           <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i></i><p class="scheduled-p">Scheduled</p></button disabled></div>
         </div>
       </div>
@@ -231,7 +234,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Frontend Developer</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Software</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 90%</p></div>
           <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i></i><p class="scheduled-p">Scheduled</p></button disabled></div>
         </div>
       </div>
@@ -269,7 +272,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Customer Support</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">Customer Care</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 85%</p></div>
           <div class="boxes"><button class="boxes-btn-scheduled"><i class="ph-bold ph-calendar calendar" ></i> <p class="scheduled-p">Scheduled</p></button disabled></div>
         </div>
       </div>
@@ -308,7 +311,7 @@
         <div class="info-grid-bx">
           <div class="boxes"><i class="ph ph-paw-print"></i><p class="job-description">Product Designer</p></div>
           <div class="boxes"><i class="ph-bold ph-handbag-simple"></i><p class="job-description">UI/UX Design</p></div>
-          <div class="boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 75%</p></div>
+          <div class="score-boxes"><i class="ph-bold ph-trophy"></i><p class="job-score"> Score: 75%</p></div>
           <div class="boxes"><button class="boxes-btn-complete"><i class="ph-bold ph-check"></i><p class="last-box-p"> Interview Complete</p></button disabled></div>
         </div>
       </div>
@@ -359,7 +362,7 @@
 
 
 
+   <script src="./interview-page-one.js"></script>
    
-   <script src="interview-page-one.js"></script>
 </body>
 </html>
