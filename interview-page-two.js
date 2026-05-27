@@ -2,9 +2,9 @@ const acceptBtn = document.querySelector(".accept-btn");
 const rejectBtn = document.querySelector(".reject-btn");
 
 acceptBtn.addEventListener("click", ()=>{
-    window.location.href = "index.html"
+    window.location.href = "Hired.html"
 })
 
 rejectBtn.addEventListener("click", ()=>{
-    window.location.href = "login.html"
+    window.location.href = "Rejected.html"
 })
