@@ -8,3 +8,5 @@ acceptBtn.addEventListener("click", ()=>{
 rejectBtn.addEventListener("click", ()=>{
     window.location.href = "Rejected.html"
 })
+
+
