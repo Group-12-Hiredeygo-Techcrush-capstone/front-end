@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireDeyGo | My Job Posts</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="stylesheet" href="css/global-nav.css">
+    <link rel="stylesheet" href="css/myjob.css">
+
+    <script src="js/global-nav.js" defer></script>
+    <script src="js/myjob.js" defer></script>
+</head>
+
+<body>
+    <header class="header-container" id="global-header"></header>
+    <div class="logo" id="global-logo-bar"></div>
+
+    <main class="container2"> <aside class="side-bar" id="global-sidebar"></aside>
+
+        <div class="workspace-area">
+            <div class="header-frame-784">
+                <h1 class="job-title-784">My Job Posts</h1>
+                <p class="description-784">Manage all the jobs you have posted on HiredeyGo</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat"><h2>4</h2><p>Total Job Posts</p></div>
+                <div class="stat active"><h2>2</h2><p>Active</p></div>
+                <div class="stat"><h2>1</h2><p>Draft</p></div>
+                <div class="stat"><h2>1</h2><p>Expired</p></div>
+            </div>
+
+            <div class="search-row">
+                <input type="text" id="jobSearch" placeholder="Search jobs...">
+                <select><option>Categories</option></select>
+                <select><option>Sort: Newest</option></select>
+            </div>
+
+            <div class="job-list" id="jobListContainer">
+                <div class="job-card">
+                    <div class="job-left">
+                        <h3>Senior Backend Engineer</h3>
+                        <p>Lagos, Nigeria • Full-time • ₦400K – ₦600K/mo</p>
+                        <span class="status active">Active</span>
+                    </div>
+                    <div class="jobs">
+                        <div class="job-stats">
+                            <p><b>47</b><br>Applied</p>
+                            <p><b>12</b><br>Shortlisted</p>
+                            <p><b>3</b><br>Interview</p>
+                        </div>
+                        <div class="job-actions">
+                            <button class="view">View Applications</button>
+                            <button class="edit">Edit</button>
+                            <button class="close">Close</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* RESET & BASE */
+/* --- RESET & BASE --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,28 +15,29 @@ body {
     color: #333;
 }
 
-/* LAYOUT STRUCTURE */
+/* --- LAYOUT STRUCTURE --- */
 .page-wrapper {
     display: flex;
     min-height: 100vh;
 }
 
-/* IMPORTANT: Adjusting for the Global Sidebar */
+/* Main Content Area - Default Desktop with Sidebar space */
 .main-content-area {
     flex: 1;
-    margin-left: 280px; /* Adjust this to match your sidebar width */
+    margin-left: 280px; /* Space for the Global Sidebar */
     display: flex;
     flex-direction: column;
+    transition: margin-left 0.3s ease;
 }
 
 .content-container {
-    padding: 12rem 4rem 4rem 4rem; /* Top padding accounts for fixed header */
+    padding: 12rem 4rem 4rem 4rem; /* Top padding for fixed header */
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
 }
 
-/* TYPOGRAPHY */
+/* --- TYPOGRAPHY --- */
 .intro-header {
     margin-bottom: 4rem;
 }
@@ -58,7 +59,7 @@ body {
     color: #7F13EC;
 }
 
-/* PRICING CARDS */
+/* --- PRICING CARDS --- */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -169,4 +170,72 @@ body {
     border-top: 1px solid #ddd;
     font-size: 1.2rem;
     color: #888;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .main-content-area {
+        margin-left: 0; /* Removing sidebar gap for mobile/tablet */
+    }
+    
+    .content-container {
+        padding: 10rem 2rem 4rem 2rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* Mobile Phones (Portrait) */
+@media (max-width: 768px) {
+    html {
+        font-size: 55%; 
+    }
+
+    .intro-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .intro-header h1 {
+        font-size: 2.8rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Single column stack */
+        padding: 0 1rem;
+    }
+
+    .plan-card {
+        padding: 2.5rem;
+    }
+
+    /* Disable hover lift on touch devices */
+    .plan-card:hover {
+        transform: none;
+    }
+    
+    .page-footer {
+        margin-top: 2rem;
+        padding-bottom: 4rem;
+    }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+    .content-container {
+        padding-top: 8rem;
+    }
+
+    .plan-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .price-tag {
+        font-size: 1.8rem;
+    }
 }

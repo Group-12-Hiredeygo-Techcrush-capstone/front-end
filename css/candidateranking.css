@@ -103,3 +103,92 @@
 .btn.primary { background: #7F13EC; color: #fff; margin-bottom: 5px; }
 .btn.secondary { background: #f0f0f0; color: #333; }
 .btn.danger { background: #fee2e2; color: #d90429; }
+
+/* =========================================
+   4. RESPONSIVE OVERRIDES: CARD VIEW
+   ========================================= */
+@media (max-width: 1024px) {
+    .assessment {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .assessment-test3 {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .test-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .rank-candidate-box {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .rank-candidate-box {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    /* Hide standard headers for mobile card view */
+    .table-header {
+        display: none;
+    }
+
+    /* Convert row to a Card */
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 2.5rem;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        background: #fff;
+    }
+
+    /* Label injection for mobile clarity (optional logic) */
+    .row > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+    }
+
+    /* Force certain elements to stay left/full width */
+    .row div:nth-child(2) { 
+        font-weight: 700; 
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 1rem;
+    }
+
+    /* Adjust the "Actions" buttons for full width on mobile */
+    .row div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .progress {
+        width: 100%;
+    }
+}

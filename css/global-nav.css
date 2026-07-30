@@ -108,9 +108,9 @@ body {
     padding-top: 14rem; 
     padding-left: 2.5rem;
     z-index: 1000;
+    transition: left 0.4s ease; /* Smooth slide for mobile */
 }
 
-/* Specific fix for Sidebar Title font/color conflict */
 .side-bar .employer-title h2 {
     color: #ffffff !important;
     font-size: 1.4rem !important;
@@ -118,7 +118,7 @@ body {
     font-weight: 700 !important;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 0 0 3rem 0 !important; /* Removes page-level h2 margin */
+    margin: 0 0 3rem 0 !important;
     opacity: 0.9;
 }
 
@@ -191,10 +191,13 @@ body {
     margin-left: 28rem; 
     background-color: #F1EFFC;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .inner-container {
     padding: 14rem 4rem 4rem 4rem; 
+    flex-grow: 1;
 }
 
 .postajob-container {
@@ -213,4 +216,50 @@ body {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* =========================================
+   6. RESPONSIVE OVERRIDES
+   ========================================= */
+@media (max-width: 1024px) {
+    #menu-toggle {
+        display: block !important;
+    }
+
+    .side-bar {
+        left: -28rem; /* Hide sidebar */
+        padding-top: 8rem;
+    }
+
+    .side-bar.open {
+        left: 0; /* Slide in */
+    }
+
+    .container2 {
+        margin-left: 0 !important;
+    }
+
+    .nav-bar {
+        display: none;
+    }
+
+    .inner-container {
+        padding: 14rem 2rem 4rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Responsive Grid Logic */
+    .form1, .form3, .form4, .location-input, .questions-grid, .apply-on {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .logo {
+        padding: 0 2rem;
+    }
+
+    .postajob-container i {
+        display: none; /* Hide bell/user icons to save space on mobile */
+    }
 }

@@ -1,76 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setup Complete</title>
-<link rel="stylesheet" href="/company-profile/css/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Complete - HiredeyGo</title>
+    <link rel="stylesheet" href="/css/profile.css">
+    <script src="/js/profilesetup.js" defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="main-header">
+    <div class="header-content">
+        <div class="logoframe">
+            <img src="/images/logo.png" alt="HiredeyGo Logo" width="50">
+            <h1 class="logo-writeup">
+                Hire<span class="logo-span">dey</span>Go
+            </h1>
+        </div>
 
-<div class="header-content">
-
-<div class="logoframe">
-<img src="/company-profile/images/logo.png" alt="HiredeyGo Logo">
-
-<h1 class="logo-writeup">
-Hire<span class="logo-span">dey</span>Go
-</h1>
-</div>
-
-<!-- PROGRESS -->
-<div class="process-frame">
-
-<div class="progress-top">
-<span>Setup Progress</span>
-<span class="percent">100% Completed</span>
-</div>
-
-<div class="progress-bar">
-<div class="progress-fill-100"></div>
-</div>
-
-</div>
-
-</div>
-
+        <div class="process-frame">
+            <div class="progress-top">
+                <p class="process">Setup Progress</p>
+                <p class="percent">100% Completed</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill-100"></div>
+            </div>
+        </div>
+    </div>
 </header>
 
 
-<!-- SUCCESS SECTION -->
 <section class="success-section">
+    <div class="success-container">
+        
+        <div class="success-icon">
+            ✔
+        </div>
 
-<div class="success-container">
+        <h1 class="success-title">🎉 Congratulations!</h1>
+        <p class="success-text">
+            Your profile and company information are now complete. You are all set to start finding the best talent for your team.
+        </p>
 
-<!-- ICON -->
-<div class="success-icon">
-    ✔
-</div>
+        <div class="success-buttons">
+            <button type="button" class="dashboard-btn" onclick="location.href='recruitersdashboard.html'">
+                View Dashboard
+            </button>
 
-<!-- TEXT -->
-<h1 class="success-title">🎉 Congratulations</h1>
+            <button type="button" class="post-btn" onclick="location.href='post-job.html'">
+                Post a Job →
+            </button>
+        </div>
 
-<p class="success-text">
-Your profile and company Information are now completed. You are all set to finding the best talent for your team.
-</p>
-
-<!-- BUTTONS -->
-<div class="success-buttons">
-
-<button class="dashboard-btn">View Dashboard</button>
-
-<button class="post-btn">
-Post Job →
-</button>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 </body>

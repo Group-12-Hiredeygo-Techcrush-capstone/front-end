@@ -1,43 +1,39 @@
-:root {
-    --brand-purple: #7311D4;
-    --nav-glass: rgba(255, 255, 255, 0.8);
-    --nav-border: rgba(115, 17, 212, 0.1);
-    --nav-blur: blur(10px);
-}
-
+/* --- GLASS NAVBAR BASE --- */
 .glass-navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 80px;
-    background: var(--nav-glass);
-    backdrop-filter: var(--nav-blur);
-    -webkit-backdrop-filter: var(--nav-blur);
-    border-bottom: 1px solid var(--nav-border);
+    height: 80px; /* Comfortable height for hierarchy */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(115, 17, 212, 0.1);
     z-index: 9999;
     display: flex;
     align-items: center;
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1440px;
+    width: 100%;
+    max-width: 1440px; 
+    padding: 0 40px; 
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 }
 
-.nav-logo img {
-    height: 38px;
-    width: auto;
-    display: block;
+/* Push page content down so it's not hidden */
+body {
+    padding-top: 80px; 
 }
 
-/* Menu Links */
+/* --- CENTER MENU LINKS --- */
 .nav-menu {
-    display: none; /* Hidden on mobile */
+    display: flex;
+    align-items: center;
     gap: 32px;
+    margin: 0 auto;
 }
 
 .nav-link {
@@ -45,53 +41,93 @@
     color: #0F172A;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s ease;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--brand-purple);
+.nav-link:hover {
+    color: #7311D4;
 }
 
-/* Actions */
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #7311D4;
+    border-radius: 2px;
+}
+
+/* --- ACTION BUTTONS (Login & Post) --- */
 .nav-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
+/* The Light Purple Tinted Button */
 .btn-login {
-    background: transparent;
-    border: none;
+    background: rgba(115, 17, 212, 0.1); 
+    color: #7311D4;
+    border: 1px solid rgba(115, 17, 212, 0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #0F172A;
+    font-size: 13px;
     cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
+.btn-login:hover {
+    background: rgba(115, 17, 212, 0.15);
+}
+
+/* The Solid Primary Button */
 .btn-primary-nav {
-    background: var(--brand-purple);
+    background: #7311D4;
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 11px 22px; /* Slightly larger for visual hierarchy */
+    border-radius: 8px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    font-size: 13px;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(115, 17, 212, 0.2);
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(115, 17, 212, 0.2);
+    transition: transform 0.2s ease;
 }
 
+.btn-primary-nav:hover {
+    transform: translateY(-1px);
+    background: #620eb5;
+}
+
+/* --- MOBILE TOGGLE --- */
 .mobile-toggle {
-    display: block;
+    display: none; /* Hidden on desktop */
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--brand-purple);
+    color: #7311D4;
     cursor: pointer;
 }
 
-/* Desktop Visibility */
-@media (min-width: 1024px) {
-    .nav-menu { display: flex; }
-    .mobile-toggle { display: none; }
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none; /* Hide center links on smaller screens */
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    .nav-container {
+        padding: 0 24px;
+    }
 }

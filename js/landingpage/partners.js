@@ -8,7 +8,7 @@ const PartnerLogos = {
 
         const logos = [
             'netflix.webp', 'paystack.webp', 'glovo.png', 
-            'nnpc.png', 'techcrush.png', 'microsoft.jpg'
+            'NNPC.png', 'techcrush.png', 'microsoft.jpg'
         ];
 
         // Tripled for extra-wide screens to prevent gaps

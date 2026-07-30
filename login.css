@@ -1,3 +1,4 @@
+/* --- ORIGINAL STYLES --- */
 *{
     margin: 0;
     padding: 0;
@@ -8,19 +9,8 @@ html{
     font-size: 62.5%;
 }
 
-/* main{
-    width: 100%;
-    height: 100vh;
-    border: 3px solid red;
-    color: #F7F6F8;
-    display: flex;
-    flex-direction: row; 
-} */
-
 section{
     width: 100%;
-    /* height: 85vh; */
-    /* border: 1px solid #F7F6F8; */
     color: #F7F6F8;
     padding-top: 6rem;
     display: flex;
@@ -29,8 +19,6 @@ section{
     padding-left: 4.05rem;
     padding-bottom: 8em;
     background-color: #F7F6F8;
-    /* margin-top: 8em; */
-   
 }
 
 .header-box{
@@ -39,25 +27,23 @@ section{
     border: 1px solid #F7F6F8;
     display: flex;
     flex-direction: row;
-    /* position: fixed; */
     padding-right: 8rem;
     padding-left: 8.1rem;
     align-items: center;
     justify-content: space-between;
     font-family: sans-serif;
 }
+
 .logo-and-button-container img{
     height: 4rem;
 }
 
 .logo-and-button-container{
     display: flex;
-    
     align-items: center;
     width: 20%;
     height: 5.4rem;
     gap: 7px;
-    /* border: 1px solid red; */
 }
 
 .register-help-container{
@@ -66,7 +52,6 @@ section{
     gap: 1rem;
     display: flex;
     flex-direction: row;
-    /* border: 1px solid red; */
     align-items: center;
     justify-content: space-between;
 }
@@ -74,7 +59,6 @@ section{
 .register{
     width: 6.3rem;
     height: 2rem;
-    /* border: 1px solid black; */
     text-decoration: none;
     font-style: montserrat;
     line-height: 2rem;
@@ -83,76 +67,46 @@ section{
     color: #000000;
 }
 
- .help-button{
+.help-button{
    font-family: montserrat;
    font-weight: 700;
    font-size: 1.4rem;
    line-height: 2rem;
    letter-spacing: 0px;
-    min-width: 8.4rem;
-    border-radius: 8px;
-    padding-top: 9.5px;
-    padding-right: 2.63rem;
-    padding-bottom: 1.05rem;
-    padding-left: 2.628rem;
-    border: 1px solid #7f13ec;
-    background-color: #7F13EC;
-     text-decoration: none;
-     color: #FFFFFF;
-     box-shadow: 0px 4px 6px rgb(127, 19, 236);
+   min-width: 8.4rem;
+   border-radius: 8px;
+   padding-top: 9.5px;
+   padding-right: 2.63rem;
+   padding-bottom: 1.05rem;
+   padding-left: 2.628rem;
+   border: 1px solid #7f13ec;
+   background-color: #7F13EC;
+   text-decoration: none;
+   color: #FFFFFF;
+   box-shadow: 0px 4px 6px rgb(127, 19, 236);
 }
+
 .help-button:hover{
     cursor: pointer;
 }
 
-
-.logo-writeup{
-    color: black;
-    font-family: sans-serif;
-    font-weight: 800;
-    font-style: extra bold;
-    font-size: 4.5rem;
-    line-height: 100%;
-    letter-spacing: -0.5px;
-  
-}
-.h2-span{
-     color: #10B981;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 700;
-    font-style: extra bold;
-    font-size: 4.5rem;
-    line-height: 100%;
-    letter-spacing: -0.5px;
-}
-
-.logo-img{
-    visibility: visible;
-    width: 200px;
-    height: 100px;
-    border: 2px solid blue;
-}
-
 .left{
     width: 50%;
-    /* border: 1px solid blue; */
     padding-top: 4.05em;
 }
+
 .right{
     width: 50%;
-    /* border: 1px solid blue; */
     padding-top: 2em;
     padding: 4.05em;
     background-color: #7F13EC0D;
 }
 
 .right-main-contents{
-    position: relative; /* needed for the overlay pseudo-element */
-    overflow: hidden; /* keep the overlay inside the rounded edges */
-    /* border: 1px solid purple; */
+    position: relative;
+    overflow: hidden;
     height: 45rem;
     border-radius: 2.4rem;
-    /* Use forward slashes and go up one folder because this CSS file is inside html/ */
     background: url("../images/6f43156bd12127a643bb04bc824aa388cfb60bd1.png") center/cover no-repeat;
     justify-content: center;
     display: flex;
@@ -179,9 +133,6 @@ section{
    width: 15rem;
    border: 1px solid rgba(219, 216, 223, 0);
    color: rgb(230, 227, 227);
-   /* background: transparent; */
-   box-shadow: 0 0 0 #dbd8dfd0;
-   overflow: hidden;
    position: relative;
    z-index: 1;
    margin-bottom: 2em;
@@ -189,38 +140,23 @@ section{
    font-weight: 600;
    backdrop-filter: blur(10px);
 }
-/* .right-button-container{
-    display: flex;
-    border: 2px solid blue;
-    filter: blur(10px);
-    
-} */
-
-
 
 .right-button-circle{
     width: 5px;
     height:5px ;
-    /* border: 1px solid green; */
     z-index: 1000;
     position: absolute;
     background-color: #10B981;
     margin-left: 12px;
     border-radius: 50%;
-    
 }
-
 
 .right-button::before{
    content: "";
    position: absolute;
    inset: 0;
    background:rgba(243, 243, 243, 0.74);
-   /* backdrop-filter: blur(50px); */
-   /* filter: blur(50px); */
-   /* z-index: 1; */
    color: white;
-   
 }
 
 .right-main-contents-h3{
@@ -234,7 +170,6 @@ section{
     width: 100%;
     height: 4em;
     margin-top: 1.5em;
-    /* border: 1px solid black; */
     display: flex;
     flex-direction: row;
     position: relative;
@@ -244,42 +179,23 @@ section{
 .right-last-box{
     width: 20%;
     height: 4em;
-    /* border: 1px solid blue; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-     gap: -6px;
-     z-index: 1000;
-     
-   
+    gap: -6px;
+    z-index: 1000;
 }
 
-.first-box{
-    /* border: 1px solid red; */
+.first-box, .second-box, .third-box{
     border-radius: 100%;
     align-self: end;
     height: 3em;
-    margin-left: -2px;
-    
 }
-.second-box{
-    /* border: 1px solid blue; */
-    border-radius: 100%;
-    align-self: end;
-    height: 3em;
-    margin-left: -5px;
-    
-}
-.third-box{
-    /* border: 1px solid green; */
-    border-radius: 100%;
-    align-self: end;
-    height: 3em;
-    margin-left: -5px;
-    /* z-index: 1000; */
-   
-}
+
+.first-box { margin-left: -2px; }
+.second-box { margin-left: -5px; }
+.third-box { margin-left: -5px; }
+
 .fourth-box{
-    /* border: 1px solid purple; */
     border-radius: 45%;
     align-self: end;
     height: 3em;
@@ -289,9 +205,6 @@ section{
     align-items: center;
     display: flex;
     font-family: sans-serif;
-   
-   
-    
 }
 
 .images{
@@ -303,7 +216,6 @@ section{
 .left-last-box{
     width: 80%;
     height: 4rem;
-    /* border: 1px solid blue;  */
     padding-right: 5.7rem; 
     padding-left: 1.5em;
     max-width: 60%;
@@ -314,73 +226,57 @@ section{
 
 .left-last-box-p{
     font-size: 1.2rem;
-    
 }
 
 .form-title{
     font-size: 3.6rem;
     font-weight: 900;
-    font-style: black;
     line-height: 4rem;
     letter-spacing: -0.9px;
     color: #0F172A;
-    
 }
+
 .form-p{
-    color: black;
+    color: #64748B;
     font-size: 1.8rem;
     font-weight: 400;
-    font-style: regular;
     line-height: 2.8rem;
-    color: #64748B;
     font-family: sans-serif;
 }
 
 #my-form{
-    /* border: 2px solid purple; */
     line-height: 3rem;
     color: black;
     padding-bottom: 10em;
     padding-top: 2em;
     padding-left: 4.2em;
     padding-right: 4.2em;
-    
 }
 
 .label-input{
-    /* border: 1px solid black; */
     margin-top: 1.5em;
-    /* padding-top: 1em; */
-    /* padding-bottom: 1em; */
     display: flex;
     flex-direction: column;
 }
 
 .input-icon{
     width: 100%;
-    /* border: 1px solid blue; */
-    justify-content: space-between;
     display: flex;
     flex-direction: row;
     position: relative;
-    
 }
 
 .ph-eye{
     position: absolute;
     right: 10px;
-    justify-self: center;
     top: 20px;
     color:#94A3B8 ;
     width: 16px;
     height: 16px;
-    
 }
 
 .ph-lock-key{
     position: absolute;
-    /* right: 10px; */
-    justify-self: center;
     top: 20px;
     color:#94A3B8 ;
     width: 16px;
@@ -390,27 +286,21 @@ section{
 
 .input-icon .ph-envelope-simple{
    position: absolute;
-    justify-self: center;
     top: 22px;
     color:#94A3B8 ;
-    /* width: 20px;
-    height: 20px; */
     padding-left: 15px; 
-    /* border: 1px solid purple; */
 }
 
 label{
     font-size: 1.4rem;
     color: #334155;
     font-weight: 600;
-    font-style: semibold;
     line-height: 2rem;
     font-family: sans-serif;
 }
 
 input{
     border: 1px solid #FFFFFF;
-    /* height: 2em; */
     border-radius: 6px;
     padding-left: 4.4rem;
     padding-top: 1.8rem;
@@ -420,16 +310,15 @@ input{
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 100%;
-    font-style: regular;
     color: #94A3B8;
     width: 100%;
     font-family: sans-serif;
 }
+
 .label-forgotten-password{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    /* border: 1px solid blue; */
 }
 
 .forgot-password{
@@ -440,7 +329,6 @@ input{
 }
 
 .Remember-me-checkbox{
-    /* border: 1px solid green; */
     width: 100%;
     display: flex;
     gap: 8px;
@@ -460,11 +348,6 @@ input{
 }
 
 .form-button{
-    /* width: 100%;
-    border: 1px solid green;
-    display: flex;
-    justify-self: center;
-    height: 2em; */
     text-decoration: none;
     font-size: 1.5rem;
     margin-top: 1rem;
@@ -484,7 +367,6 @@ input{
 
 .form-button:hover{
     cursor: pointer;
-    /* background-color:  #9a3ef7; */
 }
 
 .dont-have-an-account{
@@ -493,6 +375,7 @@ input{
     margin-top: 1em;
     font-family: sans-serif;
 }
+
 .dont-have-an-account a{
     text-decoration: none;
     font-weight: 600;
@@ -509,7 +392,6 @@ footer{
     padding-left: 4rem;
     padding-right: 4rem;
     width: 100%;
-    border: 1px solid #FFFFFF80 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -519,7 +401,6 @@ footer{
 .footer-p{
     font-size: 1.2em;
     font-weight: 500;
-    font-style: medium;
     line-height: 1.6em;
     color: #64748B;
 }
@@ -529,19 +410,14 @@ footer{
     flex-direction: row;
     gap: 1.5rem;
     align-items: center;
-    
 }
 
 .footer-left-items a{
     text-decoration: none;
-    color: black;
     font-size: 1.2em;
     font-weight: 700;
-    font-style: bold;
     color: #64748B;
-
 }
-
 
 .spinner {
   width: 30px;
@@ -554,11 +430,89 @@ footer{
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-.hidden {
-  display: none;
+.hidden { display: none; }
+
+/* --- NEW MOBILE RESPONSIVE STYLES --- */
+
+@media (max-width: 1024px) {
+    .header-box {
+        padding-right: 4rem;
+        padding-left: 4.1rem;
+    }
+
+    /* Hide the right-side marketing panel to focus on the form */
+    .right {
+        display: none;
+    }
+
+    .left {
+        width: 100%;
+        padding-top: 2rem;
+    }
+
+    #my-form {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55%; 
+    }
+
+    section {
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .header-box {
+        height: auto;
+        padding: 2rem;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .logo-and-button-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .register-help-container {
+        width: 100%;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 4rem 2rem;
+    }
+
+    .footer-left-items {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-title {
+        font-size: 2.8rem;
+    }
+
+    .form-p {
+        font-size: 1.6rem;
+    }
+
+    input {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 }

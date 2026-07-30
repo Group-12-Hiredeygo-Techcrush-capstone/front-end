@@ -4,88 +4,86 @@
     position: relative;
     width: 100%;
     max-width: 1728px;
-    height: 808.75px;
+    min-height: 808.75px; /* Changed from height to min-height */
     margin: 0 auto;
     background: #FFFFFF;
     overflow: hidden;
+    display: flex; /* Added flex to handle layout */
+    align-items: center;
 }
 
 /* LEFT CONTENT SECTION */
 .hero-content-stack {
-    position: absolute;
-    width: 883.5px;
-    height: 572px;
-    left: 48px;
-    top: 165.38px;
+    position: relative; /* Changed from absolute */
+    width: 100%;
+    max-width: 883.5px;
+    padding: 160px 48px 80px; /* Replaced left/top with padding */
     display: flex;
     flex-direction: column;
+    z-index: 5;
+    box-sizing: border-box;
 }
 
 .hero-badge-f {
-    position: absolute;
-    width: 279px;
+    width: fit-content; /* Allow it to shrink */
+    min-width: 279px;
     height: 37px;
     background: rgba(127, 19, 236, 0.1);
     border-radius: 9999px;
     display: flex;
     align-items: center;
-    padding-left: 12px;
+    padding: 0 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 14px;
     color: #0F172A;
+    margin-bottom: 24px; /* Space instead of absolute top */
 }
 
 .hero-h1-f {
-    position: absolute;
-    width: 883.5px;
-    height: 180px;
-    top: 67px;
+    width: 100%;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
-    font-size: 90px;
-    line-height: 90px;
+    font-size: clamp(40px, 8vw, 90px); /* Fluid typography */
+    line-height: 1;
     color: #0F172A;
-    margin: 0;
+    margin: 0 0 30px 0;
 }
 
 .hero-h1-f span { color: #7F13EC; }
 
 .hero-p-f {
-    position: absolute;
-    width: 492.89px;
-    top: 277px;
+    width: 100%;
+    max-width: 492.89px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
     color: #475569;
+    margin-bottom: 40px;
 }
 
 /* SEARCH BAR */
 .hero-search-f {
-    position: absolute;
-    width: 672px;
-    height: 87px;
-    top: 407px;
+    width: 100%;
+    max-width: 672px;
+    height: 70px; /* Slightly slimmer for better feel */
     background: #FFFFFF;
     border: 1px solid #E2E8F0;
-    box-shadow: 0px 25px 50px -12px rgba(226, 232, 240, 0.5);
+    box-shadow: 0px 25px 50px -12px rgba(226, 232, 240, 0.3);
     border-radius: 16px;
     display: flex;
     align-items: center;
     padding: 0 10px;
+    margin-bottom: 40px;
 }
 
 /* SOCIAL PROOF SECTION */
 .hero-social-proof {
-    position: absolute;
-    width: 883.5px;
-    height: 48px;
-    left: 0px;
-    top: 524px;
     display: flex;
     align-items: center;
+    gap: 16px;
+    width: 100%;
 }
 
 .avatar-stack {
@@ -102,7 +100,7 @@
     border-radius: 9999px;
     background-size: cover;
     background-position: center;
-    box-shadow: 0px 0px 0px 2px #FFFFFF;
+    border: 2px solid #FFFFFF;
 }
 
 .avatar-f:nth-child(1) { left: 0px; z-index: 3; }
@@ -110,52 +108,45 @@
 .avatar-f:nth-child(3) { left: 56px; z-index: 1; }
 
 .social-proof-text {
-    position: absolute;
-    left: 112px;
-    width: 223.36px;
-    height: 20px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 14px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
     color: #0F172A;
 }
 
 /* RIGHT VISUAL SECTION */
 .hero-visual-f {
-    position: absolute;
-    width: 883.5px;
-    height: 714.75px;
-    left: 812.5px;
-    top: 94px;
+    position: absolute; /* Kept absolute for desktop layering */
+    width: 45%;
+    max-width: 883.5px;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: flex-end;
 }
 
 .hero-img-container {
-    position: absolute;
-    width: 575px;
-    height: 714.75px;
-    left: 84px;
-    top: 0px;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
 }
 
 .hero-border-layer {
     box-sizing: border-box;
-    position: absolute;
-    width: 575px;
-    height: 714.75px;
+    width: 100%;
+    aspect-ratio: 575 / 714;
     background: rgba(255, 255, 255, 0.002);
     border: 8px solid #FFFFFF;
-    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.15);
     border-radius: 24px;
     z-index: 2;
 }
 
 .hero-main-img {
     position: absolute;
-    width: 559px;
-    height: 698.75px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
     left: 8px;
     top: 8px;
     border-radius: 16px;
@@ -165,37 +156,64 @@
 
 .hero-floating-f {
     position: absolute;
-    width: 511px;
-    height: 96px;
-    left: 32px; 
-    bottom: 32px; 
-    background: rgba(255, 255, 255, 0.7); 
+    width: 90%;
+    height: auto;
+    min-height: 80px;
+    left: 5%; 
+    bottom: 24px; 
+    background: rgba(255, 255, 255, 0.85); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
     z-index: 3;
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    padding: 16px 20px;
     box-sizing: border-box;
 }
 
-.blur-green {
-    position: absolute;
-    width: 256px; height: 256px;
-    left: 359px; top: -40px;
-    background: rgba(34, 197, 94, 0.2);
-    filter: blur(50px);
-    border-radius: 9999px;
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 1100px) {
+    .hero-wrapper {
+        flex-direction: column;
+        height: auto;
+        padding-top: 80px;
+    }
+
+    .hero-content-stack {
+        max-width: 100%;
+        padding: 60px 24px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hero-visual-f {
+        position: relative;
+        width: 100%;
+        right: auto;
+        top: auto;
+        transform: none;
+        padding: 0 24px 60px;
+        justify-content: center;
+    }
+
+    .hero-search-f {
+        height: 60px;
+    }
+
+    .hero-social-proof {
+        justify-content: center;
+    }
 }
 
-.blur-purple {
-    position: absolute;
-    width: 256px; height: 256px;
-    left: -40px; top: 499px;
-    background: rgba(115, 17, 212, 0.2);
-    filter: blur(50px);
-    border-radius: 9999px;
+@media (max-width: 600px) {
+    .hero-h1-f {
+        font-size: 48px;
+        line-height: 1.1;
+    }
+
+    .hero-floating-f {
+        display: none; /* Usually too cluttered for small phones */
+    }
 }

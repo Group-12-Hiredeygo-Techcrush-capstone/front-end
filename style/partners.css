@@ -3,6 +3,7 @@
     padding: 60px 0;
     background: #fff;
     overflow: hidden; /* Ensures nothing spills out of the screen */
+    box-sizing: border-box;
 }
 
 .partners-title {
@@ -11,21 +12,27 @@
     font-size: 14px;
     font-weight: 700;
     color: #64748b;
-    letter-spacing: 2px;
     margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 20px; /* Prevents text hitting edges on tiny screens */
 }
 
 .marquee-viewport {
     width: 100%;
     overflow: hidden; /* This acts as the "window" for the logos */
     position: relative;
+    /* Added a slight fade effect on the edges for a premium feel */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .marquee-content {
     display: flex;
-    gap: 80px; /* Space between logos */
+    gap: 80px; /* Desktop space between logos */
     width: max-content;
     animation: scroll 30s linear infinite;
+    align-items: center;
 }
 
 .logo-item {
@@ -35,6 +42,15 @@
     flex-shrink: 0;
 }
 
+/* Ensure images don't explode in size on mobile */
+.logo-item img {
+    height: 32px; /* Standardized height for better alignment */
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
 .logo-item img:hover {
     opacity: 1;
     filter: grayscale(0%);
@@ -42,5 +58,37 @@
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Scrolls halfway through the tripled list for seamless loop */
+    100% { transform: translateX(-50%); } 
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 768px) {
+    .partners-section {
+        padding: 40px 0;
+    }
+
+    .marquee-content {
+        gap: 40px; /* Half the gap for mobile screens */
+        animation: scroll 15s linear infinite; /* Faster scroll for shorter distance */
+    }
+
+    .logo-item img {
+        height: 24px; /* Slightly smaller logos for mobile */
+    }
+
+    .partners-title {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Accessibility: Stop animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+        animation: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
 }

@@ -1,10 +1,11 @@
+/* emailverification.js - Full Integrated Version (Backend Structure Aligned) */
 document.addEventListener("DOMContentLoaded", () => {
     const otpInputs = document.querySelectorAll(".otp-inputs input");
     const verifyBtn = document.querySelector(".verify-btn");
     const resendLink = document.querySelector(".box a");
     const emailSpan = document.querySelector(".container2 span");
 
-    // 1. GET EMAIL FROM URL PARAMS
+    // 1. Get Email from URL
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
     
@@ -12,17 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
         emailSpan.textContent = email;
     } else {
         emailSpan.textContent = "your email";
-        console.warn("No email found in URL parameters. Verification may fail.");
     }
 
-    // 2. AUTO-FOCUS LOGIC FOR OTP INPUTS
+    // 2. OTP Auto-focus logic
     otpInputs.forEach((input, index) => {
         input.addEventListener("input", () => {
             if (input.value.length === 1 && index < otpInputs.length - 1) {
                 otpInputs[index + 1].focus();
             }
         });
-
         input.addEventListener("keydown", (e) => {
             if (e.key === "Backspace" && !input.value && index > 0) {
                 otpInputs[index - 1].focus();
@@ -30,58 +29,80 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. HANDLE OTP VERIFICATION
+    // 3. Verify OTP Logic
     verifyBtn.addEventListener("click", async () => {
-        const otp = Array.from(otpInputs).map(i => i.value).join("");
+       
+        const String = Array.from(otpInputs).map(i => i.value).join("");
 
-        if (otp.length !== 6) {
-            alert("Please enter the 6-digit verification code.");
+        // Basic validation
+        if (!email || email === "your email") {
+            alert("Email context is missing. Please restart the signup process.");
             return;
         }
 
-        // Show loading state
+        if (String.length !== 6) {
+            alert("Please enter a valid 6-digit verification code.");
+            return;
+        }
+
+        // Loading state
         verifyBtn.disabled = true;
         const originalText = verifyBtn.textContent;
         verifyBtn.textContent = "Verifying...";
 
         try {
-            // Updated Endpoint: /api/v1/auth/verify-email
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, otp })
+                body: JSON.stringify({ 
+                    email: email, 
+                    otp: String 
+                }) 
             });
 
             const result = await response.json();
+            console.log("Full Server Response:", result);
 
             if (response.ok) {
-                // Save token if returned by verification
-                if (result.token) localStorage.setItem("token", result.token);
-                
-                alert("Email verified successfully! Welcome to HiredeyGo.");
-                // Redirect to the Recruiters Dashboard
-                window.location.href = "html/recruitersdashboard.html";
+                // --- BACKEND-ALIGNED TOKEN EXTRACTION ---
+                // Specifically checking the 'tokens.accessToken' path from backend view
+                const authToken = (result.tokens && result.tokens.accessToken) || 
+                                  result.token || 
+                                  (result.data && result.data.token) || 
+                                  (result.data && result.data.accessToken) ||
+                                  result.accessToken;
+
+                if (authToken) {
+                    // SAVE TO BOTH KEYS FOR COMPATIBILITY: 
+                    // 1. 'token' for dashboard/login scripts
+                    // 2. 'HireDeyGo_UserPlanStarterauth_token' for Setup scripts
+                    localStorage.setItem("HireDeyGo_UserPlanStarterauth_token", authToken);
+                    localStorage.setItem("token", authToken);
+                    
+                    console.log("✅ Token secured in all local storage keys.");
+                } else {
+                    console.warn("⚠️ Token missing in response. Manual login might be required for Setup.");
+                }
+
+                alert("Email verified successfully!");
+                // Direct redirect to the first setup page
+                window.location.href = "profilesetup1.html"; 
             } else {
                 alert(result.message || "OTP verification failed. Please check the code.");
             }
-
         } catch (error) {
-            console.error("Verification Error:", error);
-            alert("Connection error. Please try again shortly.");
+            console.error("Network/Server Error:", error);
+            alert("Unable to connect to the verification server.");
         } finally {
             verifyBtn.disabled = false;
             verifyBtn.textContent = originalText;
         }
     });
 
-    // 4. RESEND OTP
-    resendLink.addEventListener("click", async (e) => {
+    // 4. RESEND OTP Logic
+    resendLink?.addEventListener("click", async (e) => {
         e.preventDefault();
-        
-        if (!email) {
-            alert("Email address missing. Please go back to the previous page.");
-            return;
-        }
+        if (!email || email === "your email") return alert("Email missing.");
 
         try {
             const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/resend-otp", {
@@ -91,13 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (response.ok) {
-                alert("A new verification code has been sent to your email.");
+                alert("A new code has been sent to " + email);
             } else {
-                const result = await response.json();
-                alert(result.message || "Could not resend code.");
+                const errorData = await response.json();
+                alert(errorData.message || "Could not resend code.");
             }
         } catch (error) {
-            alert("Network error. Try again.");
+            alert("Network error. Please try again.");
         }
     });
 });

@@ -1,14 +1,14 @@
 /* Top Candidates Section Layout */
 .top-candidates-section {
-  width: 1280px;
+  width: 100%; /* Changed from 1280px */
   max-width: 1280px;
-  height: 523px;
+  min-height: 523px; /* Changed from height to min-height */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 96px 80px;
-  gap: 64px;
+  align-items: center; /* Centered for better mobile balance */
+  padding: 80px 20px; /* Adjusted padding for mobile edges */
+  gap: 48px; /* Slightly tighter gap for mobile */
   box-sizing: border-box;
 }
 
@@ -16,30 +16,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
-  gap: 24px;
-  width: 1120px;
-  align-self: stretch;
+  gap: 20px;
+  width: 100%; /* Changed from 1120px */
+  max-width: 800px;
+  text-align: center;
 }
 
 .top-candidates-title {
-  font-family: 'Playfair Display';
+  font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 48px;
-  line-height: 40px;
-  text-align: center;
+  font-size: clamp(32px, 8vw, 48px); /* Fluid font size */
+  line-height: 1.2;
   color: #0F172A;
   margin: 0;
 }
 
 .top-candidates-subtitle {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 24px;
-  text-align: center;
+  line-height: 1.5;
   color: #475569;
-  width: 523.39px;
+  width: 100%; /* Changed from 523.39px */
+  max-width: 600px;
   margin: 0;
 }
 
@@ -48,12 +47,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 32px;
-  width: 1120px;
-  height: 242px;
-  align-self: stretch;
+  align-items: stretch; /* Cards will match height */
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Base Candidate Card */
@@ -61,26 +58,25 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 24px;
   gap: 24px;
-  width: 352px;
-  height: 242px;
+  width: 100%;
+  max-width: 352px;
   background: #FFFFFF;
   border: 1px solid #F1F5F9;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Featured Candidate logic (Marcus Thorne) */
+.candidate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Candidate logic */
 .candidate-card.featured {
-  border-width: 4px 1px 1px 1px;
-  border-style: solid;
-  border-color: #7311D4;
+  border-top: 4px solid #7311D4;
 }
 
 /* Profile Info Styling */
@@ -89,8 +85,7 @@
   flex-direction: row;
   align-items: center;
   gap: 16px;
-  width: 302px;
-  height: 64px;
+  width: 100%;
 }
 
 .candidate-avatar {
@@ -99,13 +94,14 @@
   border-radius: 9999px;
   background-size: cover;
   background-position: center;
+  flex-shrink: 0;
 }
 
 .candidate-name-stack h4 {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 18px;
-  line-height: 28px;
+  line-height: 1.4;
   color: #0F172A;
   margin: 0;
   display: flex;
@@ -114,10 +110,9 @@
 }
 
 .candidate-role {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
   color: #64748B;
 }
 
@@ -125,20 +120,18 @@
 .tags-row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap; /* Important: tags won't overflow card */
   gap: 8px;
-  width: 302px;
-  height: 24px;
+  width: 100%;
 }
 
 .skill-tag {
-  display: flex;
   padding: 4px 12px;
   background: #F1F5F9;
   border-radius: 9999px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 11px;
   color: #0F172A;
 }
 
@@ -148,48 +141,67 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0px 0px;
-  width: 302px;
-  height: 53px;
+  padding-top: 16px;
+  width: 100%;
   border-top: 1px solid #F1F5F9;
+  margin-top: auto; /* Pushes footer to bottom of card */
 }
 
 .exp-label {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 11px;
   letter-spacing: 0.6px;
   text-transform: uppercase;
   color: #94A3B8;
+  display: block;
 }
 
 .exp-value {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 14px;
-  line-height: 20px;
   color: #0F172A;
 }
 
 .btn-view-profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 8px 16px;
-  width: 121px;
-  height: 36px;
   background: rgba(115, 17, 212, 0.1);
-  border-radius: 16px;
+  border-radius: 12px;
   border: none;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   color: #7311D4;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-view-profile:hover {
-  background: rgba(115, 17, 212, 0.2);
+  background: #7311D4;
+  color: #FFFFFF;
+}
+
+/* --- MOBILE RESPONSIVE OVERRIDES --- */
+
+@media (max-width: 1024px) {
+  .candidates-container {
+    flex-wrap: wrap; /* Wrap cards on tablet */
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-candidates-section {
+    padding: 60px 20px;
+  }
+
+  .candidates-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .candidate-card {
+    max-width: 100%; /* Cards take full width on phone */
+  }
 }

@@ -11,7 +11,10 @@ const navigationData = {
             </ul>
         </nav>`,
     logoBar: `
-        <img src="images/hiredeygologo.png" alt="HiredeyGo Logo">
+        <div style="display: flex; align-items: center;">
+            <i class='bx bx-menu' id="menu-toggle" style="display: none; font-size: 3rem; cursor: pointer; margin-right: 15px; color: #7F13EC;"></i>
+            <img src="images/hiredeygologo.png" alt="HiredeyGo Logo">
+        </div>
         <div class="postajob-container">
             <i class="bx bx-bell"></i>
             <button class="postajob-btn" id="navPostJobBtn">Post A job</button>
@@ -35,16 +38,17 @@ const navigationData = {
             </div>
             <div class="text-input" data-page="myjobs.html">
                 <img src="images/uit_bag.svg" class="text-icon">
-                <a href="#">My Jobs</a>
+                <a href="myjobs.html">My Jobs</a>
             </div>
             <div class="text-input" data-page="candidateranking.html">
                 <img src="images/fluent-emoji-high-contrast_sports-medal.svg" class="text-icon">
                 <a href="candidateranking.html">Candidate Ranking</a>
             </div>
-            <div class="text-input" data-page="savedcandidates.html">
-                <img src="images/material-symbols_bookmark-outline.svg" class="text-icon">
-                <a href="#">Saved Candidate</a>
-            </div>
+
+<div class="text-input" data-page="savedcandidate.html">
+    <img src="images/material-symbols_bookmark-outline.svg" class="text-icon">
+    <a href="savedcandidate.html">Saved Candidate</a> 
+</div>
             <div class="text-input" data-page="plans&billing.html">
                 <img src="images/streamline-flex_bill-4.svg" class="text-icon">
                 <a href="plans&billing.html">Plans and Billings</a>
@@ -74,10 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. The Gatekeeper Logic
     const handlePostJobRedirect = (e) => {
         if (e) e.preventDefault();
-
-        // Retrieve the plan from localStorage
         const userPlan = localStorage.getItem('HireDeyGo_UserPlan');
-
         if (userPlan === 'Basic' || userPlan === 'Starter') {
             window.location.href = 'postajob2.html';
         } else {
@@ -85,10 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Attach listeners to both "Post a Job" entry points
     const navBtn = document.getElementById('navPostJobBtn');
     const sideBtn = document.getElementById('sidePostJobBtn');
-
     if (navBtn) navBtn.addEventListener('click', handlePostJobRedirect);
     if (sideBtn) sideBtn.addEventListener('click', handlePostJobRedirect);
 
@@ -109,4 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 5. Mobile Menu Toggle Logic
+    document.addEventListener('click', (e) => {
+        const sidebar = document.getElementById('global-sidebar');
+        if (e.target.id === 'menu-toggle' || e.target.closest('#menu-toggle')) {
+            sidebar.classList.toggle('open');
+        } else if (sidebar && !sidebar.contains(e.target) && sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+        }
+    });
 });
