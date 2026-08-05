@@ -1,0 +1,392 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.admin-wrapper {
+    display: flex;
+}
+
+aside {
+    width: 200px;
+    height: 100vh;
+    position: sticky;
+    padding-top: 26px;
+    right: 39px;
+    bottom: 26px;
+    left: 14px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+aside .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 12px;
+}
+
+aside .logo-container img {
+    height: auto;
+    width: 150px;
+    object-fit: contain;
+}
+
+aside nav {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+aside nav .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+aside nav .sidebar-nav svg {
+    width: 17px;
+    height: 16px;
+    padding-top: 1px;
+}
+
+aside nav .sidebar-nav p {
+    margin-bottom: 5px;
+}
+
+aside nav .sidebar-nav a {
+    text-decoration: none;
+    color: black;
+}
+
+aside nav .sidebar-nav .sidebar-dashboard {
+    background-color: #D5B9F8;
+    padding: 5px;
+    border-radius: 4px;
+    width: 180px;
+}
+
+aside nav .sidebar-nav a span {
+    background-color: rgb(235, 66, 66);
+    padding: 2px 8px;
+    border-radius: 45%;
+    color: white;
+    font-size: 10px;
+}
+
+aside  .sidebar-profile {
+    display: flex;
+    gap: 5px;
+    margin-top: 120px;
+    border-top: 2px solid #afabab;
+    padding-top: 4px;
+}
+
+aside .sidebar-profile .sidebar-wrapper {
+    background-color: #D5B9F8;
+    padding: 8px 8px;
+    border-radius: 40%;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* main */
+main {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    height: 100vh;
+    padding-top: 26px;
+    background-color: #f9f7ff;
+}
+
+/* top bar */
+.topbar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.topbar-wrapper svg {
+    height: 15px;
+    width: 15px;
+}
+
+.topbar-wrapper .input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #10B981;
+    border-radius: 5px;
+    padding: 2px ;
+    gap: 5px;
+    width: 200px;
+}
+
+.input-wrapper input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 12px;
+}
+
+.topbar-wrapper .topbar-icon svg {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+}
+
+.topbar-avatar div {
+    justify-content: center;
+    align-items: center;
+    background-color: #D5B9F8;
+    padding: 6px 7px;
+    border-radius: 40%;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* main greeting */
+.main-greeting {
+    margin-bottom: 24px;
+}
+
+.main-greeting h1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+}
+
+.main-greeting h1 svg {
+    height: 35px;
+    width: 35px;
+}
+
+.main-greeting p {
+    font-size: 15px;
+    margin-bottom: 5px;
+} 
+
+/* statistics card */
+.stat-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    flex: 1;
+    background-color: white;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.stat-card p {
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-card span {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #a9e5d2;
+    padding: 3px 4px;
+    border-radius: 18px;
+    width: 140px;
+    font-size: 13px;
+}
+
+/* middle row */
+.middle-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+/* recuiter table */
+.recuiter-table {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.recuiter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.recuiter-header a {
+    font-size: 12px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.recuiter-header a svg {
+    height: 13px;
+    width: 13px;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border: 1px solid #eee;
+}
+
+th {
+    text-align: left;
+    padding: 8px;
+    font-size: 12px;
+}
+
+td {
+    padding: 10px 11px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+/* status */
+.active, .idle, .off {
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 550;
+}
+
+.active {
+    background-color: #a9e5d2;
+}
+
+.idle {
+    background-color: #ffb44b;
+}
+
+.off {
+    background-color: #c04142;
+}
+
+/* recuiter alert */
+.recuiter-alert {
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+}
+
+ .alert-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+ .alert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-item div h4 {
+    margin-bottom: 2px;
+}
+
+.alert-item div p {
+    font-size: 13px;
+}
+
+/* platform health metrics */
+.health-metrics {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.health-metrics h3 {
+    text-align: center;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.health-cards {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.health-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.health-card p {
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.health-card h2 {
+    display: flex;
+    align-items: center;
+}
+
+.health-card h2 svg {
+    width: 25px;
+    height: 25px;
+}
+
+.progress-bar {
+    height: 8px;
+    width: 200px;
+    background-color: #c7c6ca;
+    border-radius: 100px;
+}
+
+.progress-bar .purple-fill {
+    background-color: #781ee5;
+    height: 100%;
+    width: 138px;
+    border-radius: 100px;
+}
+
+.progress-bar .green-fill {
+    background-color: #10b981;
+    height: 100%;
+    width: 162px;
+    border-radius: 100px;
+}
+
+.progress-bar .yellow-fill {
+    background-color: #ffb44b;
+    height: 100%;
+    width: 152px;
+    border-radius: 100px;
+}
+
+.progress-bar .white-fill {
+    background-color: #e6d9fa;
+    height: 100%;
+    width: 140px;
+    border-radius: 100px;
+}
