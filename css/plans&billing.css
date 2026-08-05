@@ -1,241 +1,360 @@
 /* --- RESET & BASE --- */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #F1EFFC;
-    color: #333;
+  font-family: "Inter", "Poppins", sans-serif;
+  background-color: #f7f6fc;
+  color: #333;
 }
 
 /* --- LAYOUT STRUCTURE --- */
 .page-wrapper {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
 /* Main Content Area - Default Desktop with Sidebar space */
 .main-content-area {
-    flex: 1;
-    margin-left: 280px; /* Space for the Global Sidebar */
-    display: flex;
-    flex-direction: column;
-    transition: margin-left 0.3s ease;
+  flex: 1;
+  margin-left: 280px; /* Space for the Global Sidebar */
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
 }
 
 .content-container {
-    padding: 12rem 4rem 4rem 4rem; /* Top padding for fixed header */
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
+  padding: 12rem 4rem 4rem 4rem; /* Top padding for fixed header */
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* --- TYPOGRAPHY --- */
-.intro-header {
-    margin-bottom: 4rem;
+/* --- PAGE TITLE --- */
+.bp-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.intro-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2rem;
-    margin-bottom: 1rem;
+.bp-title h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1f2937;
 }
 
-.intro-header p {
-    font-size: 1.6rem;
-    color: #666;
-    font-weight: 500;
+/* --- SECTIONS --- */
+.bp-section {
+  margin-bottom: 56px;
 }
 
-.username {
-    font-weight: 700;
-    color: #7F13EC;
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 20px;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 /* --- PRICING CARDS --- */
 .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .plan-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-    border: 1px solid transparent;
+  width: 100%;
+  min-height: 270px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #d8b4fe;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .plan-card:hover {
-    transform: translateY(-10px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
+/* Active Plan (Growth) */
+.plan-card.active {
+  background: #10b981;
+  color: #fff;
+  border: none;
+}
+
+/* Plan Header */
 .plan-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .plan-header h2 {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-}
-
-.plan-header h4 {
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 1.4;
-    color: #666;
-    min-height: 4rem;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 .price-tag {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
-/* THEMED CARDS */
-.starter { border-top: 5px solid #10B981; }
-.growth { 
-    background-color: #7F13EC; 
-    color: #fff; 
+.plan-card.active .price-tag {
+  color: #fff;
 }
-.growth .plan-header h4, .growth .feature-title { color: #e0e0e0; }
-.professional { border-top: 5px solid #10B981; }
 
 /* FEATURES LIST */
 .plan-features {
-    flex: 1;
-    margin-bottom: 3rem;
-}
-
-.feature-title {
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-}
-
-.plan-features ul {
-    list-style: none;
+  list-style: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .plan-features li {
-    font-size: 1.35rem;
-    margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Inter", "Poppins", sans-serif;
 }
 
 .plan-features li i {
-    font-size: 1.8rem;
-    color: #10B981;
+  font-size: 18px;
+  color: #10b981;
 }
 
-.growth .plan-features li i { color: #fff; }
+.plan-card.active .plan-features li i {
+  color: #fff;
+}
 
-/* BUTTONS */
+/* PLAN BUTTONS */
 .btn-plan {
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: none;
-    font-weight: 700;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: background 0.2s;
+  margin-top: 24px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1.5px solid #8b5cf6;
+  background: #fff;
+  color: #8b5cf6;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Inter", "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.starter-btn { background: #7F13EC; color: #fff; }
-.growth-btn { background: #fff; color: #7F13EC; }
-.professional-btn { background: #10B981; color: #fff; }
+.btn-plan:hover:not(:disabled),
+.btn-plan:focus:not(:disabled) {
+  background: #8b5cf6;
+  color: #fff;
+  outline: none;
+}
 
-.btn-plan:hover { opacity: 0.9; }
+.btn-plan.current {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  cursor: default;
+}
+
+/* --- PAYMENT METHOD --- */
+.payment-methods {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.payment-card-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.payment-card {
+  width: 270px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.payment-card:hover {
+  transform: scale(1.02);
+}
+
+.default-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: #10b981;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* --- BILLING HISTORY --- */
+.billing-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.billing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Inter", "Poppins", sans-serif;
+}
+
+.billing-table th {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.billing-table td {
+  height: 60px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #1f2937;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.billing-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.billing-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.download-btn:hover,
+.download-btn:focus {
+  color: #8b5cf6;
+  outline: none;
+}
 
 /* FOOTER */
 .page-footer {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #ddd;
-    font-size: 1.2rem;
-    color: #888;
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 56px;
 }
 
-/* --- MOBILE RESPONSIVE STYLES --- */
+/* --- RESPONSIVE STYLES --- */
 
 /* Tablet & Smaller Desktop */
 @media (max-width: 1024px) {
-    .main-content-area {
-        margin-left: 0; /* Removing sidebar gap for mobile/tablet */
-    }
-    
-    .content-container {
-        padding: 10rem 2rem 4rem 2rem;
-    }
+  .main-content-area {
+    margin-left: 0; /* Removing sidebar gap for mobile/tablet */
+  }
 
-    .pricing-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-    }
+  .content-container {
+    padding: 10rem 2rem 4rem 2rem;
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* 2 + 1 layout: last card spans full row */
+  .plan-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: 0 auto;
+    width: 100%;
+  }
 }
 
 /* Mobile Phones (Portrait) */
 @media (max-width: 768px) {
-    html {
-        font-size: 55%; 
-    }
+  .bp-title h1 {
+    font-size: 32px;
+  }
 
-    .intro-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
 
-    .intro-header h1 {
-        font-size: 2.8rem;
-    }
+  .plan-card:last-child {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
 
-    .pricing-grid {
-        grid-template-columns: 1fr; /* Single column stack */
-        padding: 0 1rem;
-    }
+  .payment-methods {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .plan-card {
-        padding: 2.5rem;
-    }
+  .payment-card {
+    width: 100%;
+    max-width: 270px;
+  }
 
-    /* Disable hover lift on touch devices */
-    .plan-card:hover {
-        transform: none;
-    }
-    
-    .page-footer {
-        margin-top: 2rem;
-        padding-bottom: 4rem;
-    }
+  .billing-card {
+    padding: 12px;
+  }
+
+  .page-footer {
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* Very Small Screens */
 @media (max-width: 480px) {
-    .content-container {
-        padding-top: 8rem;
-    }
+  .content-container {
+    padding-top: 8rem;
+  }
 
-    .plan-header h2 {
-        font-size: 2.2rem;
-    }
+  .bp-title h1 {
+    font-size: 28px;
+  }
 
-    .price-tag {
-        font-size: 1.8rem;
-    }
+  .payment-card {
+    max-width: 100%;
+  }
 }
