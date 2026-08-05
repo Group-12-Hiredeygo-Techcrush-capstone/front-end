@@ -1,124 +1,512 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HireDeyGo | Candidate Ranking</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="css/global-nav.css">
-    <link rel="stylesheet" href="css/candidateranking.css">
+    <link rel="stylesheet" href="css/global-nav.css" />
+    <link rel="stylesheet" href="css/candidateranking.css" />
 
     <script src="js/global-nav.js" defer></script>
     <script src="js/candidateranking.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <header class="header-container" id="global-header"></header>
-        <div class="logo" id="global-logo-bar"></div>
+      <header class="header-container" id="global-header"></header>
+      <div class="logo" id="global-logo-bar"></div>
 
-        <section class="main-container">      
-            <aside class="side-bar" id="global-sidebar"></aside>
+      <section class="main-container">
+        <aside class="side-bar" id="global-sidebar"></aside>
 
-            <div class="container2">
-                <div class="inner-container">
-                    <div class="dashboard-container">
-                        <h1>Candidate Rankings</h1>
-                        <p id="sub-header-text">Assessment results sorted by performance</p>
-                    </div>
-
-                    <div class="assessment">
-                        <div class="assessment-test">
-                            <div class="assessment-test1"><h3>ASSESSMENT TEST</h3></div>
-                            <div class="assessment-test2" style="display: flex; align-items: center; gap: 15px;">
-                                <button onclick="switchJob('prev')" class="nav-arrow" id="prevJobBtn" style="background:none; border:1px solid #ddd; border-radius:50%; cursor:pointer; padding:5px; display:flex; align-items:center;">
-                                    <i class='bx bx-chevron-left' style="font-size: 24px;"></i>
-                                </button>
-                                
-                                <h2 id="currentJobTitle">UI/UX Design Skills Assessment</h2>
-                                
-                                <button onclick="switchJob('next')" class="nav-arrow" id="nextJobBtn" style="background:none; border:1px solid #ddd; border-radius:50%; cursor:pointer; padding:5px; display:flex; align-items:center;">
-                                    <i class='bx bx-chevron-right' style="font-size: 24px;"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="assessment-test3" id="job-meta-data">
-                                <div><i class='bx bx-briefcase'></i> Product Designer</div>
-                                <div><i class='bx bx-group'></i> 0 candidates</div>
-                                <div><i class='bx bx-time-five'></i> -- min</div>
-                                <div><i class='bx bx-calendar'></i> Date</div>
-                            </div>
-                        </div>
-                        <div class="view-test">
-                            <button class="test-btn">
-                                <img src="images/Vector.svg" alt="" style="width: 14px;">
-                                <span>View Test Details</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="rank-candidate-box">
-                        <div class="rank1">
-                            <img src="images/Vector candidate icon.svg" alt="">
-                            <h1 id="stat-total">0</h1>
-                            <h3>Total Candidates</h3>
-                        </div>
-                        <div class="rank2">
-                            <img src="images/mark Vector candidate.svg" alt="">
-                            <h1 id="stat-passed">0</h1>
-                            <h3>Passed (≥60%)</h3>
-                        </div>
-                        <div class="rank3">
-                            <img src="images/Vector candidate chart.svg" alt="">
-                            <h1 id="stat-avg">0%</h1>
-                            <h3>Average Score</h3>
-                        </div>
-                        <div class="rank4">
-                            <img src="images/Vector clock.svg" alt="">
-                            <h1 id="stat-time">0m</h1>
-                            <h3>Avg Time Taken</h3>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="header"><h2>Full Rankings</h2></div>
-                        <div class="filters">
-                            <select><option>All results</option></select>
-                            <select id="sortSelect">
-                                <option value="high">Sort: Highest score</option>
-                                <option value="low">Sort: Lowest score</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="table">
-                        <div class="table-header">
-                            <span>Rank</span>
-                            <span>Candidate</span>
-                            <span>Score</span>
-                            <span>Time Used</span>
-                            <span>Correct</span>
-                            <span>Result</span>
-                            <span>Actions</span>
-                        </div>
-                        <div id="tableBody">
-                            </div>
-                    </div>
-                    
-                    <div class="footer">
-                        <span id="showing-text">Showing 0 of 0 candidates</span>
-                        <div class="pagination">
-                            <button class="btn-page"><i class='bx bx-chevron-left'></i></button>
-                            <button class="active">1</button>
-                            <button class="btn-page"><i class='bx bx-chevron-right'></i></button>
-                        </div>
-                    </div>
-                </div>
+        <div class="container2">
+          <div class="inner-container">
+            <div class="dashboard-container">
+              <h1>Candidate Rankings</h1>
+              <p id="sub-header-text">
+                Assessment results sorted by performance- sorted by hihest score
+              </p>
             </div>
-        </section>
+
+            <div class="assessment">
+              <div class="assessment-test">
+                <div class="assessment-test1"><h3>ASSESSMENT TEST</h3></div>
+                <div
+                  class="assessment-test2"
+                  style="display: flex; align-items: center; gap: 15px"
+                >
+                  <h2 id="currentJobTitle">UI/UX Design Skills Assessment</h2>
+                </div>
+
+                <div class="assessment-test3" id="job-meta-data">
+                  <div><i class="bx bx-briefcase"></i> Product Designer</div>
+                  <div><i class="bx bx-group"></i> 0 candidates</div>
+                  <div><i class="bx bx-time-five"></i> -- min</div>
+                  <div><i class="bx bx-calendar"></i> Date</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rank-candidate-box">
+              <div class="rank1">
+                <img src="images/Vector candidate icon.svg" alt="" />
+                <h1 id="stat-total">5</h1>
+                <h3>Total Candidates</h3>
+              </div>
+              <div class="rank2">
+                <img src="images/mark Vector candidate.svg" alt="" />
+                <h1 id="stat-passed">4</h1>
+                <h3>Passed (≥60%)</h3>
+              </div>
+              <div class="rank3">
+                <img src="images/Vector candidate chart.svg" alt="" />
+                <h1 id="stat-avg">74%</h1>
+                <h3>Average Score</h3>
+              </div>
+              <div class="rank4">
+                <img src="images/Vector clock.svg" alt="" />
+                <h1 id="stat-time">32m</h1>
+                <h3>Avg Time Taken</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inner Container 2 -->
+
+          <div class="inner-container2">
+            <h2 class="leaderboard-title">🏅 Top Performers</h2>
+
+            <div class="leaderboard-cards">
+              <!-- Card 1 -->
+              <div class="leaderboard-card card-rank-1">
+                <div class="card-rank">#1</div>
+                <div class="card-avatar">AO</div>
+                <div class="card-name">Adaeze Okonkwo</div>
+                <div class="card-role">UI/UX Designer - PH</div>
+                <div class="card-progress">
+                  <svg
+                    width="90"
+                    height="90"
+                    viewBox="0 0 90 90"
+                    aria-label="92% score"
+                  >
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#EAEAEA"
+                      stroke-width="8"
+                    />
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#8B5CF6"
+                      stroke-width="8"
+                      stroke-dasharray="232.48"
+                      stroke-dashoffset="18.6"
+                      stroke-linecap="round"
+                      transform="rotate(-90 45 45)"
+                    />
+                  </svg>
+                  <span class="progress-text">92%</span>
+                </div>
+                <div class="card-stats">
+                  <div class="stat-box">
+                    <span class="stat-value">92%</span>
+                    <span class="stat-label">SCORE</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-value">28m</span>
+                    <span class="stat-label">TIME</span>
+                  </div>
+                </div>
+                <div class="card-status">
+                  <i class="bx bx-check-circle"></i>
+                  <span>Passed</span>
+                </div>
+                <button class="card-btn">Save Candidate</button>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="leaderboard-card card-rank-2">
+                <div class="card-rank">#2</div>
+                <div class="card-avatar">EM</div>
+                <div class="card-name">Emeka Madu</div>
+                <div class="card-role">Product Designer - Abuja</div>
+                <div class="card-progress">
+                  <svg
+                    width="90"
+                    height="90"
+                    viewBox="0 0 90 90"
+                    aria-label="85% score"
+                  >
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#EAEAEA"
+                      stroke-width="8"
+                    />
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#10B981"
+                      stroke-width="8"
+                      stroke-dasharray="232.48"
+                      stroke-dashoffset="34.87"
+                      stroke-linecap="round"
+                      transform="rotate(-90 45 45)"
+                    />
+                  </svg>
+                  <span class="progress-text">85%</span>
+                </div>
+                <div class="card-stats">
+                  <div class="stat-box">
+                    <span class="stat-value">85%</span>
+                    <span class="stat-label">SCORE</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-value">32m</span>
+                    <span class="stat-label">TIME</span>
+                  </div>
+                </div>
+                <div class="card-status">
+                  <i class="bx bx-check-circle"></i>
+                  <span>Passed</span>
+                </div>
+                <button class="card-btn">Save Candidate</button>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="leaderboard-card card-rank-3">
+                <div class="card-rank">#3</div>
+                <div class="card-avatar">TA</div>
+                <div class="card-name">Tolu Adeyemi</div>
+                <div class="card-role">UX Researcher - Lagos</div>
+                <div class="card-progress">
+                  <svg
+                    width="90"
+                    height="90"
+                    viewBox="0 0 90 90"
+                    aria-label="75% score"
+                  >
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#EAEAEA"
+                      stroke-width="8"
+                    />
+                    <circle
+                      cx="45"
+                      cy="45"
+                      r="37"
+                      fill="none"
+                      stroke="#8B5CF6"
+                      stroke-width="8"
+                      stroke-dasharray="232.48"
+                      stroke-dashoffset="58.12"
+                      stroke-linecap="round"
+                      transform="rotate(-90 45 45)"
+                    />
+                  </svg>
+                  <span class="progress-text">75%</span>
+                </div>
+                <div class="card-stats">
+                  <div class="stat-box">
+                    <span class="stat-value">75%</span>
+                    <span class="stat-label">SCORE</span>
+                  </div>
+                  <div class="stat-box">
+                    <span class="stat-value">45m</span>
+                    <span class="stat-label">TIME</span>
+                  </div>
+                </div>
+                <div class="card-status">
+                  <i class="bx bx-check-circle"></i>
+                  <span>Passed</span>
+                </div>
+                <button class="card-btn">Save Candidate</button>
+              </div>
+            </div>
+
+            <div class="leaderboard-bottom">
+              <span class="bottom-text">All 5 Candidates — Full Rankings</span>
+              <div class="bottom-filters">
+                <select class="bottom-select">
+                  <option>All results</option>
+                </select>
+                <select class="bottom-select">
+                  <option>Sort: Highest score</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Inner Container 3 -->
+
+          <div class="inner-container3">
+            <div class="rtable-wrapper">
+              <!-- Header -->
+              <div class="rtable-header">
+                <span>Rank</span>
+                <span>Candidate</span>
+                <span>Score</span>
+                <span>Time Used</span>
+                <span>Correct</span>
+                <span>Result</span>
+                <span>Actions</span>
+              </div>
+
+              <!-- Row 1 -->
+              <div class="rtable-row">
+                <div class="rtable-col-rank">1</div>
+                <div class="rtable-col-candidate">
+                  <span class="cand-name">Adaeze Okonkwo</span>
+                  <span class="cand-email">adaeze@gmail.com</span>
+                </div>
+                <div class="rtable-col-score">
+                  <span class="score-val">92%</span>
+                  <div
+                    class="score-bar"
+                    role="progressbar"
+                    aria-valuenow="92"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style="width: 92%"></span>
+                  </div>
+                </div>
+                <div class="rtable-col-time">
+                  <i class="bx bx-time"></i> 28 min 14 sec
+                </div>
+                <div class="rtable-col-correct">18 / 20</div>
+                <div class="rtable-col-result passed">
+                  <i class="bx bx-check-circle"></i> Passed
+                </div>
+                <div class="rtable-col-actions">
+                  <button
+                    class="rtable-btn-primary"
+                    aria-label="View Profile for Adaeze Okonkwo"
+                  >
+                    View Profile
+                  </button>
+                  <button
+                    class="rtable-btn-save"
+                    aria-label="Save Adaeze Okonkwo"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="rtable-row">
+                <div class="rtable-col-rank">2</div>
+                <div class="rtable-col-candidate">
+                  <span class="cand-name">Emeka Madu</span>
+                  <span class="cand-email">emeka@gmail.com</span>
+                </div>
+                <div class="rtable-col-score">
+                  <span class="score-val">85%</span>
+                  <div
+                    class="score-bar"
+                    role="progressbar"
+                    aria-valuenow="85"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style="width: 85%"></span>
+                  </div>
+                </div>
+                <div class="rtable-col-time">
+                  <i class="bx bx-time"></i> 32 min 45 sec
+                </div>
+                <div class="rtable-col-correct">17 / 20</div>
+                <div class="rtable-col-result passed">
+                  <i class="bx bx-check-circle"></i> Passed
+                </div>
+                <div class="rtable-col-actions">
+                  <button
+                    class="rtable-btn-primary"
+                    aria-label="View Profile for Emeka Madu"
+                  >
+                    View Profile
+                  </button>
+                  <button class="rtable-btn-save" aria-label="Save Emeka Madu">
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="rtable-row">
+                <div class="rtable-col-rank">3</div>
+                <div class="rtable-col-candidate">
+                  <span class="cand-name">Tolu Adeyemi</span>
+                  <span class="cand-email">tolu@gmail.com</span>
+                </div>
+                <div class="rtable-col-score">
+                  <span class="score-val">75%</span>
+                  <div
+                    class="score-bar"
+                    role="progressbar"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style="width: 75%"></span>
+                  </div>
+                </div>
+                <div class="rtable-col-time">
+                  <i class="bx bx-time"></i> 45 min 20 sec
+                </div>
+                <div class="rtable-col-correct">15 / 20</div>
+                <div class="rtable-col-result passed">
+                  <i class="bx bx-check-circle"></i> Passed
+                </div>
+                <div class="rtable-col-actions">
+                  <button
+                    class="rtable-btn-primary"
+                    aria-label="View Profile for Tolu Adeyemi"
+                  >
+                    View Profile
+                  </button>
+                  <button
+                    class="rtable-btn-save"
+                    aria-label="Save Tolu Adeyemi"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="rtable-row">
+                <div class="rtable-col-rank">4</div>
+                <div class="rtable-col-candidate">
+                  <span class="cand-name">Chioma Okafor</span>
+                  <span class="cand-email">chioma@gmail.com</span>
+                </div>
+                <div class="rtable-col-score">
+                  <span class="score-val">63%</span>
+                  <div
+                    class="score-bar"
+                    role="progressbar"
+                    aria-valuenow="63"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style="width: 63%"></span>
+                  </div>
+                </div>
+                <div class="rtable-col-time">
+                  <i class="bx bx-time"></i> 38 min 10 sec
+                </div>
+                <div class="rtable-col-correct">13 / 20</div>
+                <div class="rtable-col-result passed">
+                  <i class="bx bx-check-circle"></i> Passed
+                </div>
+                <div class="rtable-col-actions">
+                  <button
+                    class="rtable-btn-primary"
+                    aria-label="View Profile for Chioma Okafor"
+                  >
+                    View Profile
+                  </button>
+                  <button
+                    class="rtable-btn-save"
+                    aria-label="Save Chioma Okafor"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="rtable-row">
+                <div class="rtable-col-rank">5</div>
+                <div class="rtable-col-candidate">
+                  <span class="cand-name">Femi Ogunleye</span>
+                  <span class="cand-email">femi@gmail.com</span>
+                </div>
+                <div class="rtable-col-score">
+                  <span class="score-val">45%</span>
+                  <div
+                    class="score-bar"
+                    role="progressbar"
+                    aria-valuenow="45"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    <span style="width: 45%"></span>
+                  </div>
+                </div>
+                <div class="rtable-col-time">
+                  <i class="bx bx-time"></i> 52 min 30 sec
+                </div>
+                <div class="rtable-col-correct">9 / 20</div>
+                <div class="rtable-col-result failed">
+                  <i class="bx bx-x-circle"></i> Failed
+                </div>
+                <div class="rtable-col-actions">
+                  <button
+                    class="rtable-btn-primary"
+                    aria-label="View Profile for Femi Ogunleye"
+                  >
+                    View Profile
+                  </button>
+                  <button
+                    class="rtable-btn-message"
+                    aria-label="Message Femi Ogunleye"
+                  >
+                    Message
+                  </button>
+                </div>
+              </div>
+
+              <!-- Footer -->
+              <div class="rtable-footer">
+                <span class="rtable-footer-text"
+                  >Showing 5 of 5 candidates</span
+                >
+                <div class="rtable-pagination">
+                  <button class="page-btn" aria-label="Previous page">
+                    <i class="bx bx-chevron-left"></i>
+                  </button>
+                  <button
+                    class="page-btn active"
+                    aria-label="Page 1"
+                    aria-current="page"
+                  >
+                    1
+                  </button>
+                  <button class="page-btn" aria-label="Next page">
+                    <i class="bx bx-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
