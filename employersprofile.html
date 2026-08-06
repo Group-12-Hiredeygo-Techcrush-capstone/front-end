@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employers Profile | HireDeyGo</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
     
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="/css/global-nav.css">
-    <link rel="stylesheet" href="/css/employersprofile.css">
+    <link rel="stylesheet" href="css/global-nav.css">
+    <link rel="stylesheet" href="css/employersprofile.css">
 
-    <script src="/js/global-nav.js" defer></script>
-    <script src="/js/employersprofile.js" defer></script>
+    <script src="js/global-nav.js" defer></script>
+    <script src="js/employersprofile.js" defer></script>
 </head>
     
-<body>
+<body class="font-['Montserrat',sans-serif] bg-[#F5F3FF] text-gray-800 text-lg">
     <main>
         <header class="header-container" id="global-header"></header>
         <div class="logo" id="global-logo-bar"></div>
@@ -28,36 +31,272 @@
 
             <div class="container2">
                 <div class="inner-container">
-                    <div class="employer-profile">
-                        <!--Employer profile tag name -->
-                        <div class="employer-box">
-                            <h1><span class="username">Employers Profile</span></h1>
-                            <p>Manage your company information and settings</p>
-                        </div>
-                        <!--The edit button on the right side of the employer profile container-->
-                        <div class="edit-box">
-                            <button class="edit-btn" id="editBtn"> <img src="images/lucide_edit.svg" alt="">Edit Profile</button>
-                        </div>
-                    </div>
-                    <div class="card-banner">
-                        <div class="card-image">
+                    
+                    <div class="max-w-7xl mx-auto py-16 px-8 lg:px-12">
 
+                        <!-- Heading -->
+                        <div class="flex items-center justify-between mb-12">
+                            <div>
+                                <h1 class="text-5xl md:text-6xl font-bold text-gray-900">
+                                    Employers Profile
+                                </h1>
+                                <p class="text-gray-500 text-xl mt-3">
+                                    Manage your company information and settings
+                                </p>
+                            </div>
+
+                            <button class="bg-violet-600 hover:bg-violet-700 text-white px-10 py-4 rounded-2xl font-bold text-lg transition-colors shadow-md">
+                                Edit Profile
+                            </button>
                         </div>
-                        <div class="card-text">
-                            <h1>TechCorps Solution</h1>
-                            <h2>Technology & Software</h2>
-                            <div class="bottom-card">
-                                <div>📍 Lagos, Nigeria</div>
-                                <div>👥 51–200 employees</div>
-                                <div>📅 Founded 2015</div>
-                                <div>🌐 TechCorpsolution.com</div>
+
+                        <!-- HERO CARD -->
+                        <div class="rounded-3xl overflow-hidden bg-gradient-to-r from-violet-700 via-fuchsia-600 to-cyan-500 p-12 text-white shadow-xl transition duration-300 hover:shadow-2xl">
+                            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+                                <div class="w-40 h-40 bg-white rounded-3xl flex items-center justify-center shrink-0 shadow-lg">
+                                    <span class="text-8xl text-violet-600">🏢</span>
+                                </div>
+                                <div class="w-full">
+                                    <h2 class="text-5xl md:text-6xl font-extrabold">
+                                        TechCorps Solution
+                                    </h2>
+                                    <p class="mt-4 text-2xl text-white/95 font-medium">
+                                        Technology & Software
+                                    </p>
+                                    <div class="flex flex-wrap gap-8 mt-6 text-lg text-white/95 font-medium">
+                                        <span>📍 Lagos, Nigeria</span>
+                                        <span>👥 51-200 employees</span>
+                                        <span>📅 Founded 2015</span>
+                                        <span>🌐 TechCorpsSolution.com</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
+
+                        <!-- GRID -->
+                        <div class="grid lg:grid-cols-12 gap-10 mt-12"> 
+
+                            <!-- LEFT COLUMN -->
+                            <div class="lg:col-span-8 space-y-10">
+
+                                <!-- ABOUT -->
+                                <div class="bg-white rounded-3xl border border-violet-300 p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                            About the Company
+                                        </h3>
+                                        <button aria-label="Edit about the company" class="text-orange-500 flex items-center gap-2 font-bold text-lg hover:text-orange-600">
+                                            <img src="images/Group.svg" alt="Edit" class="w-5 h-5"> Edit
+                                        </button>
+                                    </div>
+
+                                    <p class="text-gray-500 mb-8 text-lg">
+                                        Tell candidates what makes your company a great place to work
+                                    </p>
+
+                                    <p class="text-gray-600 leading-9 text-xl">
+                                        TechCorps Solution helps businesses and individuals harness the power of technology to solve real-world problems. We believe software should work for everyone, so we build tools, platforms and systems that help organisations become smarter, faster and more efficient.<br><br>
+                                        We're a growing technology company with a passion for delivering innovative digital solutions that drive measurable impact.
+                                    </p>
+                                </div>
+
+                                <!-- COMPANY DETAILS -->
+                                <div class="bg-white rounded-3xl border border-cyan-300 p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                            Company Details
+                                        </h3>
+                                        <button aria-label="Edit company details" class="text-orange-500 flex items-center gap-2 font-bold text-lg hover:text-orange-600">
+                                            <img src="images/Group.svg" alt="Edit" class="w-5 h-5"> Edit
+                                        </button>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 gap-y-10 gap-x-8 mt-10">
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">INDUSTRY</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">Financial Technology</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">COMPANY SIZE</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">51–200 employees</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">YEAR FOUNDED</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">2015</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">HEADQUARTERS</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">Lagos, Nigeria</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">COMPANY TYPE</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">Private Company</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-400 text-sm tracking-wider font-bold">WEBSITE</p>
+                                            <p class="font-bold text-gray-900 text-xl mt-2">TechCorpsSolution.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SOCIAL MEDIA LINKS -->
+                                <div class="bg-white rounded-3xl border border-purple-500 p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <div class="flex justify-between items-center mb-6">
+                                        <div>
+                                            <h3 class="text-3xl md:text-4xl font-bold text-gray-900">
+                                                Social Media Links
+                                            </h3>
+                                            <p class="text-gray-500 text-lg mt-2">
+                                                Help candidates find and follow your company online
+                                            </p>
+                                        </div>
+                                        <button aria-label="Edit social media links" class="text-orange-500 flex items-center gap-2 font-bold text-lg hover:text-orange-600">
+                                            <img src="images/Group.svg" alt="Edit" class="w-5 h-5"> Edit
+                                        </button>
+                                    </div>
+
+                                    <div class="space-y-8">
+                                        <div class="flex gap-6 items-center">
+                                            <div class="flex items-center justify-center shrink-0">
+                                                <img src="images/x.svg" alt="Twitter icon" class="w-12 h-12">
+                                            </div>
+                                            <div class="flex flex-col w-full">
+                                                <label for="twitter" class="text-lg font-bold text-gray-800 mb-2">Twitter</label>
+                                                <input id="twitter" type="url" class="w-full border-2 border-black rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" placeholder="twitter.com/TechCorpsSolution">
+                                            </div>
+                                        </div>
+
+                                        <div class="flex gap-6 items-center">
+                                            <div class="flex items-center justify-center shrink-0">
+                                                <img src="images/linkedin.svg" alt="LinkedIn icon" class="w-12 h-12">
+                                            </div>
+                                            <div class="flex flex-col w-full">
+                                                <label for="linkedin" class="text-lg font-bold text-gray-800 mb-2">LinkedIn</label>
+                                                <input id="linkedin" type="url" class="w-full border-2 border-black rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" placeholder="linkedin.com/company/TechCorpsSolution">
+                                            </div>
+                                        </div>
+
+                                        <div class="flex gap-6 items-center">
+                                            <div class="flex items-center justify-center shrink-0">
+                                                <img src="images/instagram (2).svg" alt="Instagram icon" class="w-12 h-12">
+                                            </div>
+                                            <div class="flex flex-col w-full">
+                                                <label for="instagram" class="text-lg font-bold text-gray-800 mb-2">Instagram</label>
+                                                <input id="instagram" type="url" class="w-full border-2 border-black rounded-2xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" placeholder="instagram.com/TechCorpsSolution">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- RIGHT COLUMN -->
+                            <div class="lg:col-span-4 space-y-10">
+
+                                <!-- VERIFIED -->
+                                <div class="bg-white border border-green-300 rounded-3xl p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-4xl">✅</span>
+                                        <h3 class="text-3xl font-bold text-gray-900">
+                                            Verified Company
+                                        </h3>
+                                    </div>
+                                    <p class="text-gray-500 mt-3 text-lg">
+                                        Your company is verified by HiredeyGo
+                                    </p>
+
+                                    <div class="bg-gray-100 rounded-2xl p-8 mt-8">
+                                        <p class="uppercase text-sm font-bold text-gray-500 tracking-wider">
+                                            Currently Hiring
+                                        </p>
+                                        <h2 class="text-7xl font-extrabold mt-3 text-gray-900">
+                                            4
+                                        </h2>
+                                        <p class="text-gray-600 mt-3 text-lg font-medium">
+                                            Active job posts on HiredeyGo
+                                        </p>
+                                    </div>
+
+                                    <button class="w-full mt-8 bg-violet-600 hover:bg-violet-700 text-white py-4 rounded-2xl font-bold text-lg transition-colors shadow-md">
+                                        View all jobs
+                                    </button>
+                                </div>
+
+                                <!-- STATS -->
+                                <div class="bg-white rounded-3xl border border-violet-300 p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <h3 class="text-3xl font-bold mb-8 text-gray-900">
+                                        Company Stats
+                                    </h3>
+                                    <div class="divide-y text-lg">
+                                        <div class="flex justify-between py-5">
+                                            <span class="text-gray-600 font-medium">Total Jobs Posted</span>
+                                            <strong class="text-gray-900 text-xl">28</strong>
+                                        </div>
+                                        <div class="flex justify-between py-5">
+                                            <span class="text-gray-600 font-medium">Total Applications</span>
+                                            <strong class="text-gray-900 text-xl">342</strong>
+                                        </div>
+                                        <div class="flex justify-between py-5">
+                                            <span class="text-gray-600 font-medium">Candidates Hired</span>
+                                            <strong class="text-gray-900 text-xl">14</strong>
+                                        </div>
+                                        <div class="flex justify-between py-5">
+                                            <span class="text-gray-600 font-medium">Profile Views</span>
+                                            <strong class="text-gray-900 text-xl">1204</strong>
+                                        </div>
+                                        <div class="flex justify-between py-5">
+                                            <span class="text-gray-600 font-medium">Membership</span>
+                                            <strong class="text-gray-900 text-xl">Jan 2025</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- COMPANY CULTURE -->
+                                <div class="bg-white border border-green-500 rounded-3xl p-10 shadow-sm transition duration-300 hover:shadow-lg">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <h3 class="text-3xl font-bold text-gray-900">
+                                            Company Culture
+                                        </h3>
+                                        <button aria-label="Edit company culture" class="text-orange-500 flex items-center gap-2 font-bold text-lg hover:text-orange-600">
+                                            <img src="images/Group.svg" alt="Edit" class="w-5 h-5"> Edit
+                                        </button>
+                                    </div>
+
+                                    <p class="text-gray-500 mt-2 mb-8 text-lg">
+                                        Select tags that describe your work culture
+                                    </p>
+
+                                    <div class="flex gap-4 w-full flex-wrap">
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            Remote Friendly
+                                        </span>
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            collaborative
+                                        </span>
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            Fast-paced
+                                        </span>
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            Learnin & Growth
+                                        </span>
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            Worklife Balance
+                                        </span>
+                                        <span class="px-5 py-3 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF] text-lg font-bold">
+                                            Data Driven 
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
+ 
                 </div>
             </div>
-            </section>
+        </section>
     </main>
 </body>
 </html>
