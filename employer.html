@@ -87,7 +87,7 @@ body{
 
     <!-- GRID -->
 
-    <div class="grid lg:grid-cols-3 gap-6 mt-8">
+    <div class="grid lg:grid-cols-3 gap-6 mt-8 "> 
 
         <!-- LEFT COLUMN -->
 
@@ -95,7 +95,7 @@ body{
 
             <!-- ABOUT -->
 
-            <div class="bg-white rounded-xl border border-violet-300 p-6">
+            <div class="bg-white rounded-xl  border border-violet-300 p-6">
 
                 <div class="flex justify-between items-center">
 
@@ -104,7 +104,7 @@ body{
                     </h3>
 
                     <button class="text-orange-500">
-                        ✏ Edit
+                        <img src="images/Group.svg" alt="Edit"> Edit
                     </button>
 
                 </div>
@@ -140,7 +140,7 @@ body{
                     </h3>
 
                     <button class="text-orange-500">
-                        ✏ Edit
+                        <img src="images/Group.svg" alt="Edit"> Edit
                     </button>
 
                 </div>
@@ -225,7 +225,7 @@ body{
 
             <!-- SOCIAL -->
 
-            <div class="bg-white rounded-xl p-6 shadow-sm">
+            <div class="bg-white gap-4 rounded-xl border border-purple-500 p-6 shadow-sm">
 
                 <div class="flex justify-between">
 
@@ -233,8 +233,8 @@ body{
                         Social Media Links
                     </h3>
 
-                    <button class="text-orange-500">
-                        ✏ Edit
+                    <button class=" flex h-4 text-orange-500">
+                        <img src="images/Group.svg" alt=""> Edit
                     </button>
 
                 </div>
@@ -245,65 +245,52 @@ body{
 
                 <div class="flex gap-4">
 
-                    <div class="w-12 h-12 border rounded-lg flex items-center justify-center text-xl">
-                        <img src="images/companylogo.png" alt="">
+                    <div class=" flex items-center justify-center text-xl">
+                        <img src="images/Frame 712.svg" alt="">
                     </div>
+                    <div class="flex flex-col w-full">
+                        <label for="twitter">Twitter</label>
+                        <input
+                        class="w-full border border-black rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="twitter.com/TechCorpsSolution">
 
-                    <input
-                    class="flex-1 border rounded-lg px-4 outline-none"
-                    placeholder="twitter.com/TechCorpsSolution">
-
+                    </div>
                 </div>
 
-            </div>
+                <div class="flex gap-4">
 
-            <!-- COMPANY CULTURE -->
+                    <div class=" flex items-center justify-center text-xl">
+                        <img src="images/Frame 816.svg" alt="">
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="linkedin">LinkedIn</label>
+                        <input
+                        class="w-full border border-black rounded-[8px] px-2 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="linkedin.com/company/TechCorpsSolution">
 
-            <div class="bg-white rounded-xl p-6 shadow-sm">
-
-                <div class="flex justify-between">
-
-                    <h3 class="text-2xl font-semibold">
-                        Company Culture
-                    </h3>
-
-                    <button class="text-orange-500">
-                        ✏ Edit
-                    </button>
-
+                    </div>
                 </div>
 
-                <p class="text-gray-500 mt-2 mb-6">
-                    Select tags that describe your work culture
-                </p>
+                <div class="flex gap-4">
 
-                <div class="flex flex-wrap gap-3">
+                    <div class="  flex items-center justify-center text-xl">
+                        <img src="images/Frame 712 (1).svg" alt="">
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="instagram">Instagram</label>
+                        <input
+                            class="w-full border border-black rounded-[8px] px-2 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="instagram.com/TechCorpsSolution">
 
-                    <span class="px-4 py-2 rounded-full bg-violet-100 text-violet-700">
-                        Innovation
-                    </span>
-
-                    <span class="px-4 py-2 rounded-full bg-cyan-100 text-cyan-700">
-                        Remote Friendly
-                    </span>
-
-                    <span class="px-4 py-2 rounded-full bg-green-100 text-green-700">
-                        Diversity
-                    </span>
-
-                    <span class="px-4 py-2 rounded-full bg-orange-100 text-orange-700">
-                        Growth
-                    </span>
-
+                    </div>
                 </div>
-
             </div>
 
         </div>
 
         <!-- RIGHT COLUMN -->
 
-        <div class="space-y-6">
+        <div class="space-y-2">
 
             <!-- VERIFIED -->
 
@@ -387,6 +374,57 @@ body{
 
                 </div>
 
+            </div>
+
+
+            <!-- COMPANY CULTURE -->
+
+            <div class="bg-white border border-green-500 rounded-xl p-6 shadow-sm">
+
+                <div class="flex justify-between">
+
+                    <h3 class="text-2xl font-semibold">
+                        Company Culture
+                    </h3>
+
+                    <button class="text-orange-500">
+                        <img src="images/Group.svg" alt=""> Edit
+                    </button>
+
+                </div>
+
+                <p class="text-gray-500 mt-2 mb-6">
+                    Select tags that describe your work culture
+                </p>
+
+                <div class="flex gap-6 flex-wrap">
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        Remote Friendly
+                    </span>
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        collaborative
+                    </span>
+
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        Fast-paced
+                    </span>
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        Learnin & Growth
+                    </span>
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        Worklife Balance
+                    </span>
+
+                    <span class="px-4 py-2 rounded-[8px] bg-[#10B981BF] text-[#FFFFFF]">
+                        Data Driven 
+                    </span>
+
+                </div>
             </div>
 
         </div>
