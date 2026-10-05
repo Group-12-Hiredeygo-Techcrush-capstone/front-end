@@ -16,7 +16,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
     const originalBtnText = submitBtn.textContent;
     submitBtn.textContent = "Creating Account...";
 
-    const API_URL = "https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/register/recruiter";
+    const API_URL = "https://hiredeygo.onrender.com/api/v1/auth/register/recruiter";
 
     try {
         const response = await fetch(API_URL, {
