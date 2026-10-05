@@ -15,9 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (spinner) spinner.classList.remove("hidden");
         submitBtn.disabled = true;
-
         try {
-            const response = await fetch("https://hire-dey-go-be.onrender.com/api/v1/auth/login", {
+            const response = await fetch("https://hiredeygo.onrender.com/api/v1/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
