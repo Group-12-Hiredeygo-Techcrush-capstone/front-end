@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         verifyBtn.textContent = "Verifying...";
 
         try {
-            const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/verify-email", {
+            const response = await fetch("https://hiredeygo.onrender.com/api/v1/auth/verify-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!email || email === "your email") return alert("Email missing.");
 
         try {
-            const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/auth/resend-otp", {
+            const response = await fetch("https://hiredeygo.onrender.com/api/v1/auth/resend-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email }) 
