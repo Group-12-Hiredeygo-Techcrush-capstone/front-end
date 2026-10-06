@@ -161,7 +161,7 @@ const startApp = () => {
 
             try {
                 // STEP 1: POST Text Data
-                const response = await fetch("https://hire-dey-go-be-8x3c.onrender.com/api/v1/companies", {
+                const response = await fetch("https://hiredeygo.onrender.com/api/v1/companies", {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",
@@ -183,7 +183,7 @@ const startApp = () => {
                             const formData = new FormData();
                             formData.append("logo", blob, "logo.png");
 
-                            await fetch(`https://hire-dey-go-be-8x3c.onrender.com/api/v1/companies/${companyId}/logo`, {
+                            await fetch(`https://hiredeygo.onrender.com/api/v1/companies/${companyId}/logo`, {
                                 method: "PATCH",
                                 headers: { "Authorization": `Bearer ${token}` },
                                 body: formData
