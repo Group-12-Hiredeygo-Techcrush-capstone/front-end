@@ -152,7 +152,7 @@ input, select, textarea {
 textarea { height: 130px; resize: none; }
 
 /* File Box */
-.file-upload {
+.browse {
     width: 100%;
     max-width: 400px;
     margin-top: 20px;
@@ -161,6 +161,7 @@ textarea { height: 130px; resize: none; }
     border-radius: 10px;
     padding: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 /* --- PAGE 2: FORM GRID (3-Column) --- */
