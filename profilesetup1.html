@@ -101,16 +101,21 @@
         </select>
 
         <label for="about">About Company</label>
-        <textarea id="about" placeholder="Tell candidates who you are..." style="min-height: 150px;"></textarea>
+        <textarea id="about" placeholder="Tell candidates who you are..." style="min-height: 250px;"></textarea>
 
-        <div class="file-upload">
-            <img src="/images/uploadlogo.png" alt="upload icon" width="40">
-            <p>Upload your company CAC/Cert. of Incorporation</p>
-            <span>PDF, DOC, DOCX MAX 5MB</span>
-            <input type="file" id="cacInput" accept=".pdf,.doc,.docx" hidden>
-            <button type="button" class="browse" id="cacBtn">Browse File</button>
-            <p id="cacFileName" style="font-size: 12px; margin-top: 10px; color: #2ecc71; font-weight: 500;"></p>
-        </div>
+        <button type="button" class="browse" id="cacBtn">
+            <div class="file-upload">
+                <img src="/images/uploadlogo.png" alt="upload icon" height="70" width="70">
+                <p>Upload your company CAC/Cert. of Incorporation
+               
+                </p>
+                <span>PDF, DOC, DOCX MAX 5MB</span>
+                <input type="file" id="cacInput" accept=".pdf,.doc,.docx" hidden>
+                <p id="cacFileName" style="font-size: 12px; margin-top: 10px; color: #2ecc71; font-weight: 500;"></p>
+            </div>
+        </button>
+
+        
     </div>
 
 </section>
