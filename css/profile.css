@@ -231,7 +231,11 @@ textarea { height: 130px; resize: none; }
     color: white;
     box-shadow: 0 8px 20px rgba(122,60,255,0.25);
 }
-
+.dashboard-btn {
+    background: #10b981;
+    color: white;
+    box-shadow: 0 8px 20px rgba(16,185,129,0.25);
+}
 .previous {
     background: white;
     border: 1px solid #10b981;
